@@ -10,7 +10,9 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;700;900&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#06080c;--surface:#0c0f16;--surface2:#121620;--border:#1e2538;--text:#d8dce8;--text2:#8892aa;--text3:#505a72;--red:#e8364f;--red-bg:rgba(232,54,79,0.08);--red-glow:rgba(232,54,79,0.25);--green:#1ae88c;--green-bg:rgba(26,232,140,0.08);--green-glow:rgba(26,232,140,0.25);--blue:#3b82f6;--blue-bg:rgba(59,130,246,0.08);--gold:#f0a830;--gold-bg:rgba(240,168,48,0.08);--purple:#8b5cf6;--purple-bg:rgba(139,92,246,0.08);--cyan:#06b6d4}
+:root{--bg:#06080c;--surface:#0c0f16;--surface2:#121620;--border:#1e2538;--text:#d8dce8;--text2:#8892aa;--text3:#505a72;--red:#e8364f;--red-bg:rgba(232,54,79,0.08);--red-glow:rgba(232,54,79,0.25);--green:#1ae88c;--green-bg:rgba(26,232,140,0.08);--green-glow:rgba(26,232,140,0.25);--blue:#3b82f6;--blue-bg:rgba(59,130,246,0.08);--gold:#f0a830;--gold-bg:rgba(240,168,48,0.08);--purple:#8b5cf6;--purple-bg:rgba(139,92,246,0.08);--cyan:#06b6d4;
+--orange:#f97316;--orange-bg:rgba(249,115,22,0.08);
+--teal:#14b8a6;--teal-bg:rgba(20,184,166,0.08)}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-serif;line-height:1.6;overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(6,8,12,0.03) 3px,rgba(6,8,12,0.03) 4px);pointer-events:none;z-index:9999}
@@ -162,7 +164,7 @@ canvas{width:100%!important}
 <section class="hero" id="heroSection">
 <div class="hero-badge">Simulation · Real U.S. Fiscal Data</div>
 <h1>What <span class="accent">535 Members of Congress</span> Won't Do</h1>
-<p class="lead">The U.S. hasn't had a budget surplus since <strong>2001</strong>. The national debt has grown from <strong>$5.7T</strong> to over <strong>$36T</strong>. Choose a scenario and watch 5 AI agents do what Congress can't.</p>
+<p class="lead">The U.S. hasn't had a budget surplus since <strong>2001</strong>. The national debt has grown from <strong>$5.7T</strong> to over <strong>$36T</strong>. Choose a scenario and watch 7 AI agents do what Congress can't.</p>
 <div class="shame-row">
 <div class="shame-stat"><div class="num">435</div><div class="lbl">House Members</div></div>
 <div class="shame-stat"><div class="num">100</div><div class="lbl">Senators</div></div>
@@ -175,7 +177,7 @@ canvas{width:100%!important}
 
 <section class="picker" id="pickerSection">
 <h2>Choose a Scenario</h2>
-<p class="pick-sub">Same 5 AI agents. Same Congressional structure. Same real budget data. Different mission.</p>
+<p class="pick-sub">Same 7 AI agents. Same Congressional structure. Same real budget data. Different mission.</p>
 <div class="scenario-grid" id="scenarioGrid">
 <div class="scenario-card" onclick="selectScenario(this,'deficit')"><div class="sc-icon">📉</div><div class="sc-title">Solve the Deficit</div><div class="sc-desc">Reduce the $1.83T annual deficit through bipartisan reform. The thing Congress should be doing every year.</div><div class="sc-tags"><span class="sc-tag">Deficit Reduction</span><span class="sc-tag">8 Rounds</span></div></div>
 <div class="scenario-card" onclick="selectScenario(this,'debtfree')"><div class="sc-icon">🏛️</div><div class="sc-title">Eliminate All Debt by 2050</div><div class="sc-desc">Pay off the entire $36T national debt in 25 years. The moon shot.</div><div class="sc-tags"><span class="sc-tag">$36T Target</span><span class="sc-tag">10 Rounds</span></div></div>
@@ -202,6 +204,8 @@ canvas{width:100%!important}
 <div class="agent" id="ag-rawls"><div class="think-line"></div><div class="agent-top"><div class="agent-icon" style="background:var(--blue-bg);border:1px solid rgba(59,130,246,0.2)">🛡️</div><div><div class="agent-name">RAWLS</div><div class="agent-desc">Social Equity</div></div></div><div class="agent-msg" id="msg-rawls">Standing by...</div></div>
 <div class="agent" id="ag-marshall"><div class="think-line"></div><div class="agent-top"><div class="agent-icon" style="background:var(--gold-bg);border:1px solid rgba(240,168,48,0.2)">⚔️</div><div><div class="agent-name">MARSHALL</div><div class="agent-desc">National Security</div></div></div><div class="agent-msg" id="msg-marshall">Standing by...</div></div>
 <div class="agent" id="ag-madison"><div class="think-line"></div><div class="agent-top"><div class="agent-icon" style="background:var(--purple-bg);border:1px solid rgba(139,92,246,0.2)">⚖️</div><div><div class="agent-name">MADISON</div><div class="agent-desc">Consensus Builder</div></div></div><div class="agent-msg" id="msg-madison">Standing by...</div></div>
+<div class="agent" id="ag-musk"><div class="think-line"></div><div class="agent-top"><div class="agent-icon" style="background:var(--orange-bg);border:1px solid rgba(249,115,22,0.2)">🔥</div><div><div class="agent-name">MUSK</div><div class="agent-desc">Waste & Fraud Elimination</div></div></div><div class="agent-msg" id="msg-musk">Standing by...</div></div>
+<div class="agent" id="ag-rand"><div class="think-line"></div><div class="agent-top"><div class="agent-icon" style="background:var(--teal-bg);border:1px solid rgba(20,184,166,0.2)">✂️</div><div><div class="agent-name">RAND</div><div class="agent-desc">Cut Spending First</div></div></div><div class="agent-msg" id="msg-rand">Standing by...</div></div>
 </div>
 <div class="viz-panel">
 <div class="viz-card"><div class="viz-title">10-Year Debt Trajectory</div><div class="viz-subtitle">CBO baseline vs. AI Council path — trillions USD</div><div class="chart-legend"><div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>CBO Baseline</div><div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>AI Council</div></div><canvas id="mainChart" height="240"></canvas></div>
@@ -216,7 +220,7 @@ canvas{width:100%!important}
 <p class="results-sub" id="resultsSub"></p>
 <div class="compare-grid">
 <div class="compare-card congress"><div class="cc-label">● 119th Congress (Reality)</div><div class="cc-stat"><div class="cc-num" style="color:var(--red)">535 members</div><div class="cc-desc">24 years since last surplus</div></div><div class="cc-stat"><div class="cc-num" style="color:var(--red)">+$30.7T added</div><div class="cc-desc">Debt growth since 2001</div></div><div class="cc-stat"><div class="cc-num" style="color:var(--red)">$65.8T by 2035</div><div class="cc-desc">CBO projected debt</div></div></div>
-<div class="compare-card ai"><div class="cc-label">● AI Fiscal Council</div><div class="cc-stat"><div class="cc-num" style="color:var(--green)">5 agents, ~90 sec</div><div class="cc-desc">Time to consensus</div></div><div class="cc-stat"><div class="cc-num" style="color:var(--green)" id="rSaved">—</div><div class="cc-desc" id="rSavedDesc">Annual impact</div></div><div class="cc-stat"><div class="cc-num" style="color:var(--green)" id="rDebt35">—</div><div class="cc-desc">Projected 2035 debt</div></div></div>
+<div class="compare-card ai"><div class="cc-label">● AI Fiscal Council</div><div class="cc-stat"><div class="cc-num" style="color:var(--green)">7 agents, ~90 sec</div><div class="cc-desc">Time to consensus</div></div><div class="cc-stat"><div class="cc-num" style="color:var(--green)" id="rSaved">—</div><div class="cc-desc" id="rSavedDesc">Annual impact</div></div><div class="cc-stat"><div class="cc-num" style="color:var(--green)" id="rDebt35">—</div><div class="cc-desc">Projected 2035 debt</div></div></div>
 </div>
 <div class="final-quote" id="finalQuote"></div>
 <div class="blueprint" id="blueprintSection">
@@ -231,44 +235,56 @@ canvas{width:100%!important}
 const D={revenue:{'Individual Income Tax':2440,'Payroll Taxes':1780,'Corporate Tax':420,'Excise & Customs':180,'Other Revenue':100},spending:{'Social Security':1520,'Medicare':930,'Medicaid & ACA':680,'Net Interest':1050,'Defense':895,'Veterans':340,'Income Security':490,'Other Discretionary':520,'Education':130,'Other Mandatory':195},totalRev:4920,totalSpend:6750,deficit:1830,cboPath:[36.4,38.6,41.0,43.5,46.2,49.0,52.0,55.2,58.6,62.1,65.8],years:[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035]};
 
 const SC={
-deficit:{name:'Solve the Deficit',rounds:8,goalTitle:'Eliminate the Annual Deficit',goalDesc:'Reduce the $1.83T annual deficit to zero through bipartisan reform.',quote:'"The solutions exist. The math works. The only thing missing is <strong>the will to act without self-interest.</strong>"',resultsSub:'5 AI agents solved what 535 members of Congress have failed to address for a generation.',
+deficit:{name:'Solve the Deficit',rounds:8,goalTitle:'Eliminate the Annual Deficit',goalDesc:'Reduce the $1.83T annual deficit to zero through bipartisan reform.',quote:'"The solutions exist. The math works. The only thing missing is <strong>the will to act without self-interest.</strong>"',resultsSub:'7 AI agents solved what 535 members of Congress have failed to address for a generation.',
 blueprint:`
 <div class="bp-section"><div class="bp-label green">What You'd Get</div><div class="bp-text">A balanced federal budget for the first time since 2001. The debt would stop growing. Interest payments — currently <strong>$1.05 trillion per year</strong>, more than we spend on national defense — would start shrinking. Your children would inherit a government that can actually invest in their future instead of paying interest on your grandparents' spending.</div></div>
 
-<div class="bp-section"><div class="bp-label red">The Hard Tradeoffs</div><div class="bp-text">
-<strong>If you earn over $250K:</strong> Your payroll taxes go up. If you earn over $1M in investment income, capital gains get taxed like your salary. The top 6% of earners pay more. The bottom 94% see no income tax change.
+<div class="bp-section"><div class="bp-label" style="color:var(--orange)">Where the Waste Was Found First</div><div class="bp-text">
+Before anyone's taxes went up, the council started by cutting. Agent MUSK's fraud and waste audit — an AI scan of every federal agency — found <strong>$124 billion per year</strong> in improper payments, duplicate contracts, and "zombie programs" that no one oversees but keep getting funded. That's money the government is already spending <em>for nothing</em>.
 <br><br>
-<strong>If you're a corporation:</strong> The effective tax rate goes from ~15% to 25%. That's still lower than the 1990s, still competitive globally — but Wall Street won't like the headline.
+Then MUSK found another $47B/yr by replacing 12,000 legacy IT systems — some running on code from the 1980s — with modern infrastructure. The government currently spends more maintaining broken tech than it would cost to replace it all.
 <br><br>
-<strong>If you're nearing retirement:</strong> The Social Security retirement age moves from 67 to 69, but over 20 years — so anyone over 50 today is unaffected. If you're wealthy in retirement (top 5%), your benefits get reduced.
+Agent RAND went further: merging 17 overlapping workforce training programs into one, closing advisory boards with no legal mandate, and forcing every discretionary program to rejustify its budget from zero every year. If a program can't prove it works, it dies. That's another <strong>$101B/yr in cuts</strong>.
 <br><br>
-<strong>If you're in the military:</strong> No cuts to personnel or readiness. But defense contractors lose cost-plus contracts and face competitive bidding. The $72B saved comes from procurement reform, not force reduction.
+<strong>Total spending cuts before any tax increase: over $270 billion per year.</strong> That's nearly 15% of the deficit eliminated just by running the government competently.
+</div></div>
+
+<div class="bp-section"><div class="bp-label red">The Tax Increases That Were Still Needed</div><div class="bp-text">
+Here's the hard truth: <strong>waste elimination alone doesn't close a $1.83 trillion gap.</strong> It gets you a quarter of the way there. The rest requires revenue.
+<br><br>
+<strong>If you earn over $250K:</strong> Your payroll taxes go up. If you earn over $1M in investment income, capital gains get taxed like your salary. The top 6% pay more. The bottom 94% see no income tax change.
+<br><br>
+<strong>If you're a corporation:</strong> The effective rate goes from ~15% to 25%. Still lower than the 1990s, still globally competitive.
+<br><br>
+<strong>If you're nearing retirement:</strong> Social Security age moves from 67 to 69 over 20 years — anyone over 50 today is unaffected. Wealthy retirees (top 5%) see reduced benefits.
+<br><br>
+<strong>If you're in the military:</strong> No cuts to personnel. Defense contractors lose cost-plus deals and face competitive bidding.
 </div></div>
 
 <div class="bp-section"><div class="bp-label blue">Why Congress Won't Do This</div><div class="bp-text">
-Every single one of these proposals has a <strong>lobby against it</strong>. Pharma fights drug negotiation. Defense contractors fight procurement reform. Wealthy donors fight capital gains parity. AARP fights any change to Social Security. Oil companies fight the carbon tax.
+The waste cuts should be unanimous — who votes <em>for</em> fraud? But in practice, every "wasteful" program has a Congressional district that benefits from it. Every duplicate agency has employees who vote. Every legacy IT contractor donates to campaigns. MUSK's proposals passed with 380+ House votes in simulation, but in reality, even waste elimination gets lobbied against.
 <br><br>
-No individual proposal is radical — most have bipartisan expert support. But each one costs a politician donations, attack ads, or primary challenges. The AI agents didn't have re-election campaigns. That's the only difference.
+And the tax increases? Every one has a lobby against it. Pharma fights drug negotiation. Defense contractors fight procurement reform. Wealthy donors fight capital gains parity. The AI agents didn't have re-election campaigns. That's the only difference.
 </div></div>
 
-<div class="bp-callout"><strong>The Bottom Line:</strong> Solving the deficit doesn't require economic genius. It requires asking the top 6% to pay a bit more, making government buy things more efficiently, and modernizing programs designed in the 1960s. Every proposal here has been scored by the CBO and recommended by economists on both sides. The barrier is political courage, not policy knowledge.</div>
+<div class="bp-callout"><strong>The Bottom Line:</strong> The council cut $270B in waste before raising a single dollar in taxes. That's the approach most voters say they want — and it still wasn't enough. Solving the deficit requires both: ruthless efficiency <em>and</em> asking the top earners to pay more. Anyone who tells you we can fix this with cuts alone, or taxes alone, is lying to get your vote.</div>
 `,props:[
 {r:1,a:'KEYNES',c:'var(--green)',t:'Corporate Tax → 25%',d:'Raise effective corporate rate to 25%, closing loopholes. OECD competitive.',rD:{'Corporate Tax':180},sD:{},im:'+$180B/yr',hY:248,hN:187,sY:58,sN:42},
-{r:1,a:'HAMILTON',c:'var(--red)',t:'Payroll Tax Cap → $250K',d:'Lift SS tax cap from $176K to $250K. Top 6% earners.',rD:{'Payroll Taxes':120},sD:{},im:'+$120B/yr',hY:262,hN:173,sY:64,sN:36},
-{r:2,a:'HAMILTON',c:'var(--red)',t:'Medicare Drug Negotiation ×5',d:'Expand IRA drug negotiation to 100 drugs by 2028.',rD:{},sD:{'Medicare':-95},im:'-$95B/yr',hY:301,hN:134,sY:72,sN:28},
-{r:2,a:'MARSHALL',c:'var(--gold)',t:'Defense Procurement Reform',d:'End cost-plus contracts. Competitive bidding saves 8%.',rD:{},sD:{'Defense':-72},im:'-$72B/yr',hY:278,hN:157,sY:66,sN:34},
-{r:3,a:'KEYNES',c:'var(--green)',t:'Carbon Tax — $50/ton',d:'$50/ton rising 5%/yr. Revenue-neutral for bottom 60%.',rD:{'Excise & Customs':95},sD:{},im:'+$95B/yr',hY:226,hN:209,sY:52,sN:48},
-{r:3,a:'RAWLS',c:'var(--blue)',t:'Medicaid Value-Based Care',d:'Value-based models, 12% admin cut. Same coverage.',rD:{},sD:{'Medicaid & ACA':-60},im:'-$60B/yr',hY:342,hN:93,sY:78,sN:22},
-{r:4,a:'MADISON',c:'var(--purple)',t:'Debt Maturity Restructuring',d:'Shift 15% short-term debt to 30yr bonds.',rD:{},sD:{'Net Interest':-85},im:'-$85B/yr',hY:310,hN:125,sY:74,sN:26},
-{r:4,a:'HAMILTON',c:'var(--red)',t:'Federal Agency Consolidation',d:'Merge 12 overlapping agencies. 8% attrition.',rD:{},sD:{'Other Discretionary':-55},im:'-$55B/yr',hY:254,hN:181,sY:60,sN:40},
-{r:5,a:'RAWLS',c:'var(--blue)',t:'Estate Tax Reform',d:'Lower exemption to $5M. Close stepped-up basis.',rD:{'Other Revenue':60},sD:{},im:'+$60B/yr',hY:232,hN:203,sY:54,sN:46},
-{r:5,a:'KEYNES',c:'var(--green)',t:'Capital Gains > $1M as Income',d:'Tax gains above $1M as ordinary income.',rD:{'Individual Income Tax':110},sD:{},im:'+$110B/yr',hY:228,hN:207,sY:52,sN:48},
-{r:6,a:'RAWLS',c:'var(--blue)',t:'Safety Net Consolidation',d:'Merge 14 programs. 20% admin savings.',rD:{},sD:{'Income Security':-65},im:'-$65B/yr',hY:298,hN:137,sY:70,sN:30},
+{r:1,a:'MUSK',c:'var(--orange)',t:'Federal Fraud & Waste Audit',d:'AI audit of all agencies finds $124B in improper payments, duplicate contracts, and zombie programs.',rD:{},sD:{'Other Discretionary':-68,'Other Mandatory':-56},im:'-$124B/yr',hY:382,hN:53,sY:92,sN:8},
+{r:2,a:'HAMILTON',c:'var(--red)',t:'Payroll Tax Cap → $250K',d:'Lift SS tax cap from $176K to $250K. Top 6% earners.',rD:{'Payroll Taxes':120},sD:{},im:'+$120B/yr',hY:262,hN:173,sY:64,sN:36},
+{r:2,a:'RAND',c:'var(--teal)',t:'Eliminate Redundant Agencies',d:'Merge 17 overlapping workforce training programs. Close 4 advisory boards with no statutory mandate.',rD:{},sD:{'Other Discretionary':-45,'Education':-18},im:'-$63B/yr',hY:268,hN:167,sY:62,sN:38},
+{r:3,a:'HAMILTON',c:'var(--red)',t:'Medicare Drug Negotiation ×5',d:'Expand IRA drug negotiation to 100 drugs by 2028.',rD:{},sD:{'Medicare':-95},im:'-$95B/yr',hY:301,hN:134,sY:72,sN:28},
+{r:3,a:'MARSHALL',c:'var(--gold)',t:'Defense Procurement Reform',d:'End cost-plus contracts. Competitive bidding saves 8%.',rD:{},sD:{'Defense':-72},im:'-$72B/yr',hY:278,hN:157,sY:66,sN:34},
+{r:4,a:'KEYNES',c:'var(--green)',t:'Carbon Tax — $50/ton',d:'$50/ton rising 5%/yr. Revenue-neutral for bottom 60%.',rD:{'Excise & Customs':95},sD:{},im:'+$95B/yr',hY:226,hN:209,sY:52,sN:48},
+{r:4,a:'MUSK',c:'var(--orange)',t:'IT Modernization Savings',d:'Replace 12,000 legacy IT systems across govt. Saves $47B/yr in maintenance and contractor fees.',rD:{},sD:{'Other Discretionary':-47},im:'-$47B/yr',hY:338,hN:97,sY:80,sN:20},
+{r:5,a:'RAWLS',c:'var(--blue)',t:'Medicaid Value-Based Care',d:'Value-based models, 12% admin cut. Same coverage.',rD:{},sD:{'Medicaid & ACA':-60},im:'-$60B/yr',hY:342,hN:93,sY:78,sN:22},
+{r:5,a:'RAND',c:'var(--teal)',t:'Zero-Base Budget All Discretionary',d:'Every program must rejustify from $0 each year. Kill programs that can\'t prove ROI.',rD:{},sD:{'Other Discretionary':-38},im:'-$38B/yr',hY:244,hN:191,sY:54,sN:46},
+{r:6,a:'MADISON',c:'var(--purple)',t:'Debt Maturity Restructuring',d:'Shift 15% short-term debt to 30yr bonds.',rD:{},sD:{'Net Interest':-85},im:'-$85B/yr',hY:310,hN:125,sY:74,sN:26},
 {r:6,a:'MARSHALL',c:'var(--gold)',t:'SS Retirement Age → 69',d:'Raise from 67→69 over 20yrs. Means-test top 5%.',rD:{},sD:{'Social Security':-80},im:'-$80B/yr',hY:240,hN:195,sY:56,sN:44},
-{r:7,a:'KEYNES',c:'var(--green)',t:'Full IRS Enforcement',d:'Close $600B/yr tax gap. $1→$5-12 return.',rD:{'Individual Income Tax':140},sD:{},im:'+$140B/yr',hY:334,hN:101,sY:82,sN:18},
-{r:7,a:'MADISON',c:'var(--purple)',t:'All-Payer Hospital Rates',d:'Price transparency. Cap growth at GDP+1%.',rD:{},sD:{'Medicare':-45,'Medicaid & ACA':-30},im:'-$75B/yr',hY:286,hN:149,sY:68,sN:32},
-{r:8,a:'MADISON',c:'var(--purple)',t:'Fiscal Responsibility Framework',d:'Debt-to-GDP target 80% in 15yr.',rD:{},sD:{'Other Mandatory':-40},im:'Structural',hY:356,hN:79,sY:84,sN:16},
-{r:8,a:'HAMILTON',c:'var(--red)',t:'Surplus Sinking Fund',d:'50% surplus → mandatory debt principal.',rD:{},sD:{},im:'Structural',hY:380,hN:55,sY:90,sN:10}
+{r:7,a:'RAWLS',c:'var(--blue)',t:'Estate Tax Reform',d:'Lower exemption to $5M. Close stepped-up basis.',rD:{'Other Revenue':60},sD:{},im:'+$60B/yr',hY:232,hN:203,sY:54,sN:46},
+{r:7,a:'KEYNES',c:'var(--green)',t:'Capital Gains > $1M as Income',d:'Tax gains above $1M as ordinary income.',rD:{'Individual Income Tax':110},sD:{},im:'+$110B/yr',hY:228,hN:207,sY:52,sN:48},
+{r:8,a:'KEYNES',c:'var(--green)',t:'Full IRS Enforcement',d:'Close $600B/yr tax gap. $1→$5-12 return.',rD:{'Individual Income Tax':140},sD:{},im:'+$140B/yr',hY:334,hN:101,sY:82,sN:18},
+{r:8,a:'MADISON',c:'var(--purple)',t:'Fiscal Responsibility Framework',d:'Debt-to-GDP target 80% in 15yr.',rD:{},sD:{'Other Mandatory':-40},im:'Structural',hY:356,hN:79,sY:84,sN:16}
 ]},
 debtfree:{name:'Eliminate Debt by 2050',rounds:10,goalTitle:'Zero National Debt by 2050',goalDesc:'Pay off $36.4T in 25 years. Requires ~$1.46T annual surplus.',quote:'"America paid off its entire debt once — in 1835. <strong>The question is whether anyone in power will try again.</strong>"',resultsSub:'The AI Council charted a 25-year path to debt elimination.',
 blueprint:`
@@ -296,24 +312,24 @@ The AI agents could do this because they optimized for the national interest ove
 
 <div class="bp-callout"><strong>The Bottom Line:</strong> Eliminating the national debt is mathematically possible but politically almost unthinkable. It requires the kind of shared sacrifice that Americans last demonstrated during World War II — everyone giving something for a generational goal. The question for voters is simple: is a debt-free America worth it, and are you willing to ask your own group to contribute?</div>
 `,props:[
-{r:1,a:'HAMILTON',c:'var(--red)',t:'Corporate Tax → 28%',d:'Restore pre-2017 rate. Massive revenue.',rD:{'Corporate Tax':280},sD:{},im:'+$280B/yr',hY:224,hN:211,sY:52,sN:48},
-{r:1,a:'KEYNES',c:'var(--green)',t:'Payroll Cap → $400K',d:'Dramatically raise SS cap. Top 3%.',rD:{'Payroll Taxes':240},sD:{},im:'+$240B/yr',hY:230,hN:205,sY:54,sN:46},
-{r:2,a:'KEYNES',c:'var(--green)',t:'Wealth Tax 2% above $50M',d:'Annual 2% on net worth >$50M.',rD:{'Individual Income Tax':250},sD:{},im:'+$250B/yr',hY:222,hN:213,sY:51,sN:49},
-{r:2,a:'RAWLS',c:'var(--blue)',t:'Financial Transaction Tax',d:'0.1% on stock trades.',rD:{'Other Revenue':120},sD:{},im:'+$120B/yr',hY:236,hN:199,sY:56,sN:44},
-{r:3,a:'HAMILTON',c:'var(--red)',t:'8% Across-the-Board Cut',d:'Every dept absorbs 8% efficiency mandate.',rD:{},sD:{'Defense':-72,'Other Discretionary':-42,'Education':-10},im:'-$124B/yr',hY:242,hN:193,sY:54,sN:46},
-{r:3,a:'MADISON',c:'var(--purple)',t:'Medicare Full Reform',d:'Drug negotiation + 15% admin cut.',rD:{},sD:{'Medicare':-140},im:'-$140B/yr',hY:312,hN:123,sY:76,sN:24},
-{r:4,a:'KEYNES',c:'var(--green)',t:'Carbon Tax $75/ton',d:'Higher rate for max revenue.',rD:{'Excise & Customs':140},sD:{},im:'+$140B/yr',hY:224,hN:211,sY:51,sN:49},
-{r:4,a:'MARSHALL',c:'var(--gold)',t:'Defense Modernization',d:'Close 20% overseas bases. Drone/cyber shift.',rD:{},sD:{'Defense':-110},im:'-$110B/yr',hY:234,hN:201,sY:52,sN:48},
-{r:5,a:'RAWLS',c:'var(--blue)',t:'Medicaid Block Grants',d:'Block grants with outcome requirements.',rD:{},sD:{'Medicaid & ACA':-90},im:'-$90B/yr',hY:252,hN:183,sY:58,sN:42},
-{r:5,a:'HAMILTON',c:'var(--red)',t:'SS Means Testing',d:'Reduce benefits for >$200K income.',rD:{},sD:{'Social Security':-120},im:'-$120B/yr',hY:228,hN:207,sY:52,sN:48},
-{r:6,a:'KEYNES',c:'var(--green)',t:'IRS AI Enforcement',d:'Close entire $600B gap.',rD:{'Individual Income Tax':200},sD:{},im:'+$200B/yr',hY:340,hN:95,sY:80,sN:20},
-{r:6,a:'MADISON',c:'var(--purple)',t:'Debt Refinancing',d:'Refinance $8T into 30yr bonds.',rD:{},sD:{'Net Interest':-150},im:'-$150B/yr',hY:320,hN:115,sY:78,sN:22},
-{r:7,a:'RAWLS',c:'var(--blue)',t:'Income Security Overhaul',d:'Consolidate + work incentives. 25% savings.',rD:{},sD:{'Income Security':-100},im:'-$100B/yr',hY:284,hN:151,sY:66,sN:34},
-{r:7,a:'KEYNES',c:'var(--green)',t:'Capital Gains Full Parity',d:'All gains as ordinary income.',rD:{'Individual Income Tax':180},sD:{},im:'+$180B/yr',hY:222,hN:213,sY:51,sN:49},
-{r:8,a:'MARSHALL',c:'var(--gold)',t:'Veterans AI Modernization',d:'AI claims + telehealth. 12% savings.',rD:{},sD:{'Veterans':-40},im:'-$40B/yr',hY:362,hN:73,sY:88,sN:12},
-{r:8,a:'HAMILTON',c:'var(--red)',t:'100% Surplus to Debt',d:'All surplus → principal.',rD:{},sD:{},im:'Structural',hY:290,hN:145,sY:68,sN:32},
+{r:1,a:'MUSK',c:'var(--orange)',t:'Full Government Waste Purge',d:'AI audit identifies $180B in fraud, improper payments, duplicate programs, and no-bid contracts.',rD:{},sD:{'Other Discretionary':-95,'Other Mandatory':-85},im:'-$180B/yr',hY:388,hN:47,sY:94,sN:6},
+{r:1,a:'RAND',c:'var(--teal)',t:'Sunset All Non-Essential Programs',d:'Every program without Constitutional mandate faces automatic sunset. 340 programs reviewed, 80 eliminated.',rD:{},sD:{'Other Discretionary':-70,'Education':-22},im:'-$92B/yr',hY:232,hN:203,sY:52,sN:48},
+{r:2,a:'HAMILTON',c:'var(--red)',t:'Corporate Tax → 28%',d:'Restore pre-2017 rate. Massive revenue.',rD:{'Corporate Tax':280},sD:{},im:'+$280B/yr',hY:224,hN:211,sY:52,sN:48},
+{r:2,a:'KEYNES',c:'var(--green)',t:'Payroll Cap → $400K',d:'Dramatically raise SS cap. Top 3%.',rD:{'Payroll Taxes':240},sD:{},im:'+$240B/yr',hY:230,hN:205,sY:54,sN:46},
+{r:3,a:'KEYNES',c:'var(--green)',t:'Wealth Tax 2% above $50M',d:'Annual 2% on net worth >$50M.',rD:{'Individual Income Tax':250},sD:{},im:'+$250B/yr',hY:222,hN:213,sY:51,sN:49},
+{r:3,a:'RAWLS',c:'var(--blue)',t:'Financial Transaction Tax',d:'0.1% on stock trades.',rD:{'Other Revenue':120},sD:{},im:'+$120B/yr',hY:236,hN:199,sY:56,sN:44},
+{r:4,a:'HAMILTON',c:'var(--red)',t:'8% Across-the-Board Cut',d:'Every dept absorbs 8% efficiency mandate.',rD:{},sD:{'Defense':-72,'Other Discretionary':-42,'Education':-10},im:'-$124B/yr',hY:242,hN:193,sY:54,sN:46},
+{r:4,a:'MADISON',c:'var(--purple)',t:'Medicare Full Reform',d:'Drug negotiation + 15% admin cut.',rD:{},sD:{'Medicare':-140},im:'-$140B/yr',hY:312,hN:123,sY:76,sN:24},
+{r:5,a:'MUSK',c:'var(--orange)',t:'Federal Real Estate Liquidation',d:'Sell or lease 25% of unused federal buildings. 7,000 properties vacant or underutilized.',rD:{'Other Revenue':35},sD:{'Other Discretionary':-20},im:'-$55B/yr',hY:346,hN:89,sY:84,sN:16},
+{r:5,a:'KEYNES',c:'var(--green)',t:'Carbon Tax $75/ton',d:'Higher rate for max revenue.',rD:{'Excise & Customs':140},sD:{},im:'+$140B/yr',hY:224,hN:211,sY:51,sN:49},
+{r:6,a:'MARSHALL',c:'var(--gold)',t:'Defense Modernization',d:'Close 20% overseas bases. Drone/cyber shift.',rD:{},sD:{'Defense':-110},im:'-$110B/yr',hY:234,hN:201,sY:52,sN:48},
+{r:6,a:'RAND',c:'var(--teal)',t:'Block Grant Non-Core Welfare',d:'Convert 8 federal programs to state block grants. States innovate, feds save overhead.',rD:{},sD:{'Income Security':-75,'Medicaid & ACA':-55},im:'-$130B/yr',hY:240,hN:195,sY:52,sN:48},
+{r:7,a:'HAMILTON',c:'var(--red)',t:'SS Means Testing',d:'Reduce benefits for >$200K income.',rD:{},sD:{'Social Security':-120},im:'-$120B/yr',hY:228,hN:207,sY:52,sN:48},
+{r:7,a:'KEYNES',c:'var(--green)',t:'IRS AI Enforcement',d:'Close entire $600B gap.',rD:{'Individual Income Tax':200},sD:{},im:'+$200B/yr',hY:340,hN:95,sY:80,sN:20},
+{r:8,a:'MADISON',c:'var(--purple)',t:'Debt Refinancing',d:'Refinance $8T into 30yr bonds.',rD:{},sD:{'Net Interest':-150},im:'-$150B/yr',hY:320,hN:115,sY:78,sN:22},
+{r:8,a:'KEYNES',c:'var(--green)',t:'Capital Gains Full Parity',d:'All gains as ordinary income.',rD:{'Individual Income Tax':180},sD:{},im:'+$180B/yr',hY:222,hN:213,sY:51,sN:49},
 {r:9,a:'MADISON',c:'var(--purple)',t:'Estate Tax 50% above $5M',d:'Aggressive estate tax.',rD:{'Other Revenue':100},sD:{},im:'+$100B/yr',hY:226,hN:209,sY:52,sN:48},
-{r:9,a:'KEYNES',c:'var(--green)',t:'Federal Land Energy Leases',d:'Lease 5% federal land for renewables.',rD:{'Other Revenue':60},sD:{},im:'+$60B/yr',hY:268,hN:167,sY:62,sN:38},
+{r:9,a:'MARSHALL',c:'var(--gold)',t:'Veterans AI Modernization',d:'AI claims + telehealth. 12% savings.',rD:{},sD:{'Veterans':-40},im:'-$40B/yr',hY:362,hN:73,sY:88,sN:12},
 {r:10,a:'MADISON',c:'var(--purple)',t:'Constitutional Debt Cap',d:'Cap debt-to-GDP at 50% by 2050.',rD:{},sD:{'Other Mandatory':-60},im:'Structural',hY:350,hN:85,sY:82,sN:18},
 {r:10,a:'HAMILTON',c:'var(--red)',t:'Balanced Budget Amendment',d:'Require balance except emergencies.',rD:{},sD:{},im:'Structural',hY:370,hN:65,sY:86,sN:14}
 ]},
@@ -322,50 +338,56 @@ blueprint:`
 <div class="bp-section"><div class="bp-label green">What You'd Get</div><div class="bp-text">
 <strong>Healthcare:</strong> Every American covered. No premiums, no deductibles, no surprise bills, no medical bankruptcy. You go to any doctor, hand them your card, and leave. The way it works in Canada, the UK, Germany, France, Japan, Australia, and every other wealthy country on Earth.
 <br><br>
-<strong>Basic Income:</strong> $1,000/month to every American adult earning under $75K. That's $12,000/year — not enough to live on, but enough to keep you afloat while between jobs, enough to leave a bad situation, enough to take a risk on starting a business. It phases out above $100K, so middle-class Americans still get partial benefit.
+<strong>Basic Income:</strong> $1,000/month to every American adult earning under $75K. That's $12,000/year — not enough to live on, but enough to keep you afloat while between jobs, enough to leave a bad situation, enough to take a risk on starting a business. It phases out above $100K.
 </div></div>
 
-<div class="bp-section"><div class="bp-label red">The Hard Tradeoffs — This Costs Real Money</div><div class="bp-text">
-Let's be honest: this is the most expensive scenario, and it requires the most dramatic tax restructuring.
+<div class="bp-section"><div class="bp-label" style="color:var(--orange)">Where They Cut First</div><div class="bp-text">
+Even in the most ambitious spending scenario, the council started with the knife. Agent MUSK audited CMS and found <strong>$89 billion per year</strong> in fraudulent Medicare claims, duplicate billing, and bureaucratic bloat — money being wasted <em>inside the healthcare system they're about to expand</em>. You don't build a bigger house on a rotten foundation.
 <br><br>
-<strong>Everyone pays a 10% VAT</strong> on goods and services (food, medicine, and housing are exempt). This is how most European countries fund their social programs. If you spend $50,000/year on taxable goods, that's $5,000 in new taxes. The UBI offsets this for lower earners — but middle and upper-middle class households feel it.
+MUSK then found $62B more by automating government benefits processing and killing paper systems. Agent RAND consolidated 14 overlapping welfare programs before replacing them with UBI, saving $85B in admin overhead. Then RAND zero-based every discretionary program, cutting $83B more from things that don't work.
 <br><br>
-<strong>If you're wealthy ($50M+):</strong> A 3% annual wealth tax. Plus capital gains taxed as ordinary income. This is the most aggressive wealth taxation in the simulation.
-<br><br>
-<strong>If you're an employer:</strong> A 7.5% payroll tax replaces what you currently pay for employee health insurance. For most companies, this is actually <strong>cheaper</strong> than current premiums — but it's mandatory and visible.
-<br><br>
-<strong>If you work in private health insurance:</strong> Your industry largely goes away. Single-payer eliminates $250B/year in private admin overhead. That's real jobs lost in a transition — call centers, claims processors, billing departments. The plan includes transition support, but it's still disruptive.
-<br><br>
-<strong>If you're in the military:</strong> 10% procurement cut. No personnel changes, but contracts tighten.
+<strong>Total cuts before any new tax: over $319 billion per year.</strong> That doesn't pay for M4A and UBI by itself — not even close. But it demonstrates the council's principle: <em>earn the right to spend by proving you won't waste it.</em>
 </div></div>
 
-<div class="bp-section"><div class="bp-label blue">The Political Minefield</div><div class="bp-text">
-This is the most politically polarizing scenario. The right hates the wealth tax and VAT. The left hates that Social Security still gets modernized. The health insurance industry — a $1.2 trillion sector employing 500,000+ people — fights for survival.
+<div class="bp-section"><div class="bp-label red">The Tax Increases — And They're Big</div><div class="bp-text">
+Let's be honest: even after cutting $319B in waste, universal healthcare and UBI require massive new revenue.
 <br><br>
-But here's the thing the agents flagged: <strong>Americans already pay for universal healthcare — they just don't get it.</strong> The U.S. spends $4.5 trillion/year on healthcare, more per capita than any country. This plan redirects that spending through a single system and saves $250B/year in admin alone. The money is already being spent. It's just being spent badly.
+<strong>Everyone pays a 10% VAT</strong> on goods and services (food, medicine, and housing are exempt). This is how Europe funds social programs. If you spend $50,000/year on taxable goods, that's $5,000 in new taxes. The UBI offsets this for lower earners — but middle and upper-middle class households feel it.
+<br><br>
+<strong>If you're wealthy ($50M+):</strong> A 3% annual wealth tax. Plus capital gains taxed as ordinary income. The most aggressive wealth taxation in the simulation.
+<br><br>
+<strong>If you're an employer:</strong> A 7.5% payroll tax replaces current health premiums. For most companies, this is actually <strong>cheaper</strong> than what they currently pay — but it's mandatory.
+<br><br>
+<strong>If you work in private health insurance:</strong> Your industry largely goes away. Single-payer eliminates $250B/year in private admin. That's real jobs lost — the plan includes transition support, but it's still disruptive.
 </div></div>
 
-<div class="bp-callout"><strong>The Bottom Line:</strong> Universal healthcare + UBI is fundable, but it requires a VAT (like Europe), a wealth tax (like Norway), and the political willingness to dismantle the private insurance industry. The math works. The politics are brutal. Every voter has to decide: would you pay a 10% VAT to never see a medical bill again and get $1,000/month in your pocket?</div>
+<div class="bp-section"><div class="bp-label blue">The Political Reality</div><div class="bp-text">
+Here's what the agents flagged: <strong>Americans already pay for universal healthcare — they just don't get it.</strong> The U.S. spends $4.5 trillion/year on healthcare, more per capita than any country. This plan redirects that spending through a single system, cuts $319B in waste first, then saves another $250B/year in private admin. The money is already being spent. It's just being spent badly.
+<br><br>
+But the politics are brutal. The right hates the VAT and wealth tax. The left hates that existing programs get cut before UBI launches. The insurance industry fights for survival. Every side has a reason to say no.
+</div></div>
+
+<div class="bp-callout"><strong>The Bottom Line:</strong> The council cut $319B in healthcare waste and government bloat before proposing a single new tax. That's the credibility that makes the rest possible. Universal healthcare + UBI is fundable, but it requires a VAT, a wealth tax, and the willingness to dismantle both government waste <em>and</em> the private insurance industry. The question for voters: would you pay a 10% VAT to never see a medical bill again and get $1,000/month — knowing the government already proved it could cut waste first?</div>
 `,props:[
-{r:1,a:'KEYNES',c:'var(--green)',t:'Corporate Tax → 28%',d:'Restore pre-2017 rate to fund programs.',rD:{'Corporate Tax':280},sD:{},im:'+$280B/yr',hY:226,hN:209,sY:52,sN:48},
-{r:1,a:'RAWLS',c:'var(--blue)',t:'M4A Phase 1',d:'Expand Medicare to under-26 and over-55.',rD:{},sD:{'Medicare':180,'Medicaid & ACA':-200},im:'Net -$20B shift',hY:228,hN:207,sY:52,sN:48},
-{r:2,a:'KEYNES',c:'var(--green)',t:'Wealth Tax 3% above $50M',d:'Fund UBI. 3% on ultra-high net worth.',rD:{'Individual Income Tax':350},sD:{},im:'+$350B/yr',hY:220,hN:215,sY:51,sN:49},
-{r:2,a:'RAWLS',c:'var(--blue)',t:'UBI Phase 1 — $500/mo',d:'$500/mo to adults <$75K. Replaces welfare.',rD:{},sD:{'Income Security':800},im:'+$800B (replaces $490B)',hY:222,hN:213,sY:51,sN:49},
-{r:3,a:'HAMILTON',c:'var(--red)',t:'10% VAT',d:'Broad VAT. Exempt food, medicine, housing.',rD:{'Excise & Customs':900},sD:{},im:'+$900B/yr',hY:232,hN:203,sY:54,sN:46},
-{r:3,a:'MADISON',c:'var(--purple)',t:'Single-Payer Admin Savings',d:'Eliminate private admin ($250B/yr).',rD:{},sD:{'Medicare':-250},im:'-$250B/yr',hY:242,hN:193,sY:56,sN:44},
-{r:4,a:'KEYNES',c:'var(--green)',t:'Financial Transaction Tax',d:'0.1% on trades.',rD:{'Other Revenue':120},sD:{},im:'+$120B/yr',hY:238,hN:197,sY:54,sN:46},
-{r:4,a:'MARSHALL',c:'var(--gold)',t:'Defense Efficiency',d:'10% procurement reform.',rD:{},sD:{'Defense':-90},im:'-$90B/yr',hY:252,hN:183,sY:58,sN:42},
-{r:5,a:'RAWLS',c:'var(--blue)',t:'M4A Phase 2 — Full Coverage',d:'All Americans. 7.5% employer payroll.',rD:{'Payroll Taxes':600},sD:{'Medicare':400},im:'+$600B/-$400B',hY:224,hN:211,sY:51,sN:49},
-{r:5,a:'HAMILTON',c:'var(--red)',t:'Drug Price Global Parity',d:'Cap at 120% intl avg.',rD:{},sD:{'Medicare':-200},im:'-$200B/yr',hY:310,hN:125,sY:72,sN:28},
-{r:6,a:'KEYNES',c:'var(--green)',t:'Capital Gains Parity',d:'All gains as ordinary income.',rD:{'Individual Income Tax':180},sD:{},im:'+$180B/yr',hY:226,hN:209,sY:52,sN:48},
-{r:6,a:'RAWLS',c:'var(--blue)',t:'UBI Phase 2 — $1K/mo',d:'Full $1K/mo. Phase-out >$100K.',rD:{},sD:{'Income Security':600},im:'+$600B spend',hY:220,hN:215,sY:51,sN:49},
-{r:7,a:'MADISON',c:'var(--purple)',t:'Healthcare Cost Controls',d:'All-payer rates. GDP+0.5% cap.',rD:{},sD:{'Medicare':-120,'Medicaid & ACA':-60},im:'-$180B/yr',hY:278,hN:157,sY:64,sN:36},
-{r:7,a:'KEYNES',c:'var(--green)',t:'IRS Enforcement Surge',d:'Close tax gap for program funding.',rD:{'Individual Income Tax':200},sD:{},im:'+$200B/yr',hY:330,hN:105,sY:80,sN:20},
-{r:8,a:'HAMILTON',c:'var(--red)',t:'Federal Consolidation',d:'Merge agencies. AI admin.',rD:{},sD:{'Other Discretionary':-80},im:'-$80B/yr',hY:276,hN:159,sY:64,sN:36},
-{r:8,a:'MARSHALL',c:'var(--gold)',t:'SS Modernization',d:'Age 69 + means-test top 5%.',rD:{},sD:{'Social Security':-80},im:'-$80B/yr',hY:238,hN:197,sY:54,sN:46},
-{r:9,a:'MADISON',c:'var(--purple)',t:'Debt Refinancing',d:'Lock low rates on $6T.',rD:{},sD:{'Net Interest':-100},im:'-$100B/yr',hY:340,hN:95,sY:82,sN:18},
-{r:9,a:'KEYNES',c:'var(--green)',t:'Carbon Tax $60/ton',d:'Environmental revenue stream.',rD:{'Excise & Customs':110},sD:{},im:'+$110B/yr',hY:228,hN:207,sY:52,sN:48},
-{r:10,a:'MADISON',c:'var(--purple)',t:'Fiscal Sustainability Lock',d:'Auto revenue adjustments.',rD:{},sD:{'Other Mandatory':-40},im:'Structural',hY:350,hN:85,sY:84,sN:16},
+{r:1,a:'MUSK',c:'var(--orange)',t:'Healthcare Admin Waste Audit',d:'AI audit finds $89B in fraudulent Medicare claims, duplicate billing, and admin bloat across CMS.',rD:{},sD:{'Medicare':-52,'Medicaid & ACA':-37},im:'-$89B/yr',hY:374,hN:61,sY:90,sN:10},
+{r:1,a:'RAND',c:'var(--teal)',t:'Eliminate Redundant Welfare Admin',d:'Consolidate 14 overlapping means-tested programs before replacing them. Save admin overhead first.',rD:{},sD:{'Income Security':-55,'Other Discretionary':-30},im:'-$85B/yr',hY:262,hN:173,sY:60,sN:40},
+{r:2,a:'KEYNES',c:'var(--green)',t:'Corporate Tax → 28%',d:'Restore pre-2017 rate to fund programs.',rD:{'Corporate Tax':280},sD:{},im:'+$280B/yr',hY:226,hN:209,sY:52,sN:48},
+{r:2,a:'RAWLS',c:'var(--blue)',t:'M4A Phase 1',d:'Expand Medicare to under-26 and over-55.',rD:{},sD:{'Medicare':180,'Medicaid & ACA':-200},im:'Net -$20B shift',hY:228,hN:207,sY:52,sN:48},
+{r:3,a:'KEYNES',c:'var(--green)',t:'Wealth Tax 3% above $50M',d:'Fund UBI. 3% on ultra-high net worth.',rD:{'Individual Income Tax':350},sD:{},im:'+$350B/yr',hY:220,hN:215,sY:51,sN:49},
+{r:3,a:'RAWLS',c:'var(--blue)',t:'UBI Phase 1 — $500/mo',d:'$500/mo to adults <$75K. Replaces welfare.',rD:{},sD:{'Income Security':800},im:'+$800B (replaces $490B)',hY:222,hN:213,sY:51,sN:49},
+{r:4,a:'HAMILTON',c:'var(--red)',t:'10% VAT',d:'Broad VAT. Exempt food, medicine, housing.',rD:{'Excise & Customs':900},sD:{},im:'+$900B/yr',hY:232,hN:203,sY:54,sN:46},
+{r:4,a:'MADISON',c:'var(--purple)',t:'Single-Payer Admin Savings',d:'Eliminate private admin ($250B/yr).',rD:{},sD:{'Medicare':-250},im:'-$250B/yr',hY:242,hN:193,sY:56,sN:44},
+{r:5,a:'MUSK',c:'var(--orange)',t:'Government-Wide IT & Process Purge',d:'Automate federal benefits processing. Eliminate paper systems. $62B in operational savings.',rD:{},sD:{'Other Discretionary':-62},im:'-$62B/yr',hY:342,hN:93,sY:82,sN:18},
+{r:5,a:'KEYNES',c:'var(--green)',t:'Financial Transaction Tax',d:'0.1% on trades.',rD:{'Other Revenue':120},sD:{},im:'+$120B/yr',hY:238,hN:197,sY:54,sN:46},
+{r:6,a:'RAWLS',c:'var(--blue)',t:'M4A Phase 2 — Full Coverage',d:'All Americans. 7.5% employer payroll.',rD:{'Payroll Taxes':600},sD:{'Medicare':400},im:'+$600B/-$400B',hY:224,hN:211,sY:51,sN:49},
+{r:6,a:'HAMILTON',c:'var(--red)',t:'Drug Price Global Parity',d:'Cap at 120% intl avg.',rD:{},sD:{'Medicare':-200},im:'-$200B/yr',hY:310,hN:125,sY:72,sN:28},
+{r:7,a:'RAND',c:'var(--teal)',t:'Cut Non-Essential Discretionary 12%',d:'Before adding new programs, cut what doesn\'t work. Zero-base review of all discretionary.',rD:{},sD:{'Other Discretionary':-48,'Other Mandatory':-35},im:'-$83B/yr',hY:238,hN:197,sY:52,sN:48},
+{r:7,a:'RAWLS',c:'var(--blue)',t:'UBI Phase 2 — $1K/mo',d:'Full $1K/mo. Phase-out >$100K.',rD:{},sD:{'Income Security':600},im:'+$600B spend',hY:220,hN:215,sY:51,sN:49},
+{r:8,a:'KEYNES',c:'var(--green)',t:'Capital Gains Parity',d:'All gains as ordinary income.',rD:{'Individual Income Tax':180},sD:{},im:'+$180B/yr',hY:226,hN:209,sY:52,sN:48},
+{r:8,a:'MADISON',c:'var(--purple)',t:'Healthcare Cost Controls',d:'All-payer rates. GDP+0.5% cap.',rD:{},sD:{'Medicare':-120,'Medicaid & ACA':-60},im:'-$180B/yr',hY:278,hN:157,sY:64,sN:36},
+{r:9,a:'KEYNES',c:'var(--green)',t:'IRS Enforcement Surge',d:'Close tax gap for program funding.',rD:{'Individual Income Tax':200},sD:{},im:'+$200B/yr',hY:330,hN:105,sY:80,sN:20},
+{r:9,a:'MARSHALL',c:'var(--gold)',t:'Defense + SS Modernization',d:'10% procurement cut. SS age 69 over 20yr.',rD:{},sD:{'Defense':-90,'Social Security':-80},im:'-$170B/yr',hY:238,hN:197,sY:54,sN:46},
+{r:10,a:'MADISON',c:'var(--purple)',t:'Fiscal Sustainability Lock',d:'Auto revenue adjustments.',rD:{},sD:{'Net Interest':-100,'Other Mandatory':-40},im:'Structural',hY:350,hN:85,sY:84,sN:16},
 {r:10,a:'RAWLS',c:'var(--blue)',t:'Constitutional Guarantee',d:'Enshrine healthcare + UBI.',rD:{},sD:{},im:'Structural',hY:226,hN:209,sY:52,sN:48}
 ]},
 aieconomy:{name:'AI Economy Transition',rounds:8,goalTitle:'Navigate AI Job Displacement (2025–2030)',goalDesc:'30M jobs displaced. Massive productivity gains. Budget adapts.',quote:'"AI will create more wealth than any technology in history. <strong>The only question is who benefits.</strong>"',resultsSub:'The AI Council designed a transition for the largest economic shift since industrialization.',
@@ -373,47 +395,49 @@ blueprint:`
 <div class="bp-section"><div class="bp-label green">What You'd Get</div><div class="bp-text">
 A managed transition through the biggest economic disruption since the Industrial Revolution — instead of the chaos we got when manufacturing left in the 1990s and nobody had a plan.
 <br><br>
-<strong>If you lose your job to AI:</strong> You get $1,500/month for 24 months while you retrain. You get a $5,000/year lifelong learning account. And you get equity stakes in the AI systems that replaced you — meaning if the company profits from automating your job, you profit too.
+<strong>If you lose your job to AI:</strong> You get $1,500/month for 24 months while you retrain. You get equity stakes in the AI systems that replaced you — if the company profits from automating your job, you profit too.
 <br><br>
-<strong>If you keep your job:</strong> AI-powered government means faster services, less bureaucracy, and a government that costs 20% less to run. Healthcare costs drop 15% through AI diagnostics. Your tax dollars go further.
+<strong>If you keep your job:</strong> AI-powered government means faster services, less bureaucracy, and a government that costs less to run. Healthcare costs drop 15% through AI diagnostics.
 <br><br>
-<strong>For the country:</strong> A Sovereign AI Wealth Fund — modeled on Norway's oil fund — invests AI tax revenue for every American's future. Think of it as the country getting a dividend from the robot revolution.
+<strong>For the country:</strong> A Sovereign AI Wealth Fund — modeled on Norway's oil fund — invests AI tax revenue for every American's future.
+</div></div>
+
+<div class="bp-section"><div class="bp-label" style="color:var(--orange)">MUSK and RAND Led This One</div><div class="bp-text">
+This is the scenario where the waste-cutting agents had the most to say — because AI makes their job easier. Agent MUSK ran a government automation audit and found <strong>$156 billion per year</strong> in government functions that AI can do right now: claims processing, compliance checks, approvals, and reporting. Not in 10 years. Today. That's not a spending cut — it's a technology upgrade that also saves money.
+<br><br>
+MUSK then reviewed every federal contract and found <strong>$73 billion in zombie contractor deals</strong> — auto-renewed contracts delivering nothing, legacy vendors billing for obsolete work. Kill them.
+<br><br>
+Agent RAND went further: if AI can do it, defund the human office. Sunset pre-AI bureaucracy. Restructure Social Security and safety net payments using real-time AI data to eliminate overpayments and fraud — saving <strong>$115 billion more</strong>.
+<br><br>
+<strong>Total government efficiency savings: $344 billion per year.</strong> That's the money that funds the worker transition — meaning displaced workers are protected by the savings from displacing <em>government</em> workers first. The government leads by example.
 </div></div>
 
 <div class="bp-section"><div class="bp-label red">The Hard Tradeoffs</div><div class="bp-text">
-<strong>If you're a tech company:</strong> You pay a 15% AI Productivity Dividend Tax on gains above baseline, plus an 8% digital services tax. And every fully-automated position costs $5,000/year in robot tax. This is the most aggressive technology taxation ever proposed. Silicon Valley would fight it with everything they have.
+<strong>If you're a tech company:</strong> You pay a 15% AI Productivity Dividend Tax, plus an 8% digital services tax, plus $5,000/year per automated position. Silicon Valley would fight this with everything they have.
 <br><br>
-<strong>If you're a federal employee:</strong> AI replaces about 20% of government admin jobs. The savings are enormous ($138B/year), but those are real people's careers. The transition fund helps, but being told "retrain" when you're 55 is a different experience than when you're 25.
+<strong>If you're a federal employee:</strong> Many government admin jobs get automated. The $344B in savings represents real careers. The transition fund helps, but it's still disruptive.
 <br><br>
-<strong>If you're in healthcare:</strong> AI diagnostics replace significant portions of radiology, pathology, and primary care triage. Doctors don't disappear, but the profession changes fundamentally.
+<strong>If you're in healthcare:</strong> AI diagnostics change the profession fundamentally. $240B in savings means fewer admin jobs, different clinical workflows.
 <br><br>
-<strong>If you're nearing retirement:</strong> Social Security benefits get recalculated using AI economic models. For top earners, that means reductions.
-<br><br>
-<strong>If you invest in stocks:</strong> A data dividend right means companies pay citizens for using their data ($200/person/year). This creates a new corporate cost center.
+<strong>The core tension:</strong> MUSK and RAND proved the government can save $344B by embracing AI. But that same AI displaces 30 million private-sector workers. The council's answer: use government savings to fund private-sector transition. The institution that benefits most from AI pays for the people hurt most by it.
 </div></div>
 
-<div class="bp-section"><div class="bp-label blue">The Real Danger</div><div class="bp-text">
-The agents identified the core risk: <strong>doing nothing is the most expensive option.</strong> If 30 million jobs disappear over 5 years with no transition plan, you get mass unemployment, collapsing tax revenue, surging safety net costs, and political radicalization. That scenario costs far more than any tax in this plan.
-<br><br>
-The political problem is timing. AI companies want freedom to move fast. Workers want protection now. Government wants revenue. All three have legitimate needs, and all three conflict in the short term. The agents built a framework where tech companies pay for the transition they're causing — but that only works if you can pass the taxes before the jobs are gone.
-</div></div>
-
-<div class="bp-callout"><strong>The Bottom Line:</strong> AI is coming whether we plan for it or not. This blueprint taxes the winners to protect the losers, invests in retraining at massive scale, and creates a national wealth fund so every American benefits from automation. The alternative — what we're doing now — is no plan at all. We saw what "no plan" looked like when manufacturing left. This is that, but 10x faster.</div>
+<div class="bp-callout"><strong>The Bottom Line:</strong> The council cut $344B in government waste using the same AI that's displacing private-sector workers — then used those savings to fund the transition. Tech companies pay productivity taxes, displaced workers get 24 months of income plus equity in the systems that replaced them, and a national wealth fund ensures every American benefits. The alternative is what we're doing now: no plan at all. We saw what that looked like when manufacturing left. This is that, but 10x faster.</div>
 `,props:[
+{r:1,a:'MUSK',c:'var(--orange)',t:'Government Automation Audit',d:'Identify $156B in government functions AI can do now. Automate claims, approvals, compliance, and reporting.',rD:{},sD:{'Other Discretionary':-88,'Veterans':-34,'Other Mandatory':-34},im:'-$156B/yr',hY:312,hN:123,sY:76,sN:24},
 {r:1,a:'KEYNES',c:'var(--green)',t:'AI Productivity Dividend Tax',d:'15% tax on AI productivity gains above baseline.',rD:{'Corporate Tax':320},sD:{},im:'+$320B/yr',hY:228,hN:207,sY:52,sN:48},
-{r:1,a:'RAWLS',c:'var(--blue)',t:'Worker Transition Fund',d:'$200B/yr retraining + bridge income.',rD:{},sD:{'Education':200},im:'+$200B spend',hY:268,hN:167,sY:62,sN:38},
-{r:2,a:'KEYNES',c:'var(--green)',t:'Robot Tax $5K/unit',d:'Per-FTE automated position.',rD:{'Other Revenue':150},sD:{},im:'+$150B/yr',hY:232,hN:203,sY:54,sN:46},
-{r:2,a:'HAMILTON',c:'var(--red)',t:'AI Government Efficiency',d:'AI across agencies. 20% admin cut.',rD:{},sD:{'Other Discretionary':-104,'Veterans':-34},im:'-$138B/yr',hY:312,hN:123,sY:76,sN:24},
-{r:3,a:'RAWLS',c:'var(--blue)',t:'Universal Transition Income',d:'$1,500/mo for 24mo to displaced workers.',rD:{},sD:{'Income Security':300},im:'+$300B spend',hY:224,hN:211,sY:51,sN:49},
+{r:2,a:'RAND',c:'var(--teal)',t:'Sunset Pre-AI Bureaucracy',d:'Eliminate agencies and programs made redundant by AI tools. If software does it, defund the office.',rD:{},sD:{'Other Discretionary':-65},im:'-$65B/yr',hY:244,hN:191,sY:54,sN:46},
+{r:2,a:'RAWLS',c:'var(--blue)',t:'Worker Transition Fund',d:'$200B/yr retraining + bridge income.',rD:{},sD:{'Education':200},im:'+$200B spend',hY:268,hN:167,sY:62,sN:38},
+{r:3,a:'KEYNES',c:'var(--green)',t:'Robot Tax $5K/unit',d:'Per-FTE automated position.',rD:{'Other Revenue':150},sD:{},im:'+$150B/yr',hY:232,hN:203,sY:54,sN:46},
 {r:3,a:'MADISON',c:'var(--purple)',t:'AI Tax Collection',d:'AI auditing closes 80% of tax gap.',rD:{'Individual Income Tax':350},sD:{},im:'+$350B/yr',hY:338,hN:97,sY:82,sN:18},
 {r:4,a:'MARSHALL',c:'var(--gold)',t:'AI Defense Modernization',d:'Replace personnel-heavy ops with AI.',rD:{},sD:{'Defense':-120},im:'-$120B/yr',hY:248,hN:187,sY:56,sN:44},
-{r:4,a:'KEYNES',c:'var(--green)',t:'Data Dividend Rights',d:'Companies pay $200/person/yr for data.',rD:{'Other Revenue':50},sD:{},im:'+$50B/yr',hY:256,hN:179,sY:58,sN:42},
+{r:4,a:'MUSK',c:'var(--orange)',t:'Kill Zombie Contractor Deals',d:'AI review of all federal contracts finds $73B in auto-renewed deals delivering nothing.',rD:{},sD:{'Other Discretionary':-48,'Defense':-25},im:'-$73B/yr',hY:356,hN:79,sY:86,sN:14},
 {r:5,a:'HAMILTON',c:'var(--red)',t:'AI Healthcare Optimization',d:'AI diagnostics + admin. 15% savings.',rD:{},sD:{'Medicare':-140,'Medicaid & ACA':-100},im:'-$240B/yr',hY:302,hN:133,sY:72,sN:28},
-{r:5,a:'RAWLS',c:'var(--blue)',t:'Lifelong Learning Accounts',d:'$5K/yr federal credit for education.',rD:{},sD:{'Education':80},im:'+$80B spend',hY:284,hN:151,sY:66,sN:34},
+{r:5,a:'RAWLS',c:'var(--blue)',t:'Universal Transition Income',d:'$1,500/mo for 24mo to displaced workers.',rD:{},sD:{'Income Security':300},im:'+$300B spend',hY:224,hN:211,sY:51,sN:49},
 {r:6,a:'KEYNES',c:'var(--green)',t:'Digital Services Tax 8%',d:'Tax on tech digital revenue.',rD:{'Corporate Tax':120},sD:{},im:'+$120B/yr',hY:244,hN:191,sY:56,sN:44},
-{r:6,a:'MADISON',c:'var(--purple)',t:'Interest Optimization',d:'AI-predicted rate window refinancing.',rD:{},sD:{'Net Interest':-100},im:'-$100B/yr',hY:330,hN:105,sY:78,sN:22},
-{r:7,a:'HAMILTON',c:'var(--red)',t:'SS AI Adjustment',d:'AI-modeled benefits. Means-test top earners.',rD:{},sD:{'Social Security':-100},im:'-$100B/yr',hY:236,hN:199,sY:54,sN:46},
-{r:7,a:'RAWLS',c:'var(--blue)',t:'AI Worker Equity Stakes',d:'Displaced workers get equity in AI systems.',rD:{},sD:{},im:'Structural',hY:222,hN:213,sY:51,sN:49},
+{r:6,a:'RAND',c:'var(--teal)',t:'SS + Safety Net AI Restructure',d:'Recalculate all benefits using real-time data. Eliminate overpayments, reduce fraud.',rD:{},sD:{'Social Security':-70,'Income Security':-45},im:'-$115B/yr',hY:234,hN:201,sY:52,sN:48},
+{r:7,a:'MADISON',c:'var(--purple)',t:'Interest Optimization',d:'AI-predicted rate window refinancing.',rD:{},sD:{'Net Interest':-100},im:'-$100B/yr',hY:330,hN:105,sY:78,sN:22},
+{r:7,a:'RAWLS',c:'var(--blue)',t:'Data Dividend + Equity Stakes',d:'Companies pay $200/person/yr for data. Displaced workers get AI equity.',rD:{'Other Revenue':50},sD:{},im:'+$50B + structural',hY:248,hN:187,sY:56,sN:44},
 {r:8,a:'MADISON',c:'var(--purple)',t:'AI Stabilization Framework',d:'Auto adjusters tied to displacement.',rD:{},sD:{'Other Mandatory':-50},im:'Structural',hY:346,hN:89,sY:82,sN:18},
 {r:8,a:'KEYNES',c:'var(--green)',t:'Sovereign AI Wealth Fund',d:'$200B/yr AI tax → national fund.',rD:{},sD:{},im:'Structural',hY:274,hN:161,sY:64,sN:36}
 ]},
@@ -422,54 +446,60 @@ blueprint:`
 <div class="bp-section"><div class="bp-label green">What You'd Get</div><div class="bp-text">
 An America that <strong>doesn't need anyone</strong>. Not for energy, not for food, not for the chips in your phone, not for the steel in your bridges.
 <br><br>
-<strong>Energy:</strong> Full independence by 2035. A mix of nuclear, solar, and wind that makes foreign oil irrelevant. By 2040, America becomes a net energy <em>exporter</em> — selling clean power instead of buying dirty oil.
+<strong>Energy:</strong> Full independence by 2035. Nuclear, solar, and wind make foreign oil irrelevant. By 2040, America becomes a net energy <em>exporter</em>.
 <br><br>
-<strong>Manufacturing:</strong> Every critical supply chain brought home. Semiconductors, rare earth minerals, pharmaceuticals, defense components — all built on American soil by American workers. The 2020 supply chain crisis and the chip shortage never happen again.
+<strong>Manufacturing:</strong> Every critical supply chain brought home. Semiconductors, rare earth minerals, pharmaceuticals, defense components — all built on American soil.
 <br><br>
-<strong>Food:</strong> Expanded domestic agriculture including vertical farming and regional food hubs. No more dependency on foreign supply chains for basic nutrition.
+<strong>Food:</strong> Expanded domestic agriculture including vertical farming and regional food hubs. No more foreign dependency for basic nutrition.
 <br><br>
-<strong>Jobs:</strong> This is the most job-creating scenario. Reshoring manufacturing, building energy infrastructure, expanding agriculture, and processing rare earth minerals all require millions of workers. The $50B/year retraining fund moves people into these jobs.
+<strong>Jobs:</strong> This is the most job-creating scenario. Reshoring, energy infrastructure, agriculture — millions of new domestic jobs.
+</div></div>
+
+<div class="bp-section"><div class="bp-label" style="color:var(--orange)">How They Funded It Without Breaking the Bank</div><div class="bp-text">
+Self-sufficiency requires massive investment — energy infrastructure, manufacturing facilities, semiconductor fabs, agricultural expansion. Where does the money come from?
+<br><br>
+Agent MUSK moved first: a full federal waste audit found <strong>$142 billion per year</strong> in waste, fraud, and duplicate spending. Then a procurement overhaul replaced no-bid contracts with competitive bidding, saving another <strong>$68 billion</strong>. That's $210B/year freed up before any new taxes — enough to fund the entire energy independence program.
+<br><br>
+Agent RAND added discipline: eliminate federal programs that subsidize foreign goods or outsourcing ($55B), then zero-base every non-defense discretionary program ($55B more). If a program doesn't serve the self-sufficiency mission, defund it and redirect the money to one that does.
+<br><br>
+<strong>Total waste cuts and redirected spending: $320 billion per year.</strong> That covers the energy program ($150B), agricultural sovereignty ($80B), semiconductor investment ($30B), and manufacturing retraining ($50B) with room to spare. The self-sufficiency investments are funded primarily by <em>cutting what doesn't work</em>, not by raising taxes.
 </div></div>
 
 <div class="bp-section"><div class="bp-label red">The Hard Tradeoffs</div><div class="bp-text">
-<strong>Everything costs more — at first.</strong> Domestic manufacturing is more expensive than Chinese manufacturing. That's just reality. Import tariffs mean the cheap goods at Walmart get more expensive. A TV that costs $300 today might cost $400 during the transition. Clothes, electronics, furniture — all go up.
+<strong>Everything costs more — at first.</strong> Import tariffs mean the cheap goods at Walmart get more expensive. A TV that costs $300 today might cost $400 during the transition. Clothes, electronics, furniture — all go up.
 <br><br>
-<strong>If you're a consumer:</strong> You pay higher prices for 10-15 years while domestic supply chains scale up. The tariff revenue ($200B/year) funds the transition, but your purchasing power takes a hit in the short term. This is the most regressive aspect — it hits lower-income households hardest in percentage terms.
+<strong>If you're a consumer:</strong> You pay higher prices for 10-15 years while domestic supply chains scale up. The tariff revenue ($200B/year) funds the transition, but your purchasing power takes a hit. This hits lower-income households hardest in percentage terms.
 <br><br>
-<strong>If you're a multinational corporation:</strong> The 25% manufacturing tax credit rewards you for building here — but tariffs punish you for importing. Your global supply chain gets more expensive. Shareholders won't love the transition period.
+<strong>If you're a multinational:</strong> Tariffs punish importing. Your global supply chain gets expensive. The 25% manufacturing tax credit rewards building here, but the transition period is painful for shareholders.
 <br><br>
-<strong>If you work in imports/trade:</strong> Entire industries built on cheap imports shrink. Port cities, logistics companies, and import retailers all contract. The plan creates more jobs than it destroys, but they're different jobs in different places.
-<br><br>
-<strong>If you're an investor:</strong> Capital gains taxed as income, plus IRS enforcement closing the tax gap. The revenue funds infrastructure, but your after-tax returns drop.
-<br><br>
-<strong>Diplomatically:</strong> Trading partners retaliate. China, the EU, and allies all respond to tariffs. Supply chain decoupling creates geopolitical friction. The agents accounted for this — the defense reshoring and semiconductor sovereignty programs are specifically designed to withstand trade war escalation.
+<strong>If you work in imports/trade:</strong> Industries built on cheap imports shrink. The plan creates more jobs than it destroys, but they're different jobs in different places.
 </div></div>
 
 <div class="bp-section"><div class="bp-label gold">The National Security Argument</div><div class="bp-text">
-Agent Marshall made the decisive case: <strong>a country that can be cut off from chips, energy, or medicine is a country that can be coerced.</strong> The 2020 pandemic showed what happens when PPE and pharmaceutical supply chains run through a single foreign country. The chip shortage showed what happens when one island (Taiwan) makes 90% of advanced semiconductors.
+Agent Marshall made the decisive case: <strong>a country that can be cut off from chips, energy, or medicine can be coerced.</strong> The 2020 pandemic showed what happens when PPE and pharma supply chains run through one foreign country. The chip shortage showed what happens when one island (Taiwan) makes 90% of advanced semiconductors.
 <br><br>
-Self-sufficiency isn't just economic policy — it's defense policy. Every dollar spent reshoring critical manufacturing is a dollar spent on national security that actually produces jobs and tax revenue, unlike traditional defense spending.
+Self-sufficiency isn't just economic policy — it's defense policy. And MUSK proved you can fund most of it just by eliminating government waste. The tariffs and taxes are supplementary, not primary.
 </div></div>
 
-<div class="bp-callout"><strong>The Bottom Line:</strong> Full self-sustainability means higher prices now for permanent security later. It's the most expensive upfront investment, but by 2050 America would be the only nation on Earth that can feed, fuel, build, and defend itself entirely from within its own borders — while exporting clean energy for profit. Voters have to decide: is 10-15 years of higher prices worth never being dependent on another country again?</div>
+<div class="bp-callout"><strong>The Bottom Line:</strong> The council funded the majority of self-sufficiency investments by cutting $320B in waste and redirecting resources — not by raising taxes. Tariffs provide additional revenue but also raise consumer prices for 10-15 years. The tradeoff: higher prices now for permanent sovereignty later. By 2050, America would be the only nation that can feed, fuel, build, and defend itself entirely from within its own borders — and it would be paid for primarily by money the government was already wasting.</div>
 `,props:[
+{r:1,a:'MUSK',c:'var(--orange)',t:'Federal Waste Audit — Fund the Mission',d:'Before spending on self-sufficiency, find the money. AI audit finds $142B in waste, fraud, and duplicate spending.',rD:{},sD:{'Other Discretionary':-82,'Other Mandatory':-60},im:'-$142B/yr',hY:376,hN:59,sY:90,sN:10},
 {r:1,a:'MARSHALL',c:'var(--gold)',t:'Energy Independence Act',d:'$150B/yr into nuclear, solar, wind.',rD:{},sD:{'Other Discretionary':150},im:'+$150B invest',hY:278,hN:157,sY:64,sN:36},
-{r:1,a:'KEYNES',c:'var(--green)',t:'Import Substitution Tariffs',d:'Graduated tariffs on importable goods.',rD:{'Excise & Customs':200},sD:{},im:'+$200B/yr',hY:262,hN:173,sY:60,sN:40},
-{r:2,a:'HAMILTON',c:'var(--red)',t:'Manufacturing Tax Credit',d:'25% credit for US-made goods.',rD:{'Corporate Tax':-60},sD:{},im:'-$60B invest',hY:332,hN:103,sY:80,sN:20},
-{r:2,a:'RAWLS',c:'var(--blue)',t:'Agricultural Sovereignty',d:'$80B/yr domestic food expansion.',rD:{},sD:{'Other Discretionary':80},im:'+$80B invest',hY:298,hN:137,sY:70,sN:30},
-{r:3,a:'KEYNES',c:'var(--green)',t:'Rare Earth Mining',d:'Domestic rare earth processing.',rD:{},sD:{'Other Discretionary':40},im:'+$40B invest',hY:308,hN:127,sY:74,sN:26},
-{r:3,a:'MARSHALL',c:'var(--gold)',t:'Defense Reshoring',d:'100% domestic defense sourcing.',rD:{},sD:{'Defense':60},im:'+$60B invest',hY:342,hN:93,sY:82,sN:18},
-{r:4,a:'KEYNES',c:'var(--green)',t:'Carbon Tax → Energy Fund',d:'$50/ton funds clean infrastructure.',rD:{'Excise & Customs':95},sD:{},im:'+$95B/yr',hY:228,hN:207,sY:52,sN:48},
-{r:4,a:'HAMILTON',c:'var(--red)',t:'Federal AI Efficiency',d:'Offset investment with govt savings.',rD:{},sD:{'Other Discretionary':-80},im:'-$80B/yr',hY:280,hN:155,sY:66,sN:34},
-{r:5,a:'RAWLS',c:'var(--blue)',t:'Manufacturing Retraining',d:'$50B/yr for domestic job training.',rD:{},sD:{'Education':50},im:'+$50B invest',hY:302,hN:133,sY:72,sN:28},
-{r:5,a:'KEYNES',c:'var(--green)',t:'Sovereign Wealth Fund',d:'Invest tariff surplus long-term.',rD:{'Other Revenue':40},sD:{},im:'+$40B/yr',hY:264,hN:171,sY:60,sN:40},
+{r:2,a:'RAND',c:'var(--teal)',t:'Kill Import-Dependent Programs',d:'Eliminate federal programs that subsidize foreign goods or outsourcing. Redirect funds domestically.',rD:{},sD:{'Other Discretionary':-55},im:'-$55B/yr',hY:258,hN:177,sY:58,sN:42},
+{r:2,a:'KEYNES',c:'var(--green)',t:'Import Substitution Tariffs',d:'Graduated tariffs on importable goods.',rD:{'Excise & Customs':200},sD:{},im:'+$200B/yr',hY:262,hN:173,sY:60,sN:40},
+{r:3,a:'HAMILTON',c:'var(--red)',t:'Manufacturing Tax Credit',d:'25% credit for US-made goods.',rD:{'Corporate Tax':-60},sD:{},im:'-$60B invest',hY:332,hN:103,sY:80,sN:20},
+{r:3,a:'RAWLS',c:'var(--blue)',t:'Agricultural Sovereignty',d:'$80B/yr domestic food expansion.',rD:{},sD:{'Other Discretionary':80},im:'+$80B invest',hY:298,hN:137,sY:70,sN:30},
+{r:4,a:'MUSK',c:'var(--orange)',t:'Procurement Overhaul',d:'Replace no-bid defense/infra contracts with competitive bidding. AI contract management saves $68B/yr.',rD:{},sD:{'Defense':-38,'Other Discretionary':-30},im:'-$68B/yr',hY:344,hN:91,sY:82,sN:18},
+{r:4,a:'MARSHALL',c:'var(--gold)',t:'Defense Reshoring',d:'100% domestic defense sourcing.',rD:{},sD:{'Defense':60},im:'+$60B invest',hY:342,hN:93,sY:82,sN:18},
+{r:5,a:'KEYNES',c:'var(--green)',t:'Carbon Tax → Energy Fund',d:'$50/ton funds clean infrastructure.',rD:{'Excise & Customs':95},sD:{},im:'+$95B/yr',hY:228,hN:207,sY:52,sN:48},
+{r:5,a:'RAND',c:'var(--teal)',t:'Zero-Base Non-Defense Discretionary',d:'Every domestic program rejustifies. If it doesn\'t serve self-sufficiency, defund it.',rD:{},sD:{'Other Discretionary':-40,'Education':-15},im:'-$55B/yr',hY:236,hN:199,sY:52,sN:48},
 {r:6,a:'MADISON',c:'var(--purple)',t:'Healthcare Cost Reduction',d:'Domestic pharma. Price parity.',rD:{},sD:{'Medicare':-120,'Medicaid & ACA':-60},im:'-$180B/yr',hY:296,hN:139,sY:70,sN:30},
 {r:6,a:'HAMILTON',c:'var(--red)',t:'Debt Refinancing',d:'Lock rates. Free cash for investment.',rD:{},sD:{'Net Interest':-100},im:'-$100B/yr',hY:320,hN:115,sY:78,sN:22},
 {r:7,a:'KEYNES',c:'var(--green)',t:'IRS Enforcement',d:'Close tax gap for investment revenue.',rD:{'Individual Income Tax':160},sD:{},im:'+$160B/yr',hY:334,hN:101,sY:80,sN:20},
 {r:7,a:'MARSHALL',c:'var(--gold)',t:'Semiconductor Sovereignty',d:'$30B/yr CHIPS+ for full domestic chips.',rD:{},sD:{'Other Discretionary':30},im:'+$30B invest',hY:348,hN:87,sY:84,sN:16},
-{r:8,a:'RAWLS',c:'var(--blue)',t:'SS Stabilization',d:'Means-test + age adjust.',rD:{},sD:{'Social Security':-80},im:'-$80B/yr',hY:236,hN:199,sY:54,sN:46},
+{r:8,a:'RAWLS',c:'var(--blue)',t:'Manufacturing Retraining',d:'$50B/yr for domestic job training.',rD:{},sD:{'Education':50},im:'+$50B invest',hY:302,hN:133,sY:72,sN:28},
 {r:8,a:'KEYNES',c:'var(--green)',t:'Capital Gains as Income',d:'Fund the transition.',rD:{'Individual Income Tax':110},sD:{},im:'+$110B/yr',hY:226,hN:209,sY:52,sN:48},
-{r:9,a:'HAMILTON',c:'var(--red)',t:'Income Security Reform',d:'Consolidate. Redirect savings.',rD:{},sD:{'Income Security':-65},im:'-$65B/yr',hY:278,hN:157,sY:64,sN:36},
+{r:9,a:'HAMILTON',c:'var(--red)',t:'SS + Income Security Reform',d:'Means-test + consolidate. Free resources.',rD:{},sD:{'Social Security':-80,'Income Security':-65},im:'-$145B/yr',hY:236,hN:199,sY:54,sN:46},
 {r:9,a:'MADISON',c:'var(--purple)',t:'Energy Export Revenue',d:'US becomes net exporter by 2035.',rD:{'Other Revenue':80},sD:{},im:'+$80B/yr',hY:312,hN:123,sY:76,sN:24},
 {r:10,a:'MADISON',c:'var(--purple)',t:'Self-Sufficiency Amendment',d:'Domestic sourcing minimums.',rD:{},sD:{'Other Mandatory':-40},im:'Structural',hY:340,hN:95,sY:82,sN:18},
 {r:10,a:'MARSHALL',c:'var(--gold)',t:'National Resilience Framework',d:'Permanent food/energy/mfg sovereignty.',rD:{},sD:{},im:'Structural',hY:366,hN:69,sY:88,sN:12}
@@ -570,9 +600,10 @@ function computePath(){
   S.aiPath=path.slice(0,Math.min(Math.floor(S.round*1.3)+2,11));
 }
 
-const TH={hamilton:['Scoring deficit reduction...','Modeling debt service...','Interest sensitivity...','Cut feasibility...'],keynes:['Dynamic scoring...','Revenue elasticity...','GDP multiplier...','Laffer analysis...'],rawls:['Distributional impact...','Poverty modeling...','Safety net check...','GINI shift...'],marshall:['Force readiness...','Procurement scan...','Threat assessment...','NATO parity...'],madison:['Consensus framework...','Compromise search...','Multi-agent synthesis...','Pareto optimization...']};
-function activateAgents(){['hamilton','keynes','rawls','marshall','madison'].forEach((a,i)=>{setTimeout(()=>{document.getElementById('ag-'+a).classList.add('active');document.getElementById('msg-'+a).innerHTML='<span class="hl">'+TH[a][Math.floor(Math.random()*TH[a].length)]+'</span>';},i*150);});}
-function deactivateAgents(){['hamilton','keynes','rawls','marshall','madison'].forEach(a=>document.getElementById('ag-'+a).classList.remove('active'));}
+const TH={hamilton:['Scoring deficit reduction...','Modeling debt service...','Interest sensitivity...','Cut feasibility...'],keynes:['Dynamic scoring...','Revenue elasticity...','GDP multiplier...','Laffer analysis...'],rawls:['Distributional impact...','Poverty modeling...','Safety net check...','GINI shift...'],marshall:['Force readiness...','Procurement scan...','Threat assessment...','NATO parity...'],madison:['Consensus framework...','Compromise search...','Multi-agent synthesis...','Pareto optimization...'],musk:['Scanning for waste...','Duplicate program audit...','Fraud detection sweep...','ROI analysis on agencies...'],rand:['Reviewing spending authority...','Constitutional mandate check...','Cut priority ranking...','Zero-base budget scan...']};
+const AGENTS=['hamilton','keynes','rawls','marshall','madison','musk','rand'];
+function activateAgents(){AGENTS.forEach((a,i)=>{setTimeout(()=>{document.getElementById('ag-'+a).classList.add('active');document.getElementById('msg-'+a).innerHTML='<span class="hl">'+TH[a][Math.floor(Math.random()*TH[a].length)]+'</span>';},i*120);});}
+function deactivateAgents(){AGENTS.forEach(a=>document.getElementById('ag-'+a).classList.remove('active'));}
 
 function dl(ms){return ms/S.speed;}
 
@@ -594,7 +625,7 @@ function processProp(p){
   for(const[k,v] of Object.entries(p.sD))S.spend[k]=(S.spend[k]||0)+v;
   const pass=p.hY>217&&p.sY>50;if(pass)S.passed++;
   renderBudget();animVote(p.hY,p.hN,p.sY,p.sN);
-  const map={HAMILTON:'hamilton',KEYNES:'keynes',RAWLS:'rawls',MARSHALL:'marshall',MADISON:'madison'};
+  const map={HAMILTON:'hamilton',KEYNES:'keynes',RAWLS:'rawls',MARSHALL:'marshall',MADISON:'madison',MUSK:'musk',RAND:'rand'};
   document.getElementById('msg-'+map[p.a]).innerHTML='Proposing: <span class="hl">'+p.t+'</span>';
   const log=document.getElementById('logScroll');if(S.total===1)log.innerHTML='';
   const e=document.createElement('div');e.className='log-entry '+(pass?'pass':'fail');
@@ -635,7 +666,7 @@ function resetAll(){
   document.getElementById('pickerSection').classList.remove('active');
   document.getElementById('heroSection').style.display='';
   deactivateAgents();
-  ['hamilton','keynes','rawls','marshall','madison'].forEach(a=>document.getElementById('msg-'+a).textContent='Standing by...');
+  ['hamilton','keynes','rawls','marshall','madison','musk','rand'].forEach(a=>document.getElementById('msg-'+a).textContent='Standing by...');
   document.querySelectorAll('.scenario-card').forEach(c=>c.classList.remove('selected'));
   document.getElementById('launchBtn').classList.remove('ready');
   window.scrollTo({top:0});
