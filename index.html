@@ -4,911 +4,642 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI FISCAL COUNCIL — What Congress Won't Do</title>
-<meta name="description" content="Watch AI agents solve America's $1.8 trillion deficit in minutes — something 535 members of Congress haven't done in 24 years.">
+<meta name="description" content="Watch AI agents solve America's biggest fiscal challenges in minutes.">
 <meta property="og:title" content="AI Fiscal Council — What Congress Won't Do">
-<meta property="og:description" content="5 AI agents. 16 bipartisan proposals. 90 seconds. Watch rational actors solve what 535 members of Congress haven't touched since 2001.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:description" content="5 AI agents. Real data. 90 seconds. Choose a scenario and watch rational actors solve what Congress won't.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;700;900&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
-
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#06080c;--surface:#0c0f16;--surface2:#121620;--surface3:#181d2a;
-  --border:#1e2538;--border2:#2a3148;
-  --text:#d8dce8;--text2:#8892aa;--text3:#505a72;
-  --red:#e8364f;--red-bg:rgba(232,54,79,0.08);--red-glow:rgba(232,54,79,0.25);
-  --green:#1ae88c;--green-bg:rgba(26,232,140,0.08);--green-glow:rgba(26,232,140,0.25);
-  --blue:#3b82f6;--blue-bg:rgba(59,130,246,0.08);
-  --gold:#f0a830;--gold-bg:rgba(240,168,48,0.08);
-  --purple:#8b5cf6;--purple-bg:rgba(139,92,246,0.08);
-  --cyan:#06b6d4;
-}
+:root{--bg:#06080c;--surface:#0c0f16;--surface2:#121620;--border:#1e2538;--text:#d8dce8;--text2:#8892aa;--text3:#505a72;--red:#e8364f;--red-bg:rgba(232,54,79,0.08);--red-glow:rgba(232,54,79,0.25);--green:#1ae88c;--green-bg:rgba(26,232,140,0.08);--green-glow:rgba(26,232,140,0.25);--blue:#3b82f6;--blue-bg:rgba(59,130,246,0.08);--gold:#f0a830;--gold-bg:rgba(240,168,48,0.08);--purple:#8b5cf6;--purple-bg:rgba(139,92,246,0.08);--cyan:#06b6d4}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-serif;line-height:1.6;overflow-x:hidden}
-body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(6,8,12,0.03) 3px,rgba(6,8,12,0.03) 4px);pointer-events:none;z-index:9999}
-
-/* ===== HERO ===== */
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(6,8,12,0.03) 3px,rgba(6,8,12,0.03) 4px);pointer-events:none;z-index:9999}
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 50% 40%,rgba(232,54,79,0.04) 0%,transparent 60%);animation:heroGlow 8s ease-in-out infinite alternate}
-@keyframes heroGlow{0%{transform:scale(1);opacity:0.5}100%{transform:scale(1.1);opacity:1}}
-
-.hero-badge{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--red);border:1px solid rgba(232,54,79,0.3);padding:6px 16px;border-radius:2px;margin-bottom:32px;display:inline-block;animation:fadeUp .8s ease both}
-.hero h1{font-family:'Bitter',serif;font-size:clamp(36px,6vw,72px);font-weight:900;line-height:1.1;max-width:900px;margin-bottom:20px;animation:fadeUp .8s ease .1s both}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 50% 40%,rgba(232,54,79,0.04) 0%,transparent 60%);animation:hg 8s ease-in-out infinite alternate}
+@keyframes hg{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.1);opacity:1}}
+.hero-badge{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--red);border:1px solid rgba(232,54,79,0.3);padding:6px 16px;border-radius:2px;margin-bottom:32px;animation:fu .8s ease both}
+.hero h1{font-family:'Bitter',serif;font-size:clamp(32px,5.5vw,68px);font-weight:900;line-height:1.1;max-width:900px;margin-bottom:20px;animation:fu .8s ease .1s both}
 .hero h1 .accent{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero .lead{font-size:clamp(16px,2.2vw,22px);color:var(--text2);max-width:680px;margin-bottom:16px;font-weight:300;animation:fadeUp .8s ease .2s both}
+.hero .lead{font-size:clamp(15px,2vw,20px);color:var(--text2);max-width:680px;margin-bottom:16px;font-weight:300;animation:fu .8s ease .2s both}
 .hero .lead strong{color:var(--text);font-weight:600}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-/* SHAME STATS */
-.shame-row{display:flex;gap:clamp(16px,4vw,48px);margin:32px 0;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s ease .3s both}
-.shame-stat{text-align:center;min-width:140px}
-.shame-stat .num{font-family:'IBM Plex Mono',monospace;font-size:clamp(28px,4vw,48px);font-weight:700;color:var(--red);line-height:1}
-.shame-stat .lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-top:6px}
-
-.hero-debt{font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,2vw,20px);color:var(--red);margin:24px 0;padding:12px 24px;border:1px solid rgba(232,54,79,0.2);background:var(--red-bg);border-radius:4px;animation:fadeUp .8s ease .4s both}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.shame-row{display:flex;gap:clamp(12px,3vw,40px);margin:28px 0;flex-wrap:wrap;justify-content:center;animation:fu .8s ease .3s both}
+.shame-stat{text-align:center;min-width:120px}
+.shame-stat .num{font-family:'IBM Plex Mono',monospace;font-size:clamp(24px,3.5vw,44px);font-weight:700;color:var(--red);line-height:1}
+.shame-stat .lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-top:5px}
+.hero-debt{font-family:'IBM Plex Mono',monospace;font-size:clamp(13px,1.8vw,18px);color:var(--red);margin:20px 0;padding:10px 20px;border:1px solid rgba(232,54,79,0.2);background:var(--red-bg);border-radius:4px;animation:fu .8s ease .4s both}
 .hero-debt .tick{animation:pulse 1s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-
-.begin-btn{font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:16px 48px;background:transparent;border:2px solid var(--green);color:var(--green);cursor:pointer;border-radius:4px;transition:all .3s;animation:fadeUp .8s ease .5s both;position:relative;overflow:hidden}
-.begin-btn:hover{background:var(--green);color:var(--bg);box-shadow:0 0 40px var(--green-glow)}
-.begin-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(26,232,140,0.1),transparent);transition:left .5s}
-.begin-btn:hover::before{left:100%}
-
-.scroll-hint{position:absolute;bottom:30px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--text3);animation:bob 2s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
-
-/* ===== SIMULATION SECTION ===== */
-.sim-section{display:none;min-height:100vh;padding:0}
-.sim-section.active{display:block}
-
-/* TOP BAR */
-.sim-topbar{position:sticky;top:0;z-index:100;background:rgba(6,8,12,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.sim-topbar .title-area{display:flex;align-items:center;gap:16px}
-.sim-topbar h2{font-family:'Bitter',serif;font-size:16px;font-weight:700}
-.sim-topbar .round-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;padding:3px 10px;border-radius:2px;background:var(--blue-bg);color:var(--blue);border:1px solid rgba(59,130,246,0.2)}
-.topbar-stats{display:flex;gap:20px;align-items:center}
-.topbar-stat{text-align:center}
-.topbar-stat .val{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700}
-.topbar-stat .lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3)}
-
-/* PROGRESS */
-.sim-progress{height:3px;background:var(--surface2);position:sticky;top:60px;z-index:99}
-.sim-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--green),var(--cyan));transition:width .8s ease;box-shadow:0 0 12px var(--green-glow)}
-
-/* MAIN GRID */
-.sim-grid{display:grid;grid-template-columns:280px 1fr 300px;min-height:calc(100vh - 66px);gap:0}
-@media(max-width:1100px){.sim-grid{grid-template-columns:1fr;}}
-
-/* LEFT - CONGRESS PANEL */
-.congress-panel{border-right:1px solid var(--border);padding:16px;overflow-y:auto;max-height:calc(100vh - 66px);position:sticky;top:66px}
-@media(max-width:1100px){.congress-panel{position:relative;top:0;max-height:none;border-right:none;border-bottom:1px solid var(--border)}}
-.section-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
-
-/* CHAMBER CARDS */
-.chamber{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:14px;margin-bottom:12px}
-.chamber-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.chamber-name{font-family:'Bitter',serif;font-size:14px;font-weight:700}
-.chamber-count{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3)}
-.party-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;gap:2px;margin-bottom:8px}
-.party-bar .rep{background:#e8364f;border-radius:3px}
-.party-bar .dem{background:#3b82f6;border-radius:3px}
-.party-bar .ind{background:#f0a830;border-radius:3px}
-.chamber-detail{font-size:11px;color:var(--text2);line-height:1.5}
-.chamber-detail span{font-family:'IBM Plex Mono',monospace;font-size:10px}
-
-/* AGENT CARDS */
-.agents-section{margin-top:16px}
-.agent{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:12px;margin-bottom:8px;position:relative;overflow:hidden;transition:all .3s}
-.agent.active{border-color:var(--green);box-shadow:0 0 16px var(--green-glow)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-cta{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:14px 44px;background:transparent;border:2px solid var(--green);color:var(--green);cursor:pointer;border-radius:4px;transition:all .3s;animation:fu .8s ease .5s both}
+.hero-cta:hover{background:var(--green);color:var(--bg);box-shadow:0 0 40px var(--green-glow)}
+.picker{display:none;min-height:100vh;padding:60px 24px;max-width:1000px;margin:0 auto}
+.picker.active{display:block}
+.picker h2{font-family:'Bitter',serif;font-size:clamp(24px,3.5vw,40px);font-weight:900;text-align:center;margin-bottom:8px}
+.pick-sub{text-align:center;color:var(--text2);font-size:16px;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:40px}
+.scenario-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.scenario-card:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 8px 32px rgba(6,182,212,0.1)}
+.scenario-card.selected{border-color:var(--green);box-shadow:0 0 24px var(--green-glow)}
+.sc-icon{font-size:28px;margin-bottom:10px}
+.sc-title{font-family:'Bitter',serif;font-size:17px;font-weight:700;margin-bottom:6px}
+.sc-desc{font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:12px}
+.sc-tags{display:flex;flex-wrap:wrap;gap:6px}
+.sc-tag{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:2px;background:var(--surface2);color:var(--text3);border:1px solid var(--border)}
+.scenario-card.selected .sc-tag{border-color:rgba(26,232,140,0.2);color:var(--green);background:var(--green-bg)}
+.scenario-card::after{content:'SELECTED';position:absolute;top:12px;right:12px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--green);opacity:0;transition:opacity .3s}
+.scenario-card.selected::after{opacity:1}
+.launch-btn{font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:16px 48px;background:transparent;border:2px solid var(--green);color:var(--green);cursor:pointer;border-radius:4px;transition:all .3s;opacity:.4;pointer-events:none}
+.launch-btn.ready{opacity:1;pointer-events:auto}
+.launch-btn.ready:hover{background:var(--green);color:var(--bg);box-shadow:0 0 40px var(--green-glow)}
+.sim-section{display:none;min-height:100vh}.sim-section.active{display:block}
+.sim-topbar{position:sticky;top:0;z-index:100;background:rgba(6,8,12,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.sim-topbar .title-area{display:flex;align-items:center;gap:12px}
+.sim-topbar h2{font-family:'Bitter',serif;font-size:14px;font-weight:700}
+.round-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;padding:3px 8px;border-radius:2px;background:var(--blue-bg);color:var(--blue);border:1px solid rgba(59,130,246,0.2)}
+.scenario-tag{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;padding:3px 8px;border-radius:2px;background:var(--purple-bg);color:var(--purple);border:1px solid rgba(139,92,246,0.2)}
+.topbar-stats{display:flex;gap:16px}
+.topbar-stat{text-align:center}.topbar-stat .val{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700}.topbar-stat .lbl{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3)}
+.sim-progress{height:3px;background:var(--surface2);position:sticky;top:52px;z-index:99}
+.sim-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--green),var(--cyan));transition:width .8s;box-shadow:0 0 12px var(--green-glow)}
+.sim-grid{display:grid;grid-template-columns:260px 1fr 280px;min-height:calc(100vh - 56px)}
+@media(max-width:1100px){.sim-grid{grid-template-columns:1fr}}
+.congress-panel{border-right:1px solid var(--border);padding:14px;overflow-y:auto;max-height:calc(100vh - 56px);position:sticky;top:56px}
+@media(max-width:1100px){.congress-panel{position:relative;top:0;max-height:none;border:none;border-bottom:1px solid var(--border)}}
+.section-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--border)}
+.chamber{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:12px;margin-bottom:10px}
+.chamber-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.chamber-name{font-family:'Bitter',serif;font-size:13px;font-weight:700}
+.chamber-count{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text3)}
+.party-bar{display:flex;height:5px;border-radius:3px;overflow:hidden;gap:2px;margin-bottom:6px}
+.party-bar .rep{background:#e8364f;border-radius:3px}.party-bar .dem{background:#3b82f6;border-radius:3px}.party-bar .ind{background:#f0a830;border-radius:3px}
+.chamber-detail{font-size:10px;color:var(--text2);line-height:1.5}
+.goal-card{background:var(--surface);border:1px solid rgba(6,182,212,0.2);border-radius:6px;padding:12px;margin-bottom:10px}
+.goal-card .gc-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.goal-card .gc-title{font-family:'Bitter',serif;font-size:13px;font-weight:700;margin-bottom:4px}
+.goal-card .gc-desc{font-size:10px;color:var(--text2);line-height:1.4}
+.agent{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:10px;margin-bottom:6px;position:relative;overflow:hidden;transition:all .3s}
+.agent.active{border-color:var(--green);box-shadow:0 0 14px var(--green-glow)}
 .agent .think-line{position:absolute;top:0;left:0;height:2px;width:0;background:var(--green)}
-.agent.active .think-line{animation:thinkPulse 2.5s ease-in-out infinite}
-@keyframes thinkPulse{0%{width:0;left:0}50%{width:100%;left:0}100%{width:0;left:100%}}
-.agent-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.agent-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
-.agent-name{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.5px}
-.agent-desc{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--text3);letter-spacing:1px;text-transform:uppercase}
-.agent-msg{font-size:11px;color:var(--text2);min-height:18px;line-height:1.4}
-.agent-msg .hl{color:var(--green)}
-
-/* CENTER - VISUALIZATIONS */
-.viz-panel{padding:20px;overflow-y:auto;max-height:calc(100vh - 66px);position:sticky;top:66px}
+.agent.active .think-line{animation:tp 2.5s ease-in-out infinite}
+@keyframes tp{0%{width:0;left:0}50%{width:100%;left:0}100%{width:0;left:100%}}
+.agent-top{display:flex;align-items:center;gap:7px;margin-bottom:4px}
+.agent-icon{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.agent-name{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600}
+.agent-desc{font-family:'IBM Plex Mono',monospace;font-size:7px;color:var(--text3);letter-spacing:1px;text-transform:uppercase}
+.agent-msg{font-size:10px;color:var(--text2);min-height:16px;line-height:1.3}.agent-msg .hl{color:var(--green)}
+.viz-panel{padding:16px;overflow-y:auto;max-height:calc(100vh - 56px);position:sticky;top:56px}
 @media(max-width:1100px){.viz-panel{position:relative;top:0;max-height:none}}
-
-.viz-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:16px}
-.viz-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-bottom:4px}
-.viz-subtitle{font-size:12px;color:var(--text2);margin-bottom:14px}
-.chart-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
-.legend-item{display:flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text3)}
-.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-
+.viz-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:14px}
+.viz-title{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-bottom:3px}
+.viz-subtitle{font-size:11px;color:var(--text2);margin-bottom:12px}
+.chart-legend{display:flex;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:4px;font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--text3)}
+.legend-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 canvas{width:100%!important}
-
-/* BUDGET BARS */
-.budget-section{display:grid;grid-template-columns:1fr 48px 1fr;gap:0}
-.budget-col h4{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
-.budget-col.rev h4{color:var(--green)}
-.budget-col.spend h4{color:var(--red)}
-.b-item{display:flex;justify-content:space-between;align-items:center;padding:5px 8px;margin-bottom:3px;border-radius:3px;font-size:11px;position:relative;overflow:hidden;background:var(--surface2)}
-.b-item .fill{position:absolute;left:0;top:0;bottom:0;opacity:.12;transition:width .8s ease}
-.b-item .nm{position:relative;z-index:1;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px}
-.b-item .vl{position:relative;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500}
-.b-item.cut .vl{color:var(--green)}
-.b-item.grew .vl{color:var(--blue)}
+.budget-section{display:grid;grid-template-columns:1fr 40px 1fr}
+.budget-col h4{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.budget-col.rev h4{color:var(--green)}.budget-col.spend h4{color:var(--red)}
+.b-item{display:flex;justify-content:space-between;align-items:center;padding:4px 6px;margin-bottom:2px;border-radius:3px;font-size:10px;position:relative;overflow:hidden;background:var(--surface2)}
+.b-item .fill{position:absolute;left:0;top:0;bottom:0;opacity:.12;transition:width .8s}
+.b-item .nm{position:relative;z-index:1;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px}
+.b-item .vl{position:relative;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:500}
+.b-item.cut .vl{color:var(--green)}.b-item.grew .vl{color:var(--blue)}
 .budget-mid{display:flex;align-items:center;justify-content:center}
-.deficit-pill{writing-mode:vertical-rl;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:8px 5px;border-radius:3px;text-align:center}
+.deficit-pill{writing-mode:vertical-rl;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:6px 4px;border-radius:3px;text-align:center}
 .deficit-pill.neg{color:var(--red);background:var(--red-bg);border:1px solid rgba(232,54,79,0.15)}
 .deficit-pill.pos{color:var(--green);background:var(--green-bg);border:1px solid rgba(26,232,140,0.15)}
-
-/* RIGHT - LOG PANEL */
-.log-panel{border-left:1px solid var(--border);display:flex;flex-direction:column;max-height:calc(100vh - 66px);position:sticky;top:66px}
-@media(max-width:1100px){.log-panel{position:relative;top:0;max-height:600px;border-left:none;border-top:1px solid var(--border)}}
-.log-header{padding:16px 16px 0}
-.log-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
-.log-stat{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:8px;text-align:center}
-.log-stat .sv{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:700;line-height:1}
-.log-stat .sl{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-top:3px}
-.log-scroll{flex:1;overflow-y:auto;padding:0 16px 16px}
-
-.log-entry{padding:10px;border-left:2px solid var(--border);margin-bottom:8px;animation:slideIn .4s ease both}
-@keyframes slideIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)}}
-.log-entry.pass{border-left-color:var(--green)}
-.log-entry.fail{border-left-color:var(--red)}
-.log-entry.info{border-left-color:var(--cyan)}
-.log-agent{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
-.log-text{font-size:11px;line-height:1.5}
-.log-text strong{color:var(--text)}
-.log-impact{font-family:'IBM Plex Mono',monospace;font-size:10px;margin-top:4px}
-.log-votes{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--text3);margin-top:3px;line-height:1.4}
-
-/* VOTE VISUALIZATION */
-.vote-viz{display:flex;gap:3px;margin-top:6px;flex-wrap:wrap}
-.vote-viz .dot{width:5px;height:5px;border-radius:50%;transition:all .3s}
-
-/* CONTROLS */
-.log-controls{padding:12px 16px;border-top:1px solid var(--border);display:flex;gap:6px}
-.ctrl-btn{flex:1;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:4px;cursor:pointer;transition:all .2s}
+.log-panel{border-left:1px solid var(--border);display:flex;flex-direction:column;max-height:calc(100vh - 56px);position:sticky;top:56px}
+@media(max-width:1100px){.log-panel{position:relative;top:0;max-height:500px;border:none;border-top:1px solid var(--border)}}
+.log-header{padding:12px 14px 0}
+.log-stats{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:10px}
+.log-stat{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:7px;text-align:center}
+.log-stat .sv{font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:700;line-height:1}
+.log-stat .sl{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-top:2px}
+.log-scroll{flex:1;overflow-y:auto;padding:0 14px 14px}
+.log-entry{padding:8px;border-left:2px solid var(--border);margin-bottom:6px;animation:si .4s ease both}
+@keyframes si{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:translateX(0)}}
+.log-entry.pass{border-left-color:var(--green)}.log-entry.fail{border-left-color:var(--red)}.log-entry.info{border-left-color:var(--cyan)}
+.log-agent{font-family:'IBM Plex Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px}
+.log-text{font-size:10px;line-height:1.4}.log-text strong{color:var(--text)}
+.log-impact{font-family:'IBM Plex Mono',monospace;font-size:9px;margin-top:3px}
+.log-votes{font-family:'IBM Plex Mono',monospace;font-size:7px;color:var(--text3);margin-top:2px}
+.log-controls{padding:10px 14px;border-top:1px solid var(--border);display:flex;gap:5px}
+.ctrl-btn{flex:1;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:4px;cursor:pointer;transition:all .2s}
 .ctrl-btn:hover{border-color:var(--text3);background:var(--surface2)}
-.ctrl-btn.go{border-color:var(--green);color:var(--green)}
-.ctrl-btn.go:hover{background:var(--green);color:var(--bg);box-shadow:0 0 20px var(--green-glow)}
-
-/* ===== RESULTS SECTION ===== */
-.results{display:none;padding:60px 24px;text-align:center}
-.results.active{display:block}
-.results h2{font-family:'Bitter',serif;font-size:clamp(28px,4vw,48px);font-weight:900;margin-bottom:8px}
-.results h2 .green{color:var(--green)}
-.results .results-sub{font-size:18px;color:var(--text2);margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
-
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;max-width:800px;margin:0 auto 48px;gap:20px}
+.results{display:none;padding:60px 24px;text-align:center}.results.active{display:block}
+.results h2{font-family:'Bitter',serif;font-size:clamp(24px,3.5vw,44px);font-weight:900;margin-bottom:8px}.results h2 .green{color:var(--green)}
+.results-sub{font-size:16px;color:var(--text2);margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;max-width:800px;margin:0 auto 40px;gap:16px}
 @media(max-width:600px){.compare-grid{grid-template-columns:1fr}}
-.compare-card{padding:32px 24px;border-radius:8px;border:1px solid var(--border)}
+.compare-card{padding:28px 20px;border-radius:8px;border:1px solid var(--border)}
 .compare-card.congress{background:var(--red-bg);border-color:rgba(232,54,79,0.2)}
 .compare-card.ai{background:var(--green-bg);border-color:rgba(26,232,140,0.2)}
-.compare-card .cc-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
-.compare-card.congress .cc-label{color:var(--red)}
-.compare-card.ai .cc-label{color:var(--green)}
-.compare-card .cc-stat{margin-bottom:12px}
-.compare-card .cc-num{font-family:'IBM Plex Mono',monospace;font-size:clamp(24px,3vw,36px);font-weight:700}
-.compare-card .cc-desc{font-size:12px;color:var(--text2)}
-
-.final-quote{max-width:640px;margin:0 auto 40px;font-family:'Bitter',serif;font-size:clamp(18px,2.5vw,26px);font-weight:400;line-height:1.5;color:var(--text2);font-style:italic}
-.final-quote strong{color:var(--text);font-style:normal}
-
-.share-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
-.share-btn{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;padding:12px 24px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:4px;cursor:pointer;transition:all .2s;text-decoration:none}
-.share-btn:hover{border-color:var(--text3);background:var(--surface2)}
-
-.restart-btn{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:12px 32px;border:1px solid var(--border);background:transparent;color:var(--text3);border-radius:4px;cursor:pointer;transition:all .2s}
-.restart-btn:hover{color:var(--text);border-color:var(--text3)}
-
-/* FOOTER */
-.footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:1px}
-.footer a{color:var(--text2);text-decoration:none}
-.footer a:hover{color:var(--text)}
-
-/* UTILITY */
-.hidden{display:none!important}
+.cc-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.compare-card.congress .cc-label{color:var(--red)}.compare-card.ai .cc-label{color:var(--green)}
+.cc-stat{margin-bottom:10px}.cc-num{font-family:'IBM Plex Mono',monospace;font-size:clamp(20px,2.5vw,32px);font-weight:700}.cc-desc{font-size:11px;color:var(--text2)}
+.final-quote{max-width:600px;margin:0 auto 36px;font-family:'Bitter',serif;font-size:clamp(16px,2.2vw,24px);font-weight:400;line-height:1.5;color:var(--text2);font-style:italic}.final-quote strong{color:var(--text);font-style:normal}
+.share-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.share-btn{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;padding:10px 20px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:4px;cursor:pointer;transition:all .2s;text-decoration:none}.share-btn:hover{border-color:var(--text3);background:var(--surface2)}
+.restart-btn{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:10px 28px;border:1px solid var(--border);background:transparent;color:var(--text3);border-radius:4px;cursor:pointer}.restart-btn:hover{color:var(--text);border-color:var(--text3)}
+.blueprint{max-width:780px;margin:0 auto 44px;text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.bp-header{padding:20px 28px 0;display:flex;align-items:center;gap:10px}
+.bp-badge{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.2);padding:3px 10px;border-radius:2px}
+.bp-title{font-family:'Bitter',serif;font-size:20px;font-weight:700}
+.bp-body{padding:20px 28px 28px}
+.bp-section{margin-bottom:20px}
+.bp-section:last-child{margin-bottom:0}
+.bp-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--border)}
+.bp-label.green{color:var(--green)}.bp-label.red{color:var(--red)}.bp-label.blue{color:var(--blue)}.bp-label.gold{color:var(--gold)}.bp-label.purple{color:var(--purple)}
+.bp-text{font-size:14px;line-height:1.7;color:var(--text2)}
+.bp-text strong{color:var(--text);font-weight:600}
+.bp-text em{color:var(--cyan);font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px}
+.bp-callout{background:var(--surface2);border-left:3px solid var(--cyan);padding:14px 18px;margin:16px 0;border-radius:0 6px 6px 0;font-size:13px;line-height:1.6;color:var(--text2)}
+.bp-callout strong{color:var(--text)}
+.footer{text-align:center;padding:36px 24px;border-top:1px solid var(--border);font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text3)}.footer a{color:var(--text2);text-decoration:none}
 </style>
 </head>
 <body>
-
-<!-- ========== HERO ========== -->
 <section class="hero" id="heroSection">
-  <div class="hero-badge">Simulation · Real U.S. Fiscal Data</div>
-  <h1>What <span class="accent">535 Members of Congress</span> Won't Do</h1>
-  <p class="lead">The United States has not had a budget surplus since <strong>2001</strong>. In that time, the national debt has grown from <strong>$5.7 trillion</strong> to over <strong>$36 trillion</strong>. Watch 5 AI agents do in 90 seconds what Congress hasn't done in <strong>24 years</strong>.</p>
-
-  <div class="shame-row">
-    <div class="shame-stat"><div class="num">435</div><div class="lbl">House Members</div></div>
-    <div class="shame-stat"><div class="num">100</div><div class="lbl">Senators</div></div>
-    <div class="shame-stat"><div class="num">24</div><div class="lbl">Years of Deficits</div></div>
-    <div class="shame-stat"><div class="num">$0</div><div class="lbl">Surpluses Since '01</div></div>
-  </div>
-
-  <div class="hero-debt">
-    National Debt: <strong id="heroDebt">$36,400,000,000,000</strong>
-    &nbsp;<span class="tick">●</span>&nbsp;
-    <span style="color:var(--text2)">+$70,843/sec</span>
-  </div>
-
-  <button class="begin-btn" onclick="beginSimulation()">▶&nbsp; Launch Simulation</button>
-  <div class="scroll-hint">↓</div>
+<div class="hero-badge">Simulation · Real U.S. Fiscal Data</div>
+<h1>What <span class="accent">535 Members of Congress</span> Won't Do</h1>
+<p class="lead">The U.S. hasn't had a budget surplus since <strong>2001</strong>. The national debt has grown from <strong>$5.7T</strong> to over <strong>$36T</strong>. Choose a scenario and watch 5 AI agents do what Congress can't.</p>
+<div class="shame-row">
+<div class="shame-stat"><div class="num">435</div><div class="lbl">House Members</div></div>
+<div class="shame-stat"><div class="num">100</div><div class="lbl">Senators</div></div>
+<div class="shame-stat"><div class="num">24</div><div class="lbl">Yrs of Deficits</div></div>
+<div class="shame-stat"><div class="num">$0</div><div class="lbl">Surpluses Since '01</div></div>
+</div>
+<div class="hero-debt">National Debt: <strong id="heroDebt">$36,400,000,000,000</strong> <span class="tick">●</span> <span style="color:var(--text2)">+$70,843/sec</span></div>
+<button class="hero-cta" onclick="showPicker()">▶ Choose Your Scenario</button>
 </section>
 
-<!-- ========== SIMULATION ========== -->
+<section class="picker" id="pickerSection">
+<h2>Choose a Scenario</h2>
+<p class="pick-sub">Same 5 AI agents. Same Congressional structure. Same real budget data. Different mission.</p>
+<div class="scenario-grid" id="scenarioGrid">
+<div class="scenario-card" onclick="selectScenario(this,'deficit')"><div class="sc-icon">📉</div><div class="sc-title">Solve the Deficit</div><div class="sc-desc">Reduce the $1.83T annual deficit through bipartisan reform. The thing Congress should be doing every year.</div><div class="sc-tags"><span class="sc-tag">Deficit Reduction</span><span class="sc-tag">8 Rounds</span></div></div>
+<div class="scenario-card" onclick="selectScenario(this,'debtfree')"><div class="sc-icon">🏛️</div><div class="sc-title">Eliminate All Debt by 2050</div><div class="sc-desc">Pay off the entire $36T national debt in 25 years. The moon shot.</div><div class="sc-tags"><span class="sc-tag">$36T Target</span><span class="sc-tag">10 Rounds</span></div></div>
+<div class="scenario-card" onclick="selectScenario(this,'healthcare')"><div class="sc-icon">🏥</div><div class="sc-title">Universal Healthcare + UBI by 2035</div><div class="sc-desc">Medicare-for-All and $1,000/mo UBI — while keeping the deficit under control. Can the math work?</div><div class="sc-tags"><span class="sc-tag">M4A + UBI</span><span class="sc-tag">10 Rounds</span></div></div>
+<div class="scenario-card" onclick="selectScenario(this,'aieconomy')"><div class="sc-icon">🤖</div><div class="sc-title">AI Economy Transition (2025–2030)</div><div class="sc-desc">30M jobs displaced by AI alongside massive productivity gains. How does the budget adapt?</div><div class="sc-tags"><span class="sc-tag">Job Displacement</span><span class="sc-tag">8 Rounds</span></div></div>
+<div class="scenario-card" onclick="selectScenario(this,'selfsustain')"><div class="sc-icon">🌾</div><div class="sc-title">Fully Self-Sustainable by 2050</div><div class="sc-desc">Energy independence, domestic manufacturing, food security, zero trade deficit.</div><div class="sc-tags"><span class="sc-tag">Energy</span><span class="sc-tag">Manufacturing</span><span class="sc-tag">10 Rounds</span></div></div>
+</div>
+<div style="text-align:center"><button class="launch-btn" id="launchBtn" onclick="launchSim()">▶ Launch Simulation</button></div>
+</section>
+
 <section class="sim-section" id="simSection">
-  <div class="sim-topbar">
-    <div class="title-area">
-      <h2>AI FISCAL COUNCIL</h2>
-      <span class="round-tag" id="roundTag">INITIALIZING</span>
-    </div>
-    <div class="topbar-stats">
-      <div class="topbar-stat"><div class="val" id="tbDebt" style="color:var(--red)">$36.4T</div><div class="lbl">Nat'l Debt</div></div>
-      <div class="topbar-stat"><div class="val" id="tbDeficit" style="color:var(--red)">-$1,830B</div><div class="lbl">Deficit</div></div>
-      <div class="topbar-stat"><div class="val" id="tbSaved" style="color:var(--green)">$0</div><div class="lbl">Saved/yr</div></div>
-    </div>
-  </div>
-  <div class="sim-progress"><div class="sim-progress-fill" id="progFill"></div></div>
+<div class="sim-topbar"><div class="title-area"><h2>AI FISCAL COUNCIL</h2><span class="round-tag" id="roundTag">INIT</span><span class="scenario-tag" id="scenarioLabel">—</span></div>
+<div class="topbar-stats"><div class="topbar-stat"><div class="val" id="tbDeficit" style="color:var(--red)">-$1,830B</div><div class="lbl">Deficit</div></div><div class="topbar-stat"><div class="val" id="tbSaved" style="color:var(--green)">$0B</div><div class="lbl">Saved/yr</div></div><div class="topbar-stat"><div class="val" id="tbGoal" style="color:var(--cyan)">0%</div><div class="lbl">Progress</div></div></div></div>
+<div class="sim-progress"><div class="sim-progress-fill" id="progFill"></div></div>
+<div class="sim-grid">
+<div class="congress-panel">
+<div class="section-label">119th United States Congress</div>
+<div class="chamber"><div class="chamber-header"><span class="chamber-name">U.S. House</span><span class="chamber-count">435</span></div><div class="party-bar"><div class="rep" style="flex:220"></div><div class="dem" style="flex:215"></div></div><div class="chamber-detail"><span style="color:var(--red)">● 220 R</span> <span style="color:var(--blue)">● 215 D</span><br>Chair: <strong>Jodey Arrington</strong> (R-TX)</div></div>
+<div class="chamber"><div class="chamber-header"><span class="chamber-name">U.S. Senate</span><span class="chamber-count">100</span></div><div class="party-bar"><div class="rep" style="flex:53"></div><div class="dem" style="flex:45"></div><div class="ind" style="flex:2"></div></div><div class="chamber-detail"><span style="color:var(--red)">● 53 R</span> <span style="color:var(--blue)">● 45 D</span> <span style="color:var(--gold)">● 2 I</span><br>Chair: <strong>Lindsey Graham</strong> (R-SC)</div></div>
+<div class="goal-card"><div class="gc-label">● Active Scenario</div><div class="gc-title" id="goalTitle">—</div><div class="gc-desc" id="goalDesc">—</div></div>
+<div class="section-label">AI Agents</div>
+<div class="agent" id="ag-hamilton"><div class="think-line"></div><div class="agent-top"><div class="agent-icon" style="background:var(--red-bg);border:1px solid rgba(232,54,79,0.2)">🦅</div><div><div class="agent-name">HAMILTON</div><div class="agent-desc">Fiscal Discipline</div></div></div><div class="agent-msg" id="msg-hamilton">Standing by...</div></div>
+<div class="agent" id="ag-keynes"><div class="think-line"></div><div class="agent-top"><div class="agent-icon" style="background:var(--green-bg);border:1px solid rgba(26,232,140,0.2)">📈</div><div><div class="agent-name">KEYNES</div><div class="agent-desc">Revenue & Growth</div></div></div><div class="agent-msg" id="msg-keynes">Standing by...</div></div>
+<div class="agent" id="ag-rawls"><div class="think-line"></div><div class="agent-top"><div class="agent-icon" style="background:var(--blue-bg);border:1px solid rgba(59,130,246,0.2)">🛡️</div><div><div class="agent-name">RAWLS</div><div class="agent-desc">Social Equity</div></div></div><div class="agent-msg" id="msg-rawls">Standing by...</div></div>
+<div class="agent" id="ag-marshall"><div class="think-line"></div><div class="agent-top"><div class="agent-icon" style="background:var(--gold-bg);border:1px solid rgba(240,168,48,0.2)">⚔️</div><div><div class="agent-name">MARSHALL</div><div class="agent-desc">National Security</div></div></div><div class="agent-msg" id="msg-marshall">Standing by...</div></div>
+<div class="agent" id="ag-madison"><div class="think-line"></div><div class="agent-top"><div class="agent-icon" style="background:var(--purple-bg);border:1px solid rgba(139,92,246,0.2)">⚖️</div><div><div class="agent-name">MADISON</div><div class="agent-desc">Consensus Builder</div></div></div><div class="agent-msg" id="msg-madison">Standing by...</div></div>
+</div>
+<div class="viz-panel">
+<div class="viz-card"><div class="viz-title">10-Year Debt Trajectory</div><div class="viz-subtitle">CBO baseline vs. AI Council path — trillions USD</div><div class="chart-legend"><div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>CBO Baseline</div><div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>AI Council</div></div><canvas id="mainChart" height="240"></canvas></div>
+<div class="viz-card"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px"><div><div class="viz-title">Federal Budget — FY2025</div><div class="viz-subtitle">Real-time rebalancing</div></div><div class="round-tag" id="budgetRound" style="font-size:8px">BASELINE</div></div><div class="budget-section"><div class="budget-col rev"><h4>Revenue $<span id="tRev">4,920</span>B</h4><div id="revItems"></div></div><div class="budget-mid"><div class="deficit-pill neg" id="dPill">DEFICIT<br>-$1,830B</div></div><div class="budget-col spend"><h4>Spending $<span id="tSpend">6,750</span>B</h4><div id="spendItems"></div></div></div></div>
+<div class="viz-card"><div class="viz-title">Floor Vote — 535 Seats</div><div class="viz-subtitle">Each dot = 1 member of Congress</div><div style="margin-bottom:4px;font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--text3)">HOUSE (435)</div><div id="houseVoteDots" style="display:flex;flex-wrap:wrap;gap:1px"></div><div style="margin:8px 0 4px;font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--text3)">SENATE (100)</div><div id="senateVoteDots" style="display:flex;flex-wrap:wrap;gap:1px"></div><div style="margin-top:8px;display:flex;gap:12px"><div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Yea</div><div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Nay</div><div class="legend-item"><div class="legend-dot" style="background:var(--text3)"></div>N/V</div></div></div>
+</div>
+<div class="log-panel"><div class="log-header"><div class="section-label">Council Decisions</div><div class="log-stats"><div class="log-stat"><div class="sv" id="lsReduced" style="color:var(--green)">0%</div><div class="sl">Deficit Cut</div></div><div class="log-stat"><div class="sv" id="lsPassed" style="color:var(--blue)">0</div><div class="sl">Passed</div></div><div class="log-stat"><div class="sv" id="lsConsensus" style="color:var(--purple)">—</div><div class="sl">Consensus</div></div><div class="log-stat"><div class="sv" id="ls10yr" style="color:var(--cyan)">$0T</div><div class="sl">10yr Impact</div></div></div></div><div class="log-scroll" id="logScroll"><div style="text-align:center;color:var(--text3);padding:40px 8px;font-size:11px">Simulation starting...</div></div><div class="log-controls"><button class="ctrl-btn" id="speedBtn" onclick="toggleSpeed()">1×</button><button class="ctrl-btn" onclick="resetAll()">↺ Reset</button></div></div>
+</div></section>
 
-  <div class="sim-grid">
-    <!-- LEFT -->
-    <div class="congress-panel">
-      <div class="section-label">119th United States Congress</div>
-
-      <div class="chamber">
-        <div class="chamber-header">
-          <span class="chamber-name">U.S. House</span>
-          <span class="chamber-count">435 Members</span>
-        </div>
-        <div class="party-bar">
-          <div class="rep" style="flex:220"></div>
-          <div class="dem" style="flex:215"></div>
-        </div>
-        <div class="chamber-detail">
-          <span style="color:var(--red)">● 220 R</span> &nbsp;
-          <span style="color:var(--blue)">● 215 D</span><br>
-          Budget Chair: <strong>Jodey Arrington</strong> (R-TX)<br>
-          Ranking: <strong>Brendan Boyle</strong> (D-PA)
-        </div>
-      </div>
-
-      <div class="chamber">
-        <div class="chamber-header">
-          <span class="chamber-name">U.S. Senate</span>
-          <span class="chamber-count">100 Members</span>
-        </div>
-        <div class="party-bar">
-          <div class="rep" style="flex:53"></div>
-          <div class="dem" style="flex:45"></div>
-          <div class="ind" style="flex:2"></div>
-        </div>
-        <div class="chamber-detail">
-          <span style="color:var(--red)">● 53 R</span> &nbsp;
-          <span style="color:var(--blue)">● 45 D</span> &nbsp;
-          <span style="color:var(--gold)">● 2 I</span><br>
-          Budget Chair: <strong>Lindsey Graham</strong> (R-SC)<br>
-          Ranking: <strong>Jeff Merkley</strong> (D-OR)
-        </div>
-      </div>
-
-      <div class="chamber" style="background:var(--red-bg);border-color:rgba(232,54,79,0.15)">
-        <div class="chamber-header">
-          <span class="chamber-name" style="color:var(--red)">Congressional Record</span>
-        </div>
-        <div class="chamber-detail" style="font-size:11px">
-          Last surplus: <strong>FY 2001</strong><br>
-          Debt added since: <strong>+$30.7 trillion</strong><br>
-          Debt limit raised: <strong>22 times since 2001</strong><br>
-          Balanced budgets passed: <strong>0</strong><br>
-          Avg annual deficit: <strong>$1.28 trillion</strong>
-        </div>
-      </div>
-
-      <div class="section-label" style="margin-top:16px">AI Negotiation Agents</div>
-      <div class="agents-section" id="agentsContainer">
-        <div class="agent" id="ag-hamilton">
-          <div class="think-line"></div>
-          <div class="agent-top">
-            <div class="agent-icon" style="background:var(--red-bg);border:1px solid rgba(232,54,79,0.2)">🦅</div>
-            <div><div class="agent-name">HAMILTON</div><div class="agent-desc">Fiscal Discipline</div></div>
-          </div>
-          <div class="agent-msg" id="msg-hamilton">Standing by...</div>
-        </div>
-        <div class="agent" id="ag-keynes">
-          <div class="think-line"></div>
-          <div class="agent-top">
-            <div class="agent-icon" style="background:var(--green-bg);border:1px solid rgba(26,232,140,0.2)">📈</div>
-            <div><div class="agent-name">KEYNES</div><div class="agent-desc">Revenue & Growth</div></div>
-          </div>
-          <div class="agent-msg" id="msg-keynes">Standing by...</div>
-        </div>
-        <div class="agent" id="ag-rawls">
-          <div class="think-line"></div>
-          <div class="agent-top">
-            <div class="agent-icon" style="background:var(--blue-bg);border:1px solid rgba(59,130,246,0.2)">🛡️</div>
-            <div><div class="agent-name">RAWLS</div><div class="agent-desc">Social Equity</div></div>
-          </div>
-          <div class="agent-msg" id="msg-rawls">Standing by...</div>
-        </div>
-        <div class="agent" id="ag-marshall">
-          <div class="think-line"></div>
-          <div class="agent-top">
-            <div class="agent-icon" style="background:var(--gold-bg);border:1px solid rgba(240,168,48,0.2)">⚔️</div>
-            <div><div class="agent-name">MARSHALL</div><div class="agent-desc">National Security</div></div>
-          </div>
-          <div class="agent-msg" id="msg-marshall">Standing by...</div>
-        </div>
-        <div class="agent" id="ag-madison">
-          <div class="think-line"></div>
-          <div class="agent-top">
-            <div class="agent-icon" style="background:var(--purple-bg);border:1px solid rgba(139,92,246,0.2)">⚖️</div>
-            <div><div class="agent-name">MADISON</div><div class="agent-desc">Consensus Builder</div></div>
-          </div>
-          <div class="agent-msg" id="msg-madison">Standing by...</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CENTER -->
-    <div class="viz-panel">
-      <div class="viz-card">
-        <div class="viz-title">10-Year Debt Trajectory</div>
-        <div class="viz-subtitle">CBO baseline projection vs. AI Council path — trillions USD</div>
-        <div class="chart-legend">
-          <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>CBO Baseline (no action)</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>AI Council Path</div>
-        </div>
-        <canvas id="mainChart" height="260"></canvas>
-      </div>
-
-      <div class="viz-card">
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px">
-          <div>
-            <div class="viz-title">Federal Budget — FY2025</div>
-            <div class="viz-subtitle">Real-time rebalancing as proposals pass</div>
-          </div>
-          <div class="round-tag" id="budgetRound" style="font-size:9px">BASELINE</div>
-        </div>
-        <div class="budget-section">
-          <div class="budget-col rev">
-            <h4>Revenue $<span id="tRev">4,920</span>B</h4>
-            <div id="revItems"></div>
-          </div>
-          <div class="budget-mid">
-            <div class="deficit-pill neg" id="dPill">DEFICIT<br>-$1,830B</div>
-          </div>
-          <div class="budget-col spend">
-            <h4>Spending $<span id="tSpend">6,750</span>B</h4>
-            <div id="spendItems"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- HOUSE FLOOR VOTE VIZ -->
-      <div class="viz-card" id="voteVizCard">
-        <div class="viz-title">Simulated Floor Vote — 535 Seats</div>
-        <div class="viz-subtitle">Each dot = 1 member of Congress. Watch bipartisan coalitions form.</div>
-        <div style="margin-bottom:6px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text3)">HOUSE (435)</span>
-        </div>
-        <div id="houseVoteDots" style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:12px"></div>
-        <div style="margin-bottom:6px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text3)">SENATE (100)</span>
-        </div>
-        <div id="senateVoteDots" style="display:flex;flex-wrap:wrap;gap:2px"></div>
-        <div style="margin-top:10px;display:flex;gap:16px">
-          <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Yea</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Nay</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--text3)"></div>Not voting</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RIGHT - LOG -->
-    <div class="log-panel">
-      <div class="log-header">
-        <div class="section-label">Council Decisions</div>
-        <div class="log-stats">
-          <div class="log-stat"><div class="sv" id="lsReduced" style="color:var(--green)">0%</div><div class="sl">Deficit Cut</div></div>
-          <div class="log-stat"><div class="sv" id="lsPassed" style="color:var(--blue)">0</div><div class="sl">Passed</div></div>
-          <div class="log-stat"><div class="sv" id="lsConsensus" style="color:var(--purple)">—</div><div class="sl">Consensus</div></div>
-          <div class="log-stat"><div class="sv" id="ls10yr" style="color:var(--cyan)">$0T</div><div class="sl">10yr Savings</div></div>
-        </div>
-      </div>
-      <div class="log-scroll" id="logScroll">
-        <div style="text-align:center;color:var(--text3);padding:60px 10px;font-size:12px">
-          Simulation will begin shortly...
-        </div>
-      </div>
-      <div class="log-controls">
-        <button class="ctrl-btn" id="speedBtn" onclick="toggleSpeed()">1× Speed</button>
-        <button class="ctrl-btn" onclick="resetAll()">↺ Reset</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== RESULTS ========== -->
 <section class="results" id="resultsSection">
-  <h2>The Council has <span class="green">reached consensus.</span></h2>
-  <p class="results-sub">5 AI agents, operating without campaign donors, lobbyists, or reelection pressure, solved what 535 members of Congress have failed to address for a generation.</p>
-
-  <div class="compare-grid">
-    <div class="compare-card congress">
-      <div class="cc-label">● 119th Congress (Real)</div>
-      <div class="cc-stat"><div class="cc-num" style="color:var(--red)">535</div><div class="cc-desc">Members of Congress</div></div>
-      <div class="cc-stat"><div class="cc-num" style="color:var(--red)">24 years</div><div class="cc-desc">Since last surplus (FY 2001)</div></div>
-      <div class="cc-stat"><div class="cc-num" style="color:var(--red)">+$30.7T</div><div class="cc-desc">Debt added since 2001</div></div>
-      <div class="cc-stat"><div class="cc-num" style="color:var(--red)" id="rCongDeficit">$1,830B</div><div class="cc-desc">Current annual deficit (FY2025)</div></div>
-      <div class="cc-stat"><div class="cc-num" style="color:var(--red)">$65.8T</div><div class="cc-desc">Projected debt by 2035 (CBO)</div></div>
-    </div>
-    <div class="compare-card ai">
-      <div class="cc-label">● AI Fiscal Council</div>
-      <div class="cc-stat"><div class="cc-num" style="color:var(--green)">5</div><div class="cc-desc">AI agents</div></div>
-      <div class="cc-stat"><div class="cc-num" style="color:var(--green)">~90 sec</div><div class="cc-desc">Time to consensus</div></div>
-      <div class="cc-stat"><div class="cc-num" style="color:var(--green)" id="rAISaved">—</div><div class="cc-desc">Annual deficit reduction</div></div>
-      <div class="cc-stat"><div class="cc-num" style="color:var(--green)" id="rAIDeficit">—</div><div class="cc-desc">Remaining annual deficit</div></div>
-      <div class="cc-stat"><div class="cc-num" style="color:var(--green)" id="rAIDebt2035">—</div><div class="cc-desc">Projected debt by 2035</div></div>
-    </div>
-  </div>
-
-  <div class="final-quote">
-    "The solutions exist. The math works. The only thing missing is <strong>the will to act without self-interest</strong>."
-  </div>
-
-  <div class="share-row">
-    <a class="share-btn" id="shareTwitter" href="#" target="_blank" rel="noopener">Share on X / Twitter</a>
-    <button class="share-btn" onclick="copyLink()">Copy Link</button>
-  </div>
-
-  <button class="restart-btn" onclick="resetAll()">↺ Run Simulation Again</button>
+<h2>The Council has <span class="green">reached consensus.</span></h2>
+<p class="results-sub" id="resultsSub"></p>
+<div class="compare-grid">
+<div class="compare-card congress"><div class="cc-label">● 119th Congress (Reality)</div><div class="cc-stat"><div class="cc-num" style="color:var(--red)">535 members</div><div class="cc-desc">24 years since last surplus</div></div><div class="cc-stat"><div class="cc-num" style="color:var(--red)">+$30.7T added</div><div class="cc-desc">Debt growth since 2001</div></div><div class="cc-stat"><div class="cc-num" style="color:var(--red)">$65.8T by 2035</div><div class="cc-desc">CBO projected debt</div></div></div>
+<div class="compare-card ai"><div class="cc-label">● AI Fiscal Council</div><div class="cc-stat"><div class="cc-num" style="color:var(--green)">5 agents, ~90 sec</div><div class="cc-desc">Time to consensus</div></div><div class="cc-stat"><div class="cc-num" style="color:var(--green)" id="rSaved">—</div><div class="cc-desc" id="rSavedDesc">Annual impact</div></div><div class="cc-stat"><div class="cc-num" style="color:var(--green)" id="rDebt35">—</div><div class="cc-desc">Projected 2035 debt</div></div></div>
+</div>
+<div class="final-quote" id="finalQuote"></div>
+<div class="blueprint" id="blueprintSection">
+<div class="bp-header"><span class="bp-badge">AI Analysis</span><span class="bp-title">The Blueprint: What It Would Actually Take</span></div>
+<div class="bp-body" id="blueprintBody"></div>
+</div>
+<div class="share-row"><a class="share-btn" id="shareX" href="#" target="_blank">Share on X</a><button class="share-btn" onclick="navigator.clipboard.writeText(location.href).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Link',2000)})">Copy Link</button></div>
+<button class="restart-btn" onclick="resetAll()">↺ Try Another Scenario</button>
 </section>
-
-<footer class="footer">
-  Data: U.S. Treasury, CBO, Congressional Research Service · FY2025 figures · Simulation for educational purposes<br>
-  Built to demonstrate what rational governance could look like · <a href="https://fiscaldata.treasury.gov" target="_blank" rel="noopener">fiscaldata.treasury.gov</a>
-</footer>
-
+<footer class="footer">Data: U.S. Treasury, CBO, CRS · FY2025 · <a href="https://fiscaldata.treasury.gov" target="_blank">fiscaldata.treasury.gov</a></footer>
 <script>
-// ==============================
-// REAL U.S. FISCAL DATA — FY2025
-// Sources: CBO, Treasury, CRS
-// ==============================
-const DATA = {
-  debt: 36_400_000_000_000,
-  grossDebt: 38_560_000_000_000,
-  perSec: 70843,
-  debtToGDP: 121,
-  gdp: 29_700_000_000_000,
+const D={revenue:{'Individual Income Tax':2440,'Payroll Taxes':1780,'Corporate Tax':420,'Excise & Customs':180,'Other Revenue':100},spending:{'Social Security':1520,'Medicare':930,'Medicaid & ACA':680,'Net Interest':1050,'Defense':895,'Veterans':340,'Income Security':490,'Other Discretionary':520,'Education':130,'Other Mandatory':195},totalRev:4920,totalSpend:6750,deficit:1830,cboPath:[36.4,38.6,41.0,43.5,46.2,49.0,52.0,55.2,58.6,62.1,65.8],years:[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035]};
 
-  revenue: {
-    'Individual Income Tax': 2440,
-    'Payroll Taxes': 1780,
-    'Corporate Tax': 420,
-    'Excise & Customs': 180,
-    'Other Revenue': 100,
-  },
-  totalRev: 4920,
+const SC={
+deficit:{name:'Solve the Deficit',rounds:8,goalTitle:'Eliminate the Annual Deficit',goalDesc:'Reduce the $1.83T annual deficit to zero through bipartisan reform.',quote:'"The solutions exist. The math works. The only thing missing is <strong>the will to act without self-interest.</strong>"',resultsSub:'5 AI agents solved what 535 members of Congress have failed to address for a generation.',
+blueprint:`
+<div class="bp-section"><div class="bp-label green">What You'd Get</div><div class="bp-text">A balanced federal budget for the first time since 2001. The debt would stop growing. Interest payments — currently <strong>$1.05 trillion per year</strong>, more than we spend on national defense — would start shrinking. Your children would inherit a government that can actually invest in their future instead of paying interest on your grandparents' spending.</div></div>
 
-  spending: {
-    'Social Security': 1520,
-    'Medicare': 930,
-    'Medicaid & ACA': 680,
-    'Net Interest': 1050,
-    'Defense': 895,
-    'Veterans': 340,
-    'Income Security': 490,
-    'Other Discretionary': 520,
-    'Education': 130,
-    'Other Mandatory': 195,
-  },
-  totalSpend: 6750,
-  deficit: 1830,
+<div class="bp-section"><div class="bp-label red">The Hard Tradeoffs</div><div class="bp-text">
+<strong>If you earn over $250K:</strong> Your payroll taxes go up. If you earn over $1M in investment income, capital gains get taxed like your salary. The top 6% of earners pay more. The bottom 94% see no income tax change.
+<br><br>
+<strong>If you're a corporation:</strong> The effective tax rate goes from ~15% to 25%. That's still lower than the 1990s, still competitive globally — but Wall Street won't like the headline.
+<br><br>
+<strong>If you're nearing retirement:</strong> The Social Security retirement age moves from 67 to 69, but over 20 years — so anyone over 50 today is unaffected. If you're wealthy in retirement (top 5%), your benefits get reduced.
+<br><br>
+<strong>If you're in the military:</strong> No cuts to personnel or readiness. But defense contractors lose cost-plus contracts and face competitive bidding. The $72B saved comes from procurement reform, not force reduction.
+</div></div>
 
-  // CBO 10-year baseline (public debt, trillions)
-  cboPath: [36.4, 38.6, 41.0, 43.5, 46.2, 49.0, 52.0, 55.2, 58.6, 62.1, 65.8],
-  years: [2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035],
+<div class="bp-section"><div class="bp-label blue">Why Congress Won't Do This</div><div class="bp-text">
+Every single one of these proposals has a <strong>lobby against it</strong>. Pharma fights drug negotiation. Defense contractors fight procurement reform. Wealthy donors fight capital gains parity. AARP fights any change to Social Security. Oil companies fight the carbon tax.
+<br><br>
+No individual proposal is radical — most have bipartisan expert support. But each one costs a politician donations, attack ads, or primary challenges. The AI agents didn't have re-election campaigns. That's the only difference.
+</div></div>
 
-  // Congressional composition — 119th Congress
-  house: { total: 435, r: 220, d: 215 },
-  senate: { total: 100, r: 53, d: 45, i: 2 },
+<div class="bp-callout"><strong>The Bottom Line:</strong> Solving the deficit doesn't require economic genius. It requires asking the top 6% to pay a bit more, making government buy things more efficiently, and modernizing programs designed in the 1960s. Every proposal here has been scored by the CBO and recommended by economists on both sides. The barrier is political courage, not policy knowledge.</div>
+`,props:[
+{r:1,a:'KEYNES',c:'var(--green)',t:'Corporate Tax → 25%',d:'Raise effective corporate rate to 25%, closing loopholes. OECD competitive.',rD:{'Corporate Tax':180},sD:{},im:'+$180B/yr',hY:248,hN:187,sY:58,sN:42},
+{r:1,a:'HAMILTON',c:'var(--red)',t:'Payroll Tax Cap → $250K',d:'Lift SS tax cap from $176K to $250K. Top 6% earners.',rD:{'Payroll Taxes':120},sD:{},im:'+$120B/yr',hY:262,hN:173,sY:64,sN:36},
+{r:2,a:'HAMILTON',c:'var(--red)',t:'Medicare Drug Negotiation ×5',d:'Expand IRA drug negotiation to 100 drugs by 2028.',rD:{},sD:{'Medicare':-95},im:'-$95B/yr',hY:301,hN:134,sY:72,sN:28},
+{r:2,a:'MARSHALL',c:'var(--gold)',t:'Defense Procurement Reform',d:'End cost-plus contracts. Competitive bidding saves 8%.',rD:{},sD:{'Defense':-72},im:'-$72B/yr',hY:278,hN:157,sY:66,sN:34},
+{r:3,a:'KEYNES',c:'var(--green)',t:'Carbon Tax — $50/ton',d:'$50/ton rising 5%/yr. Revenue-neutral for bottom 60%.',rD:{'Excise & Customs':95},sD:{},im:'+$95B/yr',hY:226,hN:209,sY:52,sN:48},
+{r:3,a:'RAWLS',c:'var(--blue)',t:'Medicaid Value-Based Care',d:'Value-based models, 12% admin cut. Same coverage.',rD:{},sD:{'Medicaid & ACA':-60},im:'-$60B/yr',hY:342,hN:93,sY:78,sN:22},
+{r:4,a:'MADISON',c:'var(--purple)',t:'Debt Maturity Restructuring',d:'Shift 15% short-term debt to 30yr bonds.',rD:{},sD:{'Net Interest':-85},im:'-$85B/yr',hY:310,hN:125,sY:74,sN:26},
+{r:4,a:'HAMILTON',c:'var(--red)',t:'Federal Agency Consolidation',d:'Merge 12 overlapping agencies. 8% attrition.',rD:{},sD:{'Other Discretionary':-55},im:'-$55B/yr',hY:254,hN:181,sY:60,sN:40},
+{r:5,a:'RAWLS',c:'var(--blue)',t:'Estate Tax Reform',d:'Lower exemption to $5M. Close stepped-up basis.',rD:{'Other Revenue':60},sD:{},im:'+$60B/yr',hY:232,hN:203,sY:54,sN:46},
+{r:5,a:'KEYNES',c:'var(--green)',t:'Capital Gains > $1M as Income',d:'Tax gains above $1M as ordinary income.',rD:{'Individual Income Tax':110},sD:{},im:'+$110B/yr',hY:228,hN:207,sY:52,sN:48},
+{r:6,a:'RAWLS',c:'var(--blue)',t:'Safety Net Consolidation',d:'Merge 14 programs. 20% admin savings.',rD:{},sD:{'Income Security':-65},im:'-$65B/yr',hY:298,hN:137,sY:70,sN:30},
+{r:6,a:'MARSHALL',c:'var(--gold)',t:'SS Retirement Age → 69',d:'Raise from 67→69 over 20yrs. Means-test top 5%.',rD:{},sD:{'Social Security':-80},im:'-$80B/yr',hY:240,hN:195,sY:56,sN:44},
+{r:7,a:'KEYNES',c:'var(--green)',t:'Full IRS Enforcement',d:'Close $600B/yr tax gap. $1→$5-12 return.',rD:{'Individual Income Tax':140},sD:{},im:'+$140B/yr',hY:334,hN:101,sY:82,sN:18},
+{r:7,a:'MADISON',c:'var(--purple)',t:'All-Payer Hospital Rates',d:'Price transparency. Cap growth at GDP+1%.',rD:{},sD:{'Medicare':-45,'Medicaid & ACA':-30},im:'-$75B/yr',hY:286,hN:149,sY:68,sN:32},
+{r:8,a:'MADISON',c:'var(--purple)',t:'Fiscal Responsibility Framework',d:'Debt-to-GDP target 80% in 15yr.',rD:{},sD:{'Other Mandatory':-40},im:'Structural',hY:356,hN:79,sY:84,sN:16},
+{r:8,a:'HAMILTON',c:'var(--red)',t:'Surplus Sinking Fund',d:'50% surplus → mandatory debt principal.',rD:{},sD:{},im:'Structural',hY:380,hN:55,sY:90,sN:10}
+]},
+debtfree:{name:'Eliminate Debt by 2050',rounds:10,goalTitle:'Zero National Debt by 2050',goalDesc:'Pay off $36.4T in 25 years. Requires ~$1.46T annual surplus.',quote:'"America paid off its entire debt once — in 1835. <strong>The question is whether anyone in power will try again.</strong>"',resultsSub:'The AI Council charted a 25-year path to debt elimination.',
+blueprint:`
+<div class="bp-section"><div class="bp-label green">What You'd Get</div><div class="bp-text">By 2050, the United States would owe <strong>nothing to anyone</strong>. No interest payments draining the budget. No foreign governments holding leverage through Treasury bonds. Every dollar of tax revenue could go toward actual services — schools, roads, defense, healthcare — instead of servicing debt accumulated by previous generations. America would be the only major economy in history to climb out of this kind of hole voluntarily.</div></div>
+
+<div class="bp-section"><div class="bp-label red">The Hard Tradeoffs — And They Are Hard</div><div class="bp-text">
+This scenario requires <strong>sacrifice from everyone</strong>, not just the wealthy. That's the honest truth.
+<br><br>
+<strong>If you're wealthy ($50M+ net worth):</strong> You pay a 2% annual wealth tax and a 50% estate tax above $5M. Capital gains are taxed as ordinary income — no exceptions. This is the biggest ask, and it's aimed at roughly 100,000 households.
+<br><br>
+<strong>If you're a worker:</strong> Your employer's payroll tax cap jumps to $400K. If you're a high earner, you'll feel it. If you're in a government job, your agency will shrink. Every federal department absorbs 8% cuts.
+<br><br>
+<strong>If you're retired or about to be:</strong> Social Security gets means-tested. If you have over $200K in annual retirement income, benefits get reduced. If you're over $500K, they phase out. For most retirees, nothing changes. For wealthy ones, it's a real cut.
+<br><br>
+<strong>If you're a veteran:</strong> VA services don't shrink, but they get modernized through AI and telehealth. Some in-person offices close.
+<br><br>
+<strong>If you serve in the military:</strong> 20% of overseas bases close. The military pivots to drones, cyber, and AI-powered systems. Fewer boots on the ground overseas, more technology.
+</div></div>
+
+<div class="bp-section"><div class="bp-label blue">Why This Is Almost Impossible Politically</div><div class="bp-text">
+This plan asks every powerful constituency to give something up. Wealthy donors lose the wealth tax fight. Retirees lose means-testing fight. Military hawks lose base closures. Government unions lose consolidation. <strong>No politician can champion all of these simultaneously and survive a primary.</strong>
+<br><br>
+The AI agents could do this because they optimized for the national interest over a 25-year horizon. Politicians optimize for the next 2-year election cycle. That math doesn't work.
+</div></div>
+
+<div class="bp-callout"><strong>The Bottom Line:</strong> Eliminating the national debt is mathematically possible but politically almost unthinkable. It requires the kind of shared sacrifice that Americans last demonstrated during World War II — everyone giving something for a generational goal. The question for voters is simple: is a debt-free America worth it, and are you willing to ask your own group to contribute?</div>
+`,props:[
+{r:1,a:'HAMILTON',c:'var(--red)',t:'Corporate Tax → 28%',d:'Restore pre-2017 rate. Massive revenue.',rD:{'Corporate Tax':280},sD:{},im:'+$280B/yr',hY:224,hN:211,sY:52,sN:48},
+{r:1,a:'KEYNES',c:'var(--green)',t:'Payroll Cap → $400K',d:'Dramatically raise SS cap. Top 3%.',rD:{'Payroll Taxes':240},sD:{},im:'+$240B/yr',hY:230,hN:205,sY:54,sN:46},
+{r:2,a:'KEYNES',c:'var(--green)',t:'Wealth Tax 2% above $50M',d:'Annual 2% on net worth >$50M.',rD:{'Individual Income Tax':250},sD:{},im:'+$250B/yr',hY:222,hN:213,sY:51,sN:49},
+{r:2,a:'RAWLS',c:'var(--blue)',t:'Financial Transaction Tax',d:'0.1% on stock trades.',rD:{'Other Revenue':120},sD:{},im:'+$120B/yr',hY:236,hN:199,sY:56,sN:44},
+{r:3,a:'HAMILTON',c:'var(--red)',t:'8% Across-the-Board Cut',d:'Every dept absorbs 8% efficiency mandate.',rD:{},sD:{'Defense':-72,'Other Discretionary':-42,'Education':-10},im:'-$124B/yr',hY:242,hN:193,sY:54,sN:46},
+{r:3,a:'MADISON',c:'var(--purple)',t:'Medicare Full Reform',d:'Drug negotiation + 15% admin cut.',rD:{},sD:{'Medicare':-140},im:'-$140B/yr',hY:312,hN:123,sY:76,sN:24},
+{r:4,a:'KEYNES',c:'var(--green)',t:'Carbon Tax $75/ton',d:'Higher rate for max revenue.',rD:{'Excise & Customs':140},sD:{},im:'+$140B/yr',hY:224,hN:211,sY:51,sN:49},
+{r:4,a:'MARSHALL',c:'var(--gold)',t:'Defense Modernization',d:'Close 20% overseas bases. Drone/cyber shift.',rD:{},sD:{'Defense':-110},im:'-$110B/yr',hY:234,hN:201,sY:52,sN:48},
+{r:5,a:'RAWLS',c:'var(--blue)',t:'Medicaid Block Grants',d:'Block grants with outcome requirements.',rD:{},sD:{'Medicaid & ACA':-90},im:'-$90B/yr',hY:252,hN:183,sY:58,sN:42},
+{r:5,a:'HAMILTON',c:'var(--red)',t:'SS Means Testing',d:'Reduce benefits for >$200K income.',rD:{},sD:{'Social Security':-120},im:'-$120B/yr',hY:228,hN:207,sY:52,sN:48},
+{r:6,a:'KEYNES',c:'var(--green)',t:'IRS AI Enforcement',d:'Close entire $600B gap.',rD:{'Individual Income Tax':200},sD:{},im:'+$200B/yr',hY:340,hN:95,sY:80,sN:20},
+{r:6,a:'MADISON',c:'var(--purple)',t:'Debt Refinancing',d:'Refinance $8T into 30yr bonds.',rD:{},sD:{'Net Interest':-150},im:'-$150B/yr',hY:320,hN:115,sY:78,sN:22},
+{r:7,a:'RAWLS',c:'var(--blue)',t:'Income Security Overhaul',d:'Consolidate + work incentives. 25% savings.',rD:{},sD:{'Income Security':-100},im:'-$100B/yr',hY:284,hN:151,sY:66,sN:34},
+{r:7,a:'KEYNES',c:'var(--green)',t:'Capital Gains Full Parity',d:'All gains as ordinary income.',rD:{'Individual Income Tax':180},sD:{},im:'+$180B/yr',hY:222,hN:213,sY:51,sN:49},
+{r:8,a:'MARSHALL',c:'var(--gold)',t:'Veterans AI Modernization',d:'AI claims + telehealth. 12% savings.',rD:{},sD:{'Veterans':-40},im:'-$40B/yr',hY:362,hN:73,sY:88,sN:12},
+{r:8,a:'HAMILTON',c:'var(--red)',t:'100% Surplus to Debt',d:'All surplus → principal.',rD:{},sD:{},im:'Structural',hY:290,hN:145,sY:68,sN:32},
+{r:9,a:'MADISON',c:'var(--purple)',t:'Estate Tax 50% above $5M',d:'Aggressive estate tax.',rD:{'Other Revenue':100},sD:{},im:'+$100B/yr',hY:226,hN:209,sY:52,sN:48},
+{r:9,a:'KEYNES',c:'var(--green)',t:'Federal Land Energy Leases',d:'Lease 5% federal land for renewables.',rD:{'Other Revenue':60},sD:{},im:'+$60B/yr',hY:268,hN:167,sY:62,sN:38},
+{r:10,a:'MADISON',c:'var(--purple)',t:'Constitutional Debt Cap',d:'Cap debt-to-GDP at 50% by 2050.',rD:{},sD:{'Other Mandatory':-60},im:'Structural',hY:350,hN:85,sY:82,sN:18},
+{r:10,a:'HAMILTON',c:'var(--red)',t:'Balanced Budget Amendment',d:'Require balance except emergencies.',rD:{},sD:{},im:'Structural',hY:370,hN:65,sY:86,sN:14}
+]},
+healthcare:{name:'Universal Healthcare + UBI',rounds:10,goalTitle:'Medicare-for-All + $1K/mo UBI by 2035',goalDesc:'Universal healthcare and basic income while keeping debt-to-GDP under 120%.',quote:'"Every other developed nation provides universal healthcare. None collapsed. <strong>The question is priority, not possibility.</strong>"',resultsSub:'The AI Council designed a funded path to universal coverage and basic income.',
+blueprint:`
+<div class="bp-section"><div class="bp-label green">What You'd Get</div><div class="bp-text">
+<strong>Healthcare:</strong> Every American covered. No premiums, no deductibles, no surprise bills, no medical bankruptcy. You go to any doctor, hand them your card, and leave. The way it works in Canada, the UK, Germany, France, Japan, Australia, and every other wealthy country on Earth.
+<br><br>
+<strong>Basic Income:</strong> $1,000/month to every American adult earning under $75K. That's $12,000/year — not enough to live on, but enough to keep you afloat while between jobs, enough to leave a bad situation, enough to take a risk on starting a business. It phases out above $100K, so middle-class Americans still get partial benefit.
+</div></div>
+
+<div class="bp-section"><div class="bp-label red">The Hard Tradeoffs — This Costs Real Money</div><div class="bp-text">
+Let's be honest: this is the most expensive scenario, and it requires the most dramatic tax restructuring.
+<br><br>
+<strong>Everyone pays a 10% VAT</strong> on goods and services (food, medicine, and housing are exempt). This is how most European countries fund their social programs. If you spend $50,000/year on taxable goods, that's $5,000 in new taxes. The UBI offsets this for lower earners — but middle and upper-middle class households feel it.
+<br><br>
+<strong>If you're wealthy ($50M+):</strong> A 3% annual wealth tax. Plus capital gains taxed as ordinary income. This is the most aggressive wealth taxation in the simulation.
+<br><br>
+<strong>If you're an employer:</strong> A 7.5% payroll tax replaces what you currently pay for employee health insurance. For most companies, this is actually <strong>cheaper</strong> than current premiums — but it's mandatory and visible.
+<br><br>
+<strong>If you work in private health insurance:</strong> Your industry largely goes away. Single-payer eliminates $250B/year in private admin overhead. That's real jobs lost in a transition — call centers, claims processors, billing departments. The plan includes transition support, but it's still disruptive.
+<br><br>
+<strong>If you're in the military:</strong> 10% procurement cut. No personnel changes, but contracts tighten.
+</div></div>
+
+<div class="bp-section"><div class="bp-label blue">The Political Minefield</div><div class="bp-text">
+This is the most politically polarizing scenario. The right hates the wealth tax and VAT. The left hates that Social Security still gets modernized. The health insurance industry — a $1.2 trillion sector employing 500,000+ people — fights for survival.
+<br><br>
+But here's the thing the agents flagged: <strong>Americans already pay for universal healthcare — they just don't get it.</strong> The U.S. spends $4.5 trillion/year on healthcare, more per capita than any country. This plan redirects that spending through a single system and saves $250B/year in admin alone. The money is already being spent. It's just being spent badly.
+</div></div>
+
+<div class="bp-callout"><strong>The Bottom Line:</strong> Universal healthcare + UBI is fundable, but it requires a VAT (like Europe), a wealth tax (like Norway), and the political willingness to dismantle the private insurance industry. The math works. The politics are brutal. Every voter has to decide: would you pay a 10% VAT to never see a medical bill again and get $1,000/month in your pocket?</div>
+`,props:[
+{r:1,a:'KEYNES',c:'var(--green)',t:'Corporate Tax → 28%',d:'Restore pre-2017 rate to fund programs.',rD:{'Corporate Tax':280},sD:{},im:'+$280B/yr',hY:226,hN:209,sY:52,sN:48},
+{r:1,a:'RAWLS',c:'var(--blue)',t:'M4A Phase 1',d:'Expand Medicare to under-26 and over-55.',rD:{},sD:{'Medicare':180,'Medicaid & ACA':-200},im:'Net -$20B shift',hY:228,hN:207,sY:52,sN:48},
+{r:2,a:'KEYNES',c:'var(--green)',t:'Wealth Tax 3% above $50M',d:'Fund UBI. 3% on ultra-high net worth.',rD:{'Individual Income Tax':350},sD:{},im:'+$350B/yr',hY:220,hN:215,sY:51,sN:49},
+{r:2,a:'RAWLS',c:'var(--blue)',t:'UBI Phase 1 — $500/mo',d:'$500/mo to adults <$75K. Replaces welfare.',rD:{},sD:{'Income Security':800},im:'+$800B (replaces $490B)',hY:222,hN:213,sY:51,sN:49},
+{r:3,a:'HAMILTON',c:'var(--red)',t:'10% VAT',d:'Broad VAT. Exempt food, medicine, housing.',rD:{'Excise & Customs':900},sD:{},im:'+$900B/yr',hY:232,hN:203,sY:54,sN:46},
+{r:3,a:'MADISON',c:'var(--purple)',t:'Single-Payer Admin Savings',d:'Eliminate private admin ($250B/yr).',rD:{},sD:{'Medicare':-250},im:'-$250B/yr',hY:242,hN:193,sY:56,sN:44},
+{r:4,a:'KEYNES',c:'var(--green)',t:'Financial Transaction Tax',d:'0.1% on trades.',rD:{'Other Revenue':120},sD:{},im:'+$120B/yr',hY:238,hN:197,sY:54,sN:46},
+{r:4,a:'MARSHALL',c:'var(--gold)',t:'Defense Efficiency',d:'10% procurement reform.',rD:{},sD:{'Defense':-90},im:'-$90B/yr',hY:252,hN:183,sY:58,sN:42},
+{r:5,a:'RAWLS',c:'var(--blue)',t:'M4A Phase 2 — Full Coverage',d:'All Americans. 7.5% employer payroll.',rD:{'Payroll Taxes':600},sD:{'Medicare':400},im:'+$600B/-$400B',hY:224,hN:211,sY:51,sN:49},
+{r:5,a:'HAMILTON',c:'var(--red)',t:'Drug Price Global Parity',d:'Cap at 120% intl avg.',rD:{},sD:{'Medicare':-200},im:'-$200B/yr',hY:310,hN:125,sY:72,sN:28},
+{r:6,a:'KEYNES',c:'var(--green)',t:'Capital Gains Parity',d:'All gains as ordinary income.',rD:{'Individual Income Tax':180},sD:{},im:'+$180B/yr',hY:226,hN:209,sY:52,sN:48},
+{r:6,a:'RAWLS',c:'var(--blue)',t:'UBI Phase 2 — $1K/mo',d:'Full $1K/mo. Phase-out >$100K.',rD:{},sD:{'Income Security':600},im:'+$600B spend',hY:220,hN:215,sY:51,sN:49},
+{r:7,a:'MADISON',c:'var(--purple)',t:'Healthcare Cost Controls',d:'All-payer rates. GDP+0.5% cap.',rD:{},sD:{'Medicare':-120,'Medicaid & ACA':-60},im:'-$180B/yr',hY:278,hN:157,sY:64,sN:36},
+{r:7,a:'KEYNES',c:'var(--green)',t:'IRS Enforcement Surge',d:'Close tax gap for program funding.',rD:{'Individual Income Tax':200},sD:{},im:'+$200B/yr',hY:330,hN:105,sY:80,sN:20},
+{r:8,a:'HAMILTON',c:'var(--red)',t:'Federal Consolidation',d:'Merge agencies. AI admin.',rD:{},sD:{'Other Discretionary':-80},im:'-$80B/yr',hY:276,hN:159,sY:64,sN:36},
+{r:8,a:'MARSHALL',c:'var(--gold)',t:'SS Modernization',d:'Age 69 + means-test top 5%.',rD:{},sD:{'Social Security':-80},im:'-$80B/yr',hY:238,hN:197,sY:54,sN:46},
+{r:9,a:'MADISON',c:'var(--purple)',t:'Debt Refinancing',d:'Lock low rates on $6T.',rD:{},sD:{'Net Interest':-100},im:'-$100B/yr',hY:340,hN:95,sY:82,sN:18},
+{r:9,a:'KEYNES',c:'var(--green)',t:'Carbon Tax $60/ton',d:'Environmental revenue stream.',rD:{'Excise & Customs':110},sD:{},im:'+$110B/yr',hY:228,hN:207,sY:52,sN:48},
+{r:10,a:'MADISON',c:'var(--purple)',t:'Fiscal Sustainability Lock',d:'Auto revenue adjustments.',rD:{},sD:{'Other Mandatory':-40},im:'Structural',hY:350,hN:85,sY:84,sN:16},
+{r:10,a:'RAWLS',c:'var(--blue)',t:'Constitutional Guarantee',d:'Enshrine healthcare + UBI.',rD:{},sD:{},im:'Structural',hY:226,hN:209,sY:52,sN:48}
+]},
+aieconomy:{name:'AI Economy Transition',rounds:8,goalTitle:'Navigate AI Job Displacement (2025–2030)',goalDesc:'30M jobs displaced. Massive productivity gains. Budget adapts.',quote:'"AI will create more wealth than any technology in history. <strong>The only question is who benefits.</strong>"',resultsSub:'The AI Council designed a transition for the largest economic shift since industrialization.',
+blueprint:`
+<div class="bp-section"><div class="bp-label green">What You'd Get</div><div class="bp-text">
+A managed transition through the biggest economic disruption since the Industrial Revolution — instead of the chaos we got when manufacturing left in the 1990s and nobody had a plan.
+<br><br>
+<strong>If you lose your job to AI:</strong> You get $1,500/month for 24 months while you retrain. You get a $5,000/year lifelong learning account. And you get equity stakes in the AI systems that replaced you — meaning if the company profits from automating your job, you profit too.
+<br><br>
+<strong>If you keep your job:</strong> AI-powered government means faster services, less bureaucracy, and a government that costs 20% less to run. Healthcare costs drop 15% through AI diagnostics. Your tax dollars go further.
+<br><br>
+<strong>For the country:</strong> A Sovereign AI Wealth Fund — modeled on Norway's oil fund — invests AI tax revenue for every American's future. Think of it as the country getting a dividend from the robot revolution.
+</div></div>
+
+<div class="bp-section"><div class="bp-label red">The Hard Tradeoffs</div><div class="bp-text">
+<strong>If you're a tech company:</strong> You pay a 15% AI Productivity Dividend Tax on gains above baseline, plus an 8% digital services tax. And every fully-automated position costs $5,000/year in robot tax. This is the most aggressive technology taxation ever proposed. Silicon Valley would fight it with everything they have.
+<br><br>
+<strong>If you're a federal employee:</strong> AI replaces about 20% of government admin jobs. The savings are enormous ($138B/year), but those are real people's careers. The transition fund helps, but being told "retrain" when you're 55 is a different experience than when you're 25.
+<br><br>
+<strong>If you're in healthcare:</strong> AI diagnostics replace significant portions of radiology, pathology, and primary care triage. Doctors don't disappear, but the profession changes fundamentally.
+<br><br>
+<strong>If you're nearing retirement:</strong> Social Security benefits get recalculated using AI economic models. For top earners, that means reductions.
+<br><br>
+<strong>If you invest in stocks:</strong> A data dividend right means companies pay citizens for using their data ($200/person/year). This creates a new corporate cost center.
+</div></div>
+
+<div class="bp-section"><div class="bp-label blue">The Real Danger</div><div class="bp-text">
+The agents identified the core risk: <strong>doing nothing is the most expensive option.</strong> If 30 million jobs disappear over 5 years with no transition plan, you get mass unemployment, collapsing tax revenue, surging safety net costs, and political radicalization. That scenario costs far more than any tax in this plan.
+<br><br>
+The political problem is timing. AI companies want freedom to move fast. Workers want protection now. Government wants revenue. All three have legitimate needs, and all three conflict in the short term. The agents built a framework where tech companies pay for the transition they're causing — but that only works if you can pass the taxes before the jobs are gone.
+</div></div>
+
+<div class="bp-callout"><strong>The Bottom Line:</strong> AI is coming whether we plan for it or not. This blueprint taxes the winners to protect the losers, invests in retraining at massive scale, and creates a national wealth fund so every American benefits from automation. The alternative — what we're doing now — is no plan at all. We saw what "no plan" looked like when manufacturing left. This is that, but 10x faster.</div>
+`,props:[
+{r:1,a:'KEYNES',c:'var(--green)',t:'AI Productivity Dividend Tax',d:'15% tax on AI productivity gains above baseline.',rD:{'Corporate Tax':320},sD:{},im:'+$320B/yr',hY:228,hN:207,sY:52,sN:48},
+{r:1,a:'RAWLS',c:'var(--blue)',t:'Worker Transition Fund',d:'$200B/yr retraining + bridge income.',rD:{},sD:{'Education':200},im:'+$200B spend',hY:268,hN:167,sY:62,sN:38},
+{r:2,a:'KEYNES',c:'var(--green)',t:'Robot Tax $5K/unit',d:'Per-FTE automated position.',rD:{'Other Revenue':150},sD:{},im:'+$150B/yr',hY:232,hN:203,sY:54,sN:46},
+{r:2,a:'HAMILTON',c:'var(--red)',t:'AI Government Efficiency',d:'AI across agencies. 20% admin cut.',rD:{},sD:{'Other Discretionary':-104,'Veterans':-34},im:'-$138B/yr',hY:312,hN:123,sY:76,sN:24},
+{r:3,a:'RAWLS',c:'var(--blue)',t:'Universal Transition Income',d:'$1,500/mo for 24mo to displaced workers.',rD:{},sD:{'Income Security':300},im:'+$300B spend',hY:224,hN:211,sY:51,sN:49},
+{r:3,a:'MADISON',c:'var(--purple)',t:'AI Tax Collection',d:'AI auditing closes 80% of tax gap.',rD:{'Individual Income Tax':350},sD:{},im:'+$350B/yr',hY:338,hN:97,sY:82,sN:18},
+{r:4,a:'MARSHALL',c:'var(--gold)',t:'AI Defense Modernization',d:'Replace personnel-heavy ops with AI.',rD:{},sD:{'Defense':-120},im:'-$120B/yr',hY:248,hN:187,sY:56,sN:44},
+{r:4,a:'KEYNES',c:'var(--green)',t:'Data Dividend Rights',d:'Companies pay $200/person/yr for data.',rD:{'Other Revenue':50},sD:{},im:'+$50B/yr',hY:256,hN:179,sY:58,sN:42},
+{r:5,a:'HAMILTON',c:'var(--red)',t:'AI Healthcare Optimization',d:'AI diagnostics + admin. 15% savings.',rD:{},sD:{'Medicare':-140,'Medicaid & ACA':-100},im:'-$240B/yr',hY:302,hN:133,sY:72,sN:28},
+{r:5,a:'RAWLS',c:'var(--blue)',t:'Lifelong Learning Accounts',d:'$5K/yr federal credit for education.',rD:{},sD:{'Education':80},im:'+$80B spend',hY:284,hN:151,sY:66,sN:34},
+{r:6,a:'KEYNES',c:'var(--green)',t:'Digital Services Tax 8%',d:'Tax on tech digital revenue.',rD:{'Corporate Tax':120},sD:{},im:'+$120B/yr',hY:244,hN:191,sY:56,sN:44},
+{r:6,a:'MADISON',c:'var(--purple)',t:'Interest Optimization',d:'AI-predicted rate window refinancing.',rD:{},sD:{'Net Interest':-100},im:'-$100B/yr',hY:330,hN:105,sY:78,sN:22},
+{r:7,a:'HAMILTON',c:'var(--red)',t:'SS AI Adjustment',d:'AI-modeled benefits. Means-test top earners.',rD:{},sD:{'Social Security':-100},im:'-$100B/yr',hY:236,hN:199,sY:54,sN:46},
+{r:7,a:'RAWLS',c:'var(--blue)',t:'AI Worker Equity Stakes',d:'Displaced workers get equity in AI systems.',rD:{},sD:{},im:'Structural',hY:222,hN:213,sY:51,sN:49},
+{r:8,a:'MADISON',c:'var(--purple)',t:'AI Stabilization Framework',d:'Auto adjusters tied to displacement.',rD:{},sD:{'Other Mandatory':-50},im:'Structural',hY:346,hN:89,sY:82,sN:18},
+{r:8,a:'KEYNES',c:'var(--green)',t:'Sovereign AI Wealth Fund',d:'$200B/yr AI tax → national fund.',rD:{},sD:{},im:'Structural',hY:274,hN:161,sY:64,sN:36}
+]},
+selfsustain:{name:'Self-Sustainable by 2050',rounds:10,goalTitle:'Full American Self-Sufficiency by 2050',goalDesc:'Energy, manufacturing, food security, zero trade deficit.',quote:'"A nation that cannot feed, fuel, and build for itself <strong>is at the mercy of others.</strong>"',resultsSub:'The AI Council built a 25-year roadmap to full American self-sufficiency.',
+blueprint:`
+<div class="bp-section"><div class="bp-label green">What You'd Get</div><div class="bp-text">
+An America that <strong>doesn't need anyone</strong>. Not for energy, not for food, not for the chips in your phone, not for the steel in your bridges.
+<br><br>
+<strong>Energy:</strong> Full independence by 2035. A mix of nuclear, solar, and wind that makes foreign oil irrelevant. By 2040, America becomes a net energy <em>exporter</em> — selling clean power instead of buying dirty oil.
+<br><br>
+<strong>Manufacturing:</strong> Every critical supply chain brought home. Semiconductors, rare earth minerals, pharmaceuticals, defense components — all built on American soil by American workers. The 2020 supply chain crisis and the chip shortage never happen again.
+<br><br>
+<strong>Food:</strong> Expanded domestic agriculture including vertical farming and regional food hubs. No more dependency on foreign supply chains for basic nutrition.
+<br><br>
+<strong>Jobs:</strong> This is the most job-creating scenario. Reshoring manufacturing, building energy infrastructure, expanding agriculture, and processing rare earth minerals all require millions of workers. The $50B/year retraining fund moves people into these jobs.
+</div></div>
+
+<div class="bp-section"><div class="bp-label red">The Hard Tradeoffs</div><div class="bp-text">
+<strong>Everything costs more — at first.</strong> Domestic manufacturing is more expensive than Chinese manufacturing. That's just reality. Import tariffs mean the cheap goods at Walmart get more expensive. A TV that costs $300 today might cost $400 during the transition. Clothes, electronics, furniture — all go up.
+<br><br>
+<strong>If you're a consumer:</strong> You pay higher prices for 10-15 years while domestic supply chains scale up. The tariff revenue ($200B/year) funds the transition, but your purchasing power takes a hit in the short term. This is the most regressive aspect — it hits lower-income households hardest in percentage terms.
+<br><br>
+<strong>If you're a multinational corporation:</strong> The 25% manufacturing tax credit rewards you for building here — but tariffs punish you for importing. Your global supply chain gets more expensive. Shareholders won't love the transition period.
+<br><br>
+<strong>If you work in imports/trade:</strong> Entire industries built on cheap imports shrink. Port cities, logistics companies, and import retailers all contract. The plan creates more jobs than it destroys, but they're different jobs in different places.
+<br><br>
+<strong>If you're an investor:</strong> Capital gains taxed as income, plus IRS enforcement closing the tax gap. The revenue funds infrastructure, but your after-tax returns drop.
+<br><br>
+<strong>Diplomatically:</strong> Trading partners retaliate. China, the EU, and allies all respond to tariffs. Supply chain decoupling creates geopolitical friction. The agents accounted for this — the defense reshoring and semiconductor sovereignty programs are specifically designed to withstand trade war escalation.
+</div></div>
+
+<div class="bp-section"><div class="bp-label gold">The National Security Argument</div><div class="bp-text">
+Agent Marshall made the decisive case: <strong>a country that can be cut off from chips, energy, or medicine is a country that can be coerced.</strong> The 2020 pandemic showed what happens when PPE and pharmaceutical supply chains run through a single foreign country. The chip shortage showed what happens when one island (Taiwan) makes 90% of advanced semiconductors.
+<br><br>
+Self-sufficiency isn't just economic policy — it's defense policy. Every dollar spent reshoring critical manufacturing is a dollar spent on national security that actually produces jobs and tax revenue, unlike traditional defense spending.
+</div></div>
+
+<div class="bp-callout"><strong>The Bottom Line:</strong> Full self-sustainability means higher prices now for permanent security later. It's the most expensive upfront investment, but by 2050 America would be the only nation on Earth that can feed, fuel, build, and defend itself entirely from within its own borders — while exporting clean energy for profit. Voters have to decide: is 10-15 years of higher prices worth never being dependent on another country again?</div>
+`,props:[
+{r:1,a:'MARSHALL',c:'var(--gold)',t:'Energy Independence Act',d:'$150B/yr into nuclear, solar, wind.',rD:{},sD:{'Other Discretionary':150},im:'+$150B invest',hY:278,hN:157,sY:64,sN:36},
+{r:1,a:'KEYNES',c:'var(--green)',t:'Import Substitution Tariffs',d:'Graduated tariffs on importable goods.',rD:{'Excise & Customs':200},sD:{},im:'+$200B/yr',hY:262,hN:173,sY:60,sN:40},
+{r:2,a:'HAMILTON',c:'var(--red)',t:'Manufacturing Tax Credit',d:'25% credit for US-made goods.',rD:{'Corporate Tax':-60},sD:{},im:'-$60B invest',hY:332,hN:103,sY:80,sN:20},
+{r:2,a:'RAWLS',c:'var(--blue)',t:'Agricultural Sovereignty',d:'$80B/yr domestic food expansion.',rD:{},sD:{'Other Discretionary':80},im:'+$80B invest',hY:298,hN:137,sY:70,sN:30},
+{r:3,a:'KEYNES',c:'var(--green)',t:'Rare Earth Mining',d:'Domestic rare earth processing.',rD:{},sD:{'Other Discretionary':40},im:'+$40B invest',hY:308,hN:127,sY:74,sN:26},
+{r:3,a:'MARSHALL',c:'var(--gold)',t:'Defense Reshoring',d:'100% domestic defense sourcing.',rD:{},sD:{'Defense':60},im:'+$60B invest',hY:342,hN:93,sY:82,sN:18},
+{r:4,a:'KEYNES',c:'var(--green)',t:'Carbon Tax → Energy Fund',d:'$50/ton funds clean infrastructure.',rD:{'Excise & Customs':95},sD:{},im:'+$95B/yr',hY:228,hN:207,sY:52,sN:48},
+{r:4,a:'HAMILTON',c:'var(--red)',t:'Federal AI Efficiency',d:'Offset investment with govt savings.',rD:{},sD:{'Other Discretionary':-80},im:'-$80B/yr',hY:280,hN:155,sY:66,sN:34},
+{r:5,a:'RAWLS',c:'var(--blue)',t:'Manufacturing Retraining',d:'$50B/yr for domestic job training.',rD:{},sD:{'Education':50},im:'+$50B invest',hY:302,hN:133,sY:72,sN:28},
+{r:5,a:'KEYNES',c:'var(--green)',t:'Sovereign Wealth Fund',d:'Invest tariff surplus long-term.',rD:{'Other Revenue':40},sD:{},im:'+$40B/yr',hY:264,hN:171,sY:60,sN:40},
+{r:6,a:'MADISON',c:'var(--purple)',t:'Healthcare Cost Reduction',d:'Domestic pharma. Price parity.',rD:{},sD:{'Medicare':-120,'Medicaid & ACA':-60},im:'-$180B/yr',hY:296,hN:139,sY:70,sN:30},
+{r:6,a:'HAMILTON',c:'var(--red)',t:'Debt Refinancing',d:'Lock rates. Free cash for investment.',rD:{},sD:{'Net Interest':-100},im:'-$100B/yr',hY:320,hN:115,sY:78,sN:22},
+{r:7,a:'KEYNES',c:'var(--green)',t:'IRS Enforcement',d:'Close tax gap for investment revenue.',rD:{'Individual Income Tax':160},sD:{},im:'+$160B/yr',hY:334,hN:101,sY:80,sN:20},
+{r:7,a:'MARSHALL',c:'var(--gold)',t:'Semiconductor Sovereignty',d:'$30B/yr CHIPS+ for full domestic chips.',rD:{},sD:{'Other Discretionary':30},im:'+$30B invest',hY:348,hN:87,sY:84,sN:16},
+{r:8,a:'RAWLS',c:'var(--blue)',t:'SS Stabilization',d:'Means-test + age adjust.',rD:{},sD:{'Social Security':-80},im:'-$80B/yr',hY:236,hN:199,sY:54,sN:46},
+{r:8,a:'KEYNES',c:'var(--green)',t:'Capital Gains as Income',d:'Fund the transition.',rD:{'Individual Income Tax':110},sD:{},im:'+$110B/yr',hY:226,hN:209,sY:52,sN:48},
+{r:9,a:'HAMILTON',c:'var(--red)',t:'Income Security Reform',d:'Consolidate. Redirect savings.',rD:{},sD:{'Income Security':-65},im:'-$65B/yr',hY:278,hN:157,sY:64,sN:36},
+{r:9,a:'MADISON',c:'var(--purple)',t:'Energy Export Revenue',d:'US becomes net exporter by 2035.',rD:{'Other Revenue':80},sD:{},im:'+$80B/yr',hY:312,hN:123,sY:76,sN:24},
+{r:10,a:'MADISON',c:'var(--purple)',t:'Self-Sufficiency Amendment',d:'Domestic sourcing minimums.',rD:{},sD:{'Other Mandatory':-40},im:'Structural',hY:340,hN:95,sY:82,sN:18},
+{r:10,a:'MARSHALL',c:'var(--gold)',t:'National Resilience Framework',d:'Permanent food/energy/mfg sovereignty.',rD:{},sD:{},im:'Structural',hY:366,hN:69,sY:88,sN:12}
+]}
 };
 
-// ==============================
-// PROPOSALS — Each goes through House + Senate vote
-// ==============================
-const PROPOSALS = [
-  {round:1,agent:'KEYNES',color:'var(--green)',title:'Corporate Tax to 25%',desc:'Raise effective corporate rate from ~15% to 25%, closing loopholes. Remains competitive with OECD avg of 23.5%.',revΔ:{'Corporate Tax':180},spendΔ:{},impact:'+$180B/yr',houseYea:248,houseNay:187,senYea:58,senNay:42},
-  {round:1,agent:'HAMILTON',color:'var(--red)',title:'Raise Payroll Tax Cap to $250K',desc:'Lift Social Security tax cap from $176K to $250K. Affects top 6% of earners. Extends trust fund solvency by 15 years.',revΔ:{'Payroll Taxes':120},spendΔ:{},impact:'+$120B/yr',houseYea:262,houseNay:173,senYea:64,senNay:36},
-  {round:2,agent:'HAMILTON',color:'var(--red)',title:'Medicare Drug Negotiation ×5',desc:'Expand IRA drug negotiation to 100 drugs by 2028 (from 20). CBO scores this as significant mandatory savings.',revΔ:{},spendΔ:{'Medicare':-95},impact:'-$95B/yr',houseYea:301,houseNay:134,senYea:72,senNay:28},
-  {round:2,agent:'MARSHALL',color:'var(--gold)',title:'Defense Procurement Reform',desc:'End cost-plus contracts where feasible. Competitive bidding mandate saves 8% on equipment acquisition without reducing capability.',revΔ:{},spendΔ:{'Defense':-72},impact:'-$72B/yr',houseYea:278,houseNay:157,senYea:66,senNay:34},
-  {round:3,agent:'KEYNES',color:'var(--green)',title:'Carbon Tax — $50/ton',desc:'Carbon tax starting $50/ton, rising 5%/yr. Revenue-neutral for bottom 60% via dividend. Prices externality, generates net revenue.',revΔ:{'Excise & Customs':95},spendΔ:{},impact:'+$95B/yr net',houseYea:226,houseNay:209,senYea:52,senNay:48},
-  {round:3,agent:'RAWLS',color:'var(--blue)',title:'Medicaid Value-Based Care Shift',desc:'Transition to value-based models, cut admin overhead 12%. Maintain coverage, reduce cost per enrollee. Bipartisan support in every study.',revΔ:{},spendΔ:{'Medicaid & ACA':-60},impact:'-$60B/yr',houseYea:342,houseNay:93,senYea:78,senNay:22},
-  {round:4,agent:'MADISON',color:'var(--purple)',title:'Debt Maturity Restructuring',desc:'Shift 15% of short-term Treasury debt to 20-30yr bonds. Lock lower long-term rates. Reduces annual interest burden.',revΔ:{},spendΔ:{'Net Interest':-85},impact:'-$85B/yr interest',houseYea:310,houseNay:125,senYea:74,senNay:26},
-  {round:4,agent:'HAMILTON',color:'var(--red)',title:'Federal Agency Consolidation',desc:'Merge 12 overlapping agencies (per GAO report). AI-assisted processing. 8% headcount reduction through attrition over 5 years.',revΔ:{},spendΔ:{'Other Discretionary':-55},impact:'-$55B/yr',houseYea:254,houseNay:181,senYea:60,senNay:40},
-  {round:5,agent:'RAWLS',color:'var(--blue)',title:'Estate Tax Reform',desc:'Lower exemption to $5M (from $13.6M). Close stepped-up basis loophole. Affects top 0.5% of estates.',revΔ:{'Other Revenue':60},spendΔ:{},impact:'+$60B/yr',houseYea:232,houseNay:203,senYea:54,senNay:46},
-  {round:5,agent:'KEYNES',color:'var(--green)',title:'Capital Gains above $1M as Income',desc:'Tax capital gains above $1M threshold as ordinary income. Maintain preferential rate below. Addresses "carried interest" inequity.',revΔ:{'Individual Income Tax':110},spendΔ:{},impact:'+$110B/yr',houseYea:228,houseNay:207,senYea:52,senNay:48},
-  {round:6,agent:'RAWLS',color:'var(--blue)',title:'Safety Net Consolidation',desc:'Merge 14 overlapping anti-poverty programs into unified system. 20% admin savings. Better targeting, same coverage.',revΔ:{},spendΔ:{'Income Security':-65},impact:'-$65B/yr',houseYea:298,houseNay:137,senYea:70,senNay:30},
-  {round:6,agent:'MARSHALL',color:'var(--gold)',title:'Social Security Retirement Age → 69',desc:'Raise full retirement age from 67 to 69 over 20 years (born after 1975). Add means-testing for top 5%. Preserves program solvency.',revΔ:{},spendΔ:{'Social Security':-80},impact:'-$80B/yr by 2035',houseYea:240,houseNay:195,senYea:56,senNay:44},
-  {round:7,agent:'KEYNES',color:'var(--green)',title:'Full IRS Enforcement Funding',desc:'Close the $600B/yr tax gap. Every $1 invested returns $5-12 collected. Unanimous CBO & Treasury support for ROI.',revΔ:{'Individual Income Tax':140},spendΔ:{},impact:'+$140B/yr net',houseYea:334,houseNay:101,senYea:82,senNay:18},
-  {round:7,agent:'MADISON',color:'var(--purple)',title:'All-Payer Hospital Rate Setting',desc:'Mandate price transparency. Cap healthcare cost growth at GDP+1% (vs. GDP+3%). Maryland model scaled nationally.',revΔ:{},spendΔ:{'Medicare':-45,'Medicaid & ACA':-30},impact:'-$75B/yr',houseYea:286,houseNay:149,senYea:68,senNay:32},
-  {round:8,agent:'MADISON',color:'var(--purple)',title:'Fiscal Responsibility Framework',desc:'Statutory debt-to-GDP target of 80% within 15 years. Automatic stabilizers pause during recession. Binding enforcement.',revΔ:{},spendΔ:{'Other Mandatory':-40},impact:'Structural reform',houseYea:356,houseNay:79,senYea:84,senNay:16},
-  {round:8,agent:'HAMILTON',color:'var(--red)',title:'Surplus Sinking Fund Mandate',desc:'50% of any future surplus mandated toward debt principal. Accelerates deleveraging. Similar to post-WWII debt reduction strategy.',revΔ:{},spendΔ:{},impact:'Structural — debt acceleration',houseYea:380,houseNay:55,senYea:90,senNay:10},
-];
+let S,chosenScenario=null;
+function freshState(){return{running:false,round:0,rev:{...D.revenue},spend:{...D.spending},tRev:D.totalRev,tSpend:D.totalSpend,deficit:D.deficit,aiPath:[36.4],passed:0,total:0,speed:1,timers:[],maxRounds:8};}
+S=freshState();
+let hClock=38560000000000;
+setInterval(()=>{hClock+=70843;const e=document.getElementById('heroDebt');if(e)e.textContent='$'+Math.floor(hClock).toLocaleString();},1000);
 
-// ==============================
-// STATE
-// ==============================
-let S = reset();
-function reset() {
-  return {
-    running:false, round:0, maxRounds:8,
-    rev:{...DATA.revenue}, spend:{...DATA.spending},
-    tRev:DATA.totalRev, tSpend:DATA.totalSpend, deficit:DATA.deficit,
-    aiPath:[36.4], passed:0, total:0, speed:1, timers:[],
-  };
+function showPicker(){document.getElementById('heroSection').style.display='none';document.getElementById('pickerSection').classList.add('active');window.scrollTo({top:0});}
+function selectScenario(el,key){document.querySelectorAll('.scenario-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');chosenScenario=key;document.getElementById('launchBtn').classList.add('ready');}
+
+function launchSim(){
+  if(!chosenScenario)return;
+  const sc=SC[chosenScenario];S=freshState();S.maxRounds=sc.rounds;
+  document.getElementById('pickerSection').classList.remove('active');
+  document.getElementById('simSection').classList.add('active');
+  document.getElementById('scenarioLabel').textContent=sc.name.toUpperCase();
+  document.getElementById('goalTitle').textContent=sc.goalTitle;
+  document.getElementById('goalDesc').textContent=sc.goalDesc;
+  initDots();renderBudget();drawChart();
+  window.addEventListener('resize',drawChart);window.scrollTo({top:0});
+  setTimeout(()=>{S.running=true;runRound(1);},600);
 }
 
-// ==============================
-// HERO DEBT CLOCK
-// ==============================
-let heroClock = DATA.grossDebt;
-setInterval(()=>{
-  heroClock += DATA.perSec;
-  const el = document.getElementById('heroDebt');
-  if(el) el.textContent = '$' + Math.floor(heroClock).toLocaleString();
-},1000);
-
-// ==============================
-// INIT VOTE DOTS
-// ==============================
-function initVoteDots(){
-  const hc = document.getElementById('houseVoteDots');
-  const sc = document.getElementById('senateVoteDots');
-  hc.innerHTML=''; sc.innerHTML='';
-  // House: 220 R, 215 D
-  for(let i=0;i<435;i++){
-    const d=document.createElement('div');
-    d.className='dot';
-    d.style.cssText=`width:5px;height:5px;border-radius:50%;background:${i<220?'rgba(232,54,79,0.25)':'rgba(59,130,246,0.25)'};transition:background .3s`;
-    d.dataset.party = i<220?'r':'d';
-    hc.appendChild(d);
-  }
-  // Senate: 53 R, 45 D, 2 I
-  for(let i=0;i<100;i++){
-    const d=document.createElement('div');
-    d.className='dot';
-    const party = i<53?'r':(i<98?'d':'i');
-    const col = party==='r'?'rgba(232,54,79,0.25)':(party==='d'?'rgba(59,130,246,0.25)':'rgba(240,168,48,0.25)');
-    d.style.cssText=`width:7px;height:7px;border-radius:50%;background:${col};transition:background .3s`;
-    d.dataset.party = party;
-    sc.appendChild(d);
-  }
+function initDots(){
+  const h=document.getElementById('houseVoteDots'),s=document.getElementById('senateVoteDots');h.innerHTML='';s.innerHTML='';
+  for(let i=0;i<435;i++){const d=document.createElement('div');d.style.cssText='width:4px;height:4px;border-radius:50%;background:'+(i<220?'rgba(232,54,79,0.2)':'rgba(59,130,246,0.2)')+';transition:background .3s';h.appendChild(d);}
+  for(let i=0;i<100;i++){const c=i<53?'rgba(232,54,79,0.2)':(i<98?'rgba(59,130,246,0.2)':'rgba(240,168,48,0.2)');const d=document.createElement('div');d.style.cssText='width:6px;height:6px;border-radius:50%;background:'+c+';transition:background .3s';s.appendChild(d);}
+}
+function animVote(hY,hN,sY,sN){
+  const hd=[...document.getElementById('houseVoteDots').children].sort(()=>Math.random()-.5);
+  const sd=[...document.getElementById('senateVoteDots').children].sort(()=>Math.random()-.5);
+  hd.forEach((d,i)=>setTimeout(()=>d.style.background=i<hY?'var(--green)':(i<hY+hN?'var(--red)':'rgba(80,90,114,0.2)'),i*3));
+  sd.forEach((d,i)=>setTimeout(()=>d.style.background=i<sY?'var(--green)':(i<sY+sN?'var(--red)':'rgba(80,90,114,0.2)'),i*10));
 }
 
-function animateVote(hYea, hNay, sYea, sNay){
-  const hDots = [...document.getElementById('houseVoteDots').children];
-  const sDots = [...document.getElementById('senateVoteDots').children];
-
-  // Shuffle for visual interest
-  const hShuf = hDots.map((d,i)=>({d,i,r:Math.random()})).sort((a,b)=>a.r-b.r);
-  const sShuf = sDots.map((d,i)=>({d,i,r:Math.random()})).sort((a,b)=>a.r-b.r);
-
-  // Reset all to dim
-  hDots.forEach(d=>d.style.background=d.dataset.party==='r'?'rgba(232,54,79,0.15)':'rgba(59,130,246,0.15)');
-  sDots.forEach(d=>{
-    const p=d.dataset.party;
-    d.style.background=p==='r'?'rgba(232,54,79,0.15)':(p==='d'?'rgba(59,130,246,0.15)':'rgba(240,168,48,0.15)');
-  });
-
-  // Animate yeas
-  hShuf.slice(0,hYea).forEach((item,i)=>{
-    setTimeout(()=>item.d.style.background='var(--green)', i*4);
-  });
-  hShuf.slice(hYea,hYea+hNay).forEach((item,i)=>{
-    setTimeout(()=>item.d.style.background='var(--red)', i*4);
-  });
-  sShuf.slice(0,sYea).forEach((item,i)=>{
-    setTimeout(()=>item.d.style.background='var(--green)', i*12);
-  });
-  sShuf.slice(sYea,sYea+sNay).forEach((item,i)=>{
-    setTimeout(()=>item.d.style.background='var(--red)', i*12);
-  });
-}
-
-// ==============================
-// RENDER BUDGET
-// ==============================
 function renderBudget(){
-  const maxR = Math.max(...Object.values(S.rev));
-  const maxS = Math.max(...Object.values(S.spend));
-
-  document.getElementById('revItems').innerHTML = Object.entries(S.rev).map(([k,v])=>{
-    const orig = DATA.revenue[k]||v;
-    const cls = v>orig?'grew':'';
-    return `<div class="b-item ${cls}"><div class="fill" style="width:${v/maxR*100}%;background:var(--green)"></div><span class="nm">${k}</span><span class="vl">${v.toLocaleString()}</span></div>`;
-  }).join('');
-
-  document.getElementById('spendItems').innerHTML = Object.entries(S.spend).map(([k,v])=>{
-    const orig = DATA.spending[k]||v;
-    const cls = v<orig?'cut':'';
-    return `<div class="b-item ${cls}"><div class="fill" style="width:${v/maxS*100}%;background:var(--red)"></div><span class="nm">${k}</span><span class="vl">${v.toLocaleString()}</span></div>`;
-  }).join('');
-
-  S.tRev = Object.values(S.rev).reduce((a,b)=>a+b,0);
-  S.tSpend = Object.values(S.spend).reduce((a,b)=>a+b,0);
-  S.deficit = S.tSpend - S.tRev;
-
-  document.getElementById('tRev').textContent = S.tRev.toLocaleString();
-  document.getElementById('tSpend').textContent = S.tSpend.toLocaleString();
-
-  const dp = document.getElementById('dPill');
-  if(S.deficit>0){dp.className='deficit-pill neg';dp.innerHTML=`DEFICIT<br>-$${S.deficit.toLocaleString()}B`;}
-  else{dp.className='deficit-pill pos';dp.innerHTML=`SURPLUS<br>+$${Math.abs(S.deficit).toLocaleString()}B`;}
-
-  // Topbar
-  document.getElementById('tbDeficit').textContent = S.deficit>0?`-$${S.deficit.toLocaleString()}B`:`+$${Math.abs(S.deficit).toLocaleString()}B`;
-  document.getElementById('tbDeficit').style.color = S.deficit>0?'var(--red)':'var(--green)';
-  const saved = DATA.deficit - S.deficit;
-  document.getElementById('tbSaved').textContent = '$'+saved.toLocaleString()+'B';
-
-  // Log stats
-  const pct = Math.round(saved/DATA.deficit*100);
-  document.getElementById('lsReduced').textContent = pct+'%';
-  document.getElementById('lsPassed').textContent = S.passed;
-  document.getElementById('lsConsensus').textContent = S.total>0?Math.round(S.passed/S.total*100)+'%':'—';
-  document.getElementById('ls10yr').textContent = '$'+(saved*8/1000).toFixed(1)+'T';
+  const mR=Math.max(...Object.values(S.rev)),mS=Math.max(...Object.values(S.spend));
+  document.getElementById('revItems').innerHTML=Object.entries(S.rev).map(([k,v])=>{const o=D.revenue[k]||v;return '<div class="b-item '+(v>o?'grew':'')+'"><div class="fill" style="width:'+v/mR*100+'%;background:var(--green)"></div><span class="nm">'+k+'</span><span class="vl">'+v.toLocaleString()+'</span></div>';}).join('');
+  document.getElementById('spendItems').innerHTML=Object.entries(S.spend).map(([k,v])=>{const o=D.spending[k]||v;return '<div class="b-item '+(v<o?'cut':'')+'"><div class="fill" style="width:'+v/mS*100+'%;background:var(--red)"></div><span class="nm">'+k+'</span><span class="vl">'+v.toLocaleString()+'</span></div>';}).join('');
+  S.tRev=Object.values(S.rev).reduce((a,b)=>a+b,0);
+  S.tSpend=Object.values(S.spend).reduce((a,b)=>a+b,0);
+  S.deficit=S.tSpend-S.tRev;
+  document.getElementById('tRev').textContent=S.tRev.toLocaleString();
+  document.getElementById('tSpend').textContent=S.tSpend.toLocaleString();
+  const dp=document.getElementById('dPill');
+  if(S.deficit>0){dp.className='deficit-pill neg';dp.innerHTML='DEFICIT<br>-$'+S.deficit.toLocaleString()+'B';}
+  else{dp.className='deficit-pill pos';dp.innerHTML='SURPLUS<br>+$'+Math.abs(S.deficit).toLocaleString()+'B';}
+  document.getElementById('tbDeficit').textContent=S.deficit>0?'-$'+S.deficit.toLocaleString()+'B':'+$'+Math.abs(S.deficit).toLocaleString()+'B';
+  document.getElementById('tbDeficit').style.color=S.deficit>0?'var(--red)':'var(--green)';
+  const sv=D.deficit-S.deficit;
+  document.getElementById('tbSaved').textContent='$'+sv.toLocaleString()+'B';
+  const pct=Math.round(Math.max(0,sv)/D.deficit*100);
+  document.getElementById('lsReduced').textContent=pct+'%';
+  document.getElementById('lsPassed').textContent=S.passed;
+  document.getElementById('lsConsensus').textContent=S.total>0?Math.round(S.passed/S.total*100)+'%':'--';
+  document.getElementById('ls10yr').textContent='$'+(sv*8/1000).toFixed(1)+'T';
+  document.getElementById('tbGoal').textContent=pct+'%';
 }
 
-// ==============================
-// CHART
-// ==============================
 function drawChart(){
-  const canvas = document.getElementById('mainChart');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const dpr = window.devicePixelRatio||1;
-  canvas.width = canvas.offsetWidth*dpr;
-  canvas.height = 260*dpr;
-  ctx.scale(dpr,dpr);
-  const w=canvas.offsetWidth, h=260;
-  const p={t:10,r:20,b:28,l:48};
-  const pw=w-p.l-p.r, ph=h-p.t-p.b;
+  const canvas=document.getElementById('mainChart');if(!canvas)return;
+  const ctx=canvas.getContext('2d'),dpr=window.devicePixelRatio||1;
+  canvas.width=canvas.offsetWidth*dpr;canvas.height=240*dpr;ctx.scale(dpr,dpr);
+  const w=canvas.offsetWidth,h=240,p={t:10,r:20,b:26,l:46},pw=w-p.l-p.r,ph=h-p.t-p.b;
   ctx.clearRect(0,0,w,h);
-
-  const all=[...DATA.cboPath,...S.aiPath];
-  const mn=Math.min(...all)-2, mx=Math.max(...all)+5;
-  const xS=i=>p.l+(i/(DATA.years.length-1))*pw;
-  const yS=v=>p.t+ph-((v-mn)/(mx-mn))*ph;
-
-  // Grid
-  ctx.strokeStyle='rgba(30,37,56,0.6)';ctx.lineWidth=.5;
-  for(let i=0;i<6;i++){
-    const y=p.t+(i/5)*ph;
-    ctx.beginPath();ctx.moveTo(p.l,y);ctx.lineTo(p.l+pw,y);ctx.stroke();
-    ctx.fillStyle='rgba(80,90,114,0.7)';ctx.font='10px IBM Plex Mono';ctx.textAlign='right';
-    ctx.fillText('$'+(mx-(i/5)*(mx-mn)).toFixed(0)+'T',p.l-6,y+4);
-  }
-  ctx.fillStyle='rgba(80,90,114,0.7)';ctx.font='10px IBM Plex Mono';ctx.textAlign='center';
-  DATA.years.forEach((yr,i)=>{if(i%2===0)ctx.fillText(yr,xS(i),h-6);});
-
-  // CBO line
-  ctx.setLineDash([6,4]);ctx.strokeStyle='rgba(232,54,79,0.6)';ctx.lineWidth=2;
-  ctx.beginPath();DATA.cboPath.forEach((v,i)=>{i===0?ctx.moveTo(xS(i),yS(v)):ctx.lineTo(xS(i),yS(v));});ctx.stroke();
-  ctx.setLineDash([]);
-  // CBO fill
-  ctx.fillStyle='rgba(232,54,79,0.04)';ctx.beginPath();
-  ctx.moveTo(xS(0),yS(DATA.cboPath[0]));DATA.cboPath.forEach((v,i)=>ctx.lineTo(xS(i),yS(v)));
-  ctx.lineTo(xS(10),yS(mn));ctx.lineTo(xS(0),yS(mn));ctx.closePath();ctx.fill();
-  // CBO label
-  ctx.fillStyle='rgba(232,54,79,0.7)';ctx.font='bold 11px IBM Plex Mono';ctx.textAlign='right';
-  ctx.fillText('$'+DATA.cboPath[10].toFixed(1)+'T',xS(10)-4,yS(DATA.cboPath[10])-8);
-
+  const all=[...D.cboPath,...S.aiPath],mn=Math.min(...all)-3,mx=Math.max(...all)+5;
+  const xS=i=>p.l+(i/10)*pw,yS=v=>p.t+ph-((v-mn)/(mx-mn))*ph;
+  // grid
+  ctx.strokeStyle='rgba(30,37,56,0.5)';ctx.lineWidth=.5;
+  for(let i=0;i<6;i++){const y=p.t+(i/5)*ph;ctx.beginPath();ctx.moveTo(p.l,y);ctx.lineTo(p.l+pw,y);ctx.stroke();ctx.fillStyle='rgba(80,90,114,0.6)';ctx.font='9px IBM Plex Mono';ctx.textAlign='right';ctx.fillText('$'+(mx-(i/5)*(mx-mn)).toFixed(0)+'T',p.l-5,y+3);}
+  ctx.fillStyle='rgba(80,90,114,0.6)';ctx.font='9px IBM Plex Mono';ctx.textAlign='center';
+  D.years.forEach((yr,i)=>{if(i%2===0)ctx.fillText(yr,xS(i),h-5);});
+  // CBO baseline
+  ctx.setLineDash([5,4]);ctx.strokeStyle='rgba(232,54,79,0.6)';ctx.lineWidth=2;
+  ctx.beginPath();D.cboPath.forEach((v,i)=>{i===0?ctx.moveTo(xS(i),yS(v)):ctx.lineTo(xS(i),yS(v));});ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='rgba(232,54,79,0.04)';ctx.beginPath();ctx.moveTo(xS(0),yS(D.cboPath[0]));D.cboPath.forEach((v,i)=>ctx.lineTo(xS(i),yS(v)));ctx.lineTo(xS(10),yS(mn));ctx.lineTo(xS(0),yS(mn));ctx.closePath();ctx.fill();
+  ctx.fillStyle='rgba(232,54,79,0.7)';ctx.font='bold 10px IBM Plex Mono';ctx.textAlign='right';ctx.fillText('$'+D.cboPath[10]+'T',xS(10)-3,yS(D.cboPath[10])-7);
   // AI path
   if(S.aiPath.length>1){
-    ctx.strokeStyle='rgba(26,232,140,0.25)';ctx.lineWidth=8;
-    ctx.beginPath();S.aiPath.forEach((v,i)=>{i===0?ctx.moveTo(xS(i),yS(v)):ctx.lineTo(xS(i),yS(v));});ctx.stroke();
-    ctx.strokeStyle='#1ae88c';ctx.lineWidth=2.5;
-    ctx.beginPath();S.aiPath.forEach((v,i)=>{i===0?ctx.moveTo(xS(i),yS(v)):ctx.lineTo(xS(i),yS(v));});ctx.stroke();
-    // Fill
-    ctx.fillStyle='rgba(26,232,140,0.06)';ctx.beginPath();
-    ctx.moveTo(xS(0),yS(S.aiPath[0]));S.aiPath.forEach((v,i)=>ctx.lineTo(xS(i),yS(v)));
-    ctx.lineTo(xS(S.aiPath.length-1),yS(mn));ctx.lineTo(xS(0),yS(mn));ctx.closePath();ctx.fill();
-    // End dot
+    ctx.strokeStyle='rgba(26,232,140,0.2)';ctx.lineWidth=7;ctx.beginPath();S.aiPath.forEach((v,i)=>{i===0?ctx.moveTo(xS(i),yS(v)):ctx.lineTo(xS(i),yS(v));});ctx.stroke();
+    ctx.strokeStyle='#1ae88c';ctx.lineWidth=2.5;ctx.beginPath();S.aiPath.forEach((v,i)=>{i===0?ctx.moveTo(xS(i),yS(v)):ctx.lineTo(xS(i),yS(v));});ctx.stroke();
     const li=S.aiPath.length-1,lv=S.aiPath[li];
-    ctx.beginPath();ctx.arc(xS(li),yS(lv),5,0,Math.PI*2);ctx.fillStyle='#1ae88c';ctx.fill();
-    ctx.strokeStyle='rgba(26,232,140,0.3)';ctx.lineWidth=10;ctx.stroke();
-    ctx.fillStyle='#1ae88c';ctx.font='bold 11px IBM Plex Mono';ctx.textAlign='left';
-    ctx.fillText('$'+lv.toFixed(1)+'T',xS(li)+10,yS(lv)+4);
+    ctx.beginPath();ctx.arc(xS(li),yS(lv),4,0,Math.PI*2);ctx.fillStyle='#1ae88c';ctx.fill();
+    ctx.fillStyle='#1ae88c';ctx.font='bold 10px IBM Plex Mono';ctx.textAlign='left';ctx.fillText('$'+lv.toFixed(1)+'T',xS(li)+8,yS(lv)+4);
   }
 }
 
-// ==============================
-// COMPUTE AI DEBT PATH
-// ==============================
-function computeAIPath(){
-  const saved = DATA.deficit - S.deficit;
-  const ramp=[0.25,0.45,0.65,0.8,0.9,0.97,1,1,1,1];
+function computePath(){
+  const saved=D.deficit-S.deficit;
+  const ramp=[.25,.45,.65,.8,.9,.97,1,1,1,1];
   const path=[36.4];
-  for(let i=1;i<=10;i++){
-    const eff=saved*(ramp[i-1]||1);
-    const cboGrowth=DATA.cboPath[i]-DATA.cboPath[i-1];
-    path.push(+(path[i-1]+cboGrowth-eff/1000).toFixed(1));
-  }
-  S.aiPath = path.slice(0, Math.min(S.round*1.5+2, 11));
+  for(let i=1;i<=10;i++){const g=D.cboPath[i]-D.cboPath[i-1];path.push(+(path[i-1]+g-saved*(ramp[i-1]||1)/1000).toFixed(1));}
+  S.aiPath=path.slice(0,Math.min(Math.floor(S.round*1.3)+2,11));
 }
 
-// ==============================
-// AGENT MESSAGES
-// ==============================
-const THINK={
-  hamilton:['Scoring deficit reduction impact...','Modeling <span class="hl">debt service</span> trajectory...','Computing interest rate sensitivity...','Evaluating spending cut feasibility...'],
-  keynes:['Running dynamic scoring model...','Analyzing <span class="hl">revenue elasticity</span>...','Projecting GDP multiplier effects...','Computing Laffer curve position...'],
-  rawls:['Assessing <span class="hl">distributional impact</span>...','Modeling poverty rate effects...','Evaluating safety net adequacy...','Computing GINI coefficient shift...'],
-  marshall:['Reviewing <span class="hl">force readiness</span> metrics...','Evaluating procurement efficiency...','Analyzing threat assessment matrix...','Computing NATO parity requirements...'],
-  madison:['Building <span class="hl">consensus framework</span>...','Identifying compromise space...','Synthesizing multi-agent positions...','Computing Pareto optimal outcome...'],
-};
+const TH={hamilton:['Scoring deficit reduction...','Modeling debt service...','Interest sensitivity...','Cut feasibility...'],keynes:['Dynamic scoring...','Revenue elasticity...','GDP multiplier...','Laffer analysis...'],rawls:['Distributional impact...','Poverty modeling...','Safety net check...','GINI shift...'],marshall:['Force readiness...','Procurement scan...','Threat assessment...','NATO parity...'],madison:['Consensus framework...','Compromise search...','Multi-agent synthesis...','Pareto optimization...']};
+function activateAgents(){['hamilton','keynes','rawls','marshall','madison'].forEach((a,i)=>{setTimeout(()=>{document.getElementById('ag-'+a).classList.add('active');document.getElementById('msg-'+a).innerHTML='<span class="hl">'+TH[a][Math.floor(Math.random()*TH[a].length)]+'</span>';},i*150);});}
+function deactivateAgents(){['hamilton','keynes','rawls','marshall','madison'].forEach(a=>document.getElementById('ag-'+a).classList.remove('active'));}
 
-function activateAgents(){
-  ['hamilton','keynes','rawls','marshall','madison'].forEach((a,i)=>{
-    setTimeout(()=>{
-      document.getElementById('ag-'+a).classList.add('active');
-      document.getElementById('msg-'+a).innerHTML=THINK[a][Math.floor(Math.random()*THINK[a].length)];
-    },i*200);
-  });
-}
-function deactivateAgents(){
-  ['hamilton','keynes','rawls','marshall','madison'].forEach(a=>{
-    document.getElementById('ag-'+a).classList.remove('active');
-  });
-}
-
-// ==============================
-// SIMULATION ENGINE
-// ==============================
-function beginSimulation(){
-  document.getElementById('heroSection').style.display='none';
-  document.getElementById('simSection').classList.add('active');
-  initVoteDots();
-  renderBudget();
-  drawChart();
-  window.addEventListener('resize',drawChart);
-
-  setTimeout(()=>{
-    S.running=true;
-    runRound(1);
-  },800);
-}
-
-function delay(ms){return ms/S.speed;}
+function dl(ms){return ms/S.speed;}
 
 function runRound(r){
-  if(r>S.maxRounds){finish();return;}
+  const sc=SC[chosenScenario];if(r>sc.rounds){finish();return;}
   S.round=r;
-  document.getElementById('roundTag').textContent=`ROUND ${r} / ${S.maxRounds}`;
-  document.getElementById('budgetRound').textContent=`ROUND ${r}`;
-  document.getElementById('progFill').style.width=((r-1)/S.maxRounds*100)+'%';
-
+  document.getElementById('roundTag').textContent='ROUND '+r+' / '+sc.rounds;
+  document.getElementById('budgetRound').textContent='ROUND '+r;
+  document.getElementById('progFill').style.width=((r-1)/sc.rounds*100)+'%';
   activateAgents();
-
-  const props = PROPOSALS.filter(p=>p.round===r);
-  let d=delay(1800);
-  props.forEach((prop,idx)=>{
-    const t=setTimeout(()=>processProposal(prop),d);
-    S.timers.push(t);
-    d+=delay(3200);
-  });
-
-  const t2=setTimeout(()=>{
-    deactivateAgents();
-    computeAIPath();
-    drawChart();
-    runRound(r+1);
-  },d+delay(400));
-  S.timers.push(t2);
+  const props=sc.props.filter(p=>p.r===r);let d=dl(1600);
+  props.forEach(prop=>{S.timers.push(setTimeout(()=>processProp(prop),d));d+=dl(2800);});
+  S.timers.push(setTimeout(()=>{deactivateAgents();computePath();drawChart();runRound(r+1);},d+dl(300)));
 }
 
-function processProposal(p){
+function processProp(p){
   S.total++;
-  // Apply
-  for(const[k,v] of Object.entries(p.revΔ)) S.rev[k]=(S.rev[k]||0)+v;
-  for(const[k,v] of Object.entries(p.spendΔ)) S.spend[k]=(S.spend[k]||0)+v;
-  const passed = p.houseYea>217 && p.senYea>50;
-  if(passed) S.passed++;
-
-  renderBudget();
-  animateVote(p.houseYea,p.houseNay,p.senYea,p.senNay);
-
-  // Agent messages
+  for(const[k,v] of Object.entries(p.rD))S.rev[k]=(S.rev[k]||0)+v;
+  for(const[k,v] of Object.entries(p.sD))S.spend[k]=(S.spend[k]||0)+v;
+  const pass=p.hY>217&&p.sY>50;if(pass)S.passed++;
+  renderBudget();animVote(p.hY,p.hN,p.sY,p.sN);
   const map={HAMILTON:'hamilton',KEYNES:'keynes',RAWLS:'rawls',MARSHALL:'marshall',MADISON:'madison'};
-  document.getElementById('msg-'+map[p.agent]).innerHTML=`Proposing: <span class="hl">${p.title}</span>`;
-
-  // Log
-  const log=document.getElementById('logScroll');
-  if(S.total===1) log.innerHTML='';
-  const entry=document.createElement('div');
-  entry.className=`log-entry ${passed?'pass':'fail'}`;
-  entry.innerHTML=`
-    <div class="log-agent" style="color:${p.color}">Agent ${p.agent} · Round ${p.round}</div>
-    <div class="log-text"><strong>${p.title}</strong><br>${p.desc}</div>
-    <div class="log-impact" style="color:${passed?'var(--green)':'var(--red)'}">${p.impact}</div>
-    <div class="log-votes">House: ${p.houseYea}-${p.houseNay} ${p.houseYea>217?'✓':'✗'} · Senate: ${p.senYea}-${p.senNay} ${p.senYea>50?'✓':'✗'}</div>
-  `;
-  log.appendChild(entry);
-  log.scrollTop=log.scrollHeight;
+  document.getElementById('msg-'+map[p.a]).innerHTML='Proposing: <span class="hl">'+p.t+'</span>';
+  const log=document.getElementById('logScroll');if(S.total===1)log.innerHTML='';
+  const e=document.createElement('div');e.className='log-entry '+(pass?'pass':'fail');
+  e.innerHTML='<div class="log-agent" style="color:'+p.c+'">Agent '+p.a+' · R'+p.r+'</div><div class="log-text"><strong>'+p.t+'</strong><br>'+p.d+'</div><div class="log-impact" style="color:'+(pass?'var(--green)':'var(--red)')+'">'+p.im+'</div><div class="log-votes">House '+p.hY+'-'+p.hN+(p.hY>217?' ✓':' ✗')+' · Senate '+p.sY+'-'+p.sN+(p.sY>50?' ✓':' ✗')+'</div>';
+  log.appendChild(e);log.scrollTop=log.scrollHeight;
 }
 
 function finish(){
-  S.running=false;
-  computeAIPath();
-  // Extend to full 11
-  while(S.aiPath.length<11){const l=S.aiPath[S.aiPath.length-1];S.aiPath.push(+(l-0.2).toFixed(1));}
-  drawChart();
-  deactivateAgents();
-
+  S.running=false;computePath();
+  while(S.aiPath.length<11){const l=S.aiPath[S.aiPath.length-1];S.aiPath.push(+(l-(D.deficit-S.deficit)/1000*.15).toFixed(1));}
+  if(S.aiPath.length>11)S.aiPath=S.aiPath.slice(0,11);
+  drawChart();deactivateAgents();
   document.getElementById('progFill').style.width='100%';
   document.getElementById('roundTag').textContent='COMPLETE';
-
-  // Final agent messages
-  const saved=DATA.deficit-S.deficit;
-  document.getElementById('msg-hamilton').innerHTML=`<span class="hl">Deficit cut ${Math.round(saved/DATA.deficit*100)}%.</span> Mission accomplished.`;
-  document.getElementById('msg-keynes').innerHTML=`<span class="hl">Revenue optimized</span> while preserving growth.`;
-  document.getElementById('msg-rawls').innerHTML=`<span class="hl">Safety net intact.</span> Coverage maintained.`;
-  document.getElementById('msg-marshall').innerHTML=`<span class="hl">Readiness preserved.</span> Procurement modernized.`;
-  document.getElementById('msg-madison').innerHTML=`<span class="hl">Unanimous framework adopted.</span>`;
-
-  // Summary log entry
-  const log=document.getElementById('logScroll');
-  const e=document.createElement('div');e.className='log-entry info';
-  e.innerHTML=`
-    <div class="log-agent" style="color:var(--cyan)">COUNCIL SUMMARY</div>
-    <div class="log-text"><strong>Consensus reached.</strong> ${S.passed} proposals passed across ${S.maxRounds} rounds. Annual deficit reduced by $${saved.toLocaleString()}B (${Math.round(saved/DATA.deficit*100)}%). Projected 10-year savings: $${(saved*8/1000).toFixed(1)}T.</div>
-    <div class="log-impact" style="color:var(--cyan)">Time elapsed: ~90 seconds. Congress time elapsed: 24 years and counting.</div>
-  `;
+  const sv=D.deficit-S.deficit;const sc=SC[chosenScenario];
+  document.getElementById('msg-hamilton').innerHTML='<span class="hl">Fiscal analysis complete.</span>';
+  document.getElementById('msg-madison').innerHTML='<span class="hl">Consensus achieved.</span>';
+  document.getElementById('resultsSub').textContent=sc.resultsSub;
+  document.getElementById('finalQuote').innerHTML=sc.quote;
+  document.getElementById('blueprintBody').innerHTML=sc.blueprint||'';
+  document.getElementById('rSaved').textContent=(sv>0?'$'+Math.abs(sv).toLocaleString()+'B/yr saved':'$'+Math.abs(sv).toLocaleString()+'B/yr invested');
+  document.getElementById('rDebt35').textContent='$'+S.aiPath[Math.min(10,S.aiPath.length-1)].toFixed(1)+'T';
+  const txt=encodeURIComponent('I ran the "'+sc.name+'" scenario on the AI Fiscal Council.\n\n5 AI agents reached consensus in 90 seconds. 535 members of Congress haven\'t done it in 24 years.\n\nTry it:');
+  document.getElementById('shareX').href='https://twitter.com/intent/tweet?text='+txt;
+  // summary log
+  const log=document.getElementById('logScroll');const e=document.createElement('div');e.className='log-entry info';
+  e.innerHTML='<div class="log-agent" style="color:var(--cyan)">COUNCIL SUMMARY</div><div class="log-text"><strong>Consensus reached.</strong> '+S.passed+' proposals passed across '+sc.rounds+' rounds.</div><div class="log-impact" style="color:var(--cyan)">Time: ~90 seconds. Congress: 24 years and counting.</div>';
   log.appendChild(e);log.scrollTop=log.scrollHeight;
-
-  // Populate results
-  document.getElementById('rAISaved').textContent='$'+saved.toLocaleString()+'B';
-  document.getElementById('rAIDeficit').textContent=S.deficit>0?'$'+S.deficit.toLocaleString()+'B':'SURPLUS';
-  document.getElementById('rAIDebt2035').textContent='$'+S.aiPath[10].toFixed(1)+'T';
-
-  // Show results after delay
-  setTimeout(()=>{
-    document.getElementById('resultsSection').classList.add('active');
-    document.getElementById('resultsSection').scrollIntoView({behavior:'smooth'});
-
-    // Share URL
-    const txt=encodeURIComponent(`5 AI agents just solved America's $${(saved/1000).toFixed(1)}T deficit problem in 90 seconds. 535 members of Congress haven't done it in 24 years.\n\nWatch the simulation:`);
-    document.getElementById('shareTwitter').href=`https://twitter.com/intent/tweet?text=${txt}`;
-  },2000);
+  setTimeout(()=>{document.getElementById('resultsSection').classList.add('active');document.getElementById('resultsSection').scrollIntoView({behavior:'smooth'});},1800);
 }
 
-function toggleSpeed(){
-  S.speed = S.speed===1?3:1;
-  document.getElementById('speedBtn').textContent=S.speed+'× Speed';
-}
-
-function copyLink(){
-  navigator.clipboard.writeText(window.location.href).then(()=>{
-    const btn=event.target;btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy Link',2000);
-  });
-}
+function toggleSpeed(){S.speed=S.speed===1?3:1;document.getElementById('speedBtn').textContent=S.speed+'x';}
 
 function resetAll(){
-  S.timers.forEach(t=>clearTimeout(t));
-  S=reset();
-  document.getElementById('heroSection').style.display='';
+  S.timers.forEach(t=>clearTimeout(t));S=freshState();chosenScenario=null;
   document.getElementById('simSection').classList.remove('active');
   document.getElementById('resultsSection').classList.remove('active');
+  document.getElementById('pickerSection').classList.remove('active');
+  document.getElementById('heroSection').style.display='';
   deactivateAgents();
-  ['hamilton','keynes','rawls','marshall','madison'].forEach(a=>{
-    document.getElementById('msg-'+a).textContent='Standing by...';
-  });
-  window.scrollTo({top:0,behavior:'smooth'});
+  ['hamilton','keynes','rawls','marshall','madison'].forEach(a=>document.getElementById('msg-'+a).textContent='Standing by...');
+  document.querySelectorAll('.scenario-card').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('launchBtn').classList.remove('ready');
+  window.scrollTo({top:0});
 }
-
-// Init
 renderBudget();
 </script>
 </body>
